@@ -1,6 +1,10 @@
 # Sección 3 — Valores y filosofía (Sello Dimension)
 
-**Pendiente del cliente**: logo/símbolo del sello (placeholder actual: círculo con "D").
+**Logo confirmado**: sol/estrella tribal en negro puro sobre blanco (encaja con el concepto de "estrella que cae"; ver nota de tensión de estilo con la línea "hormigón/acero" más abajo). URL real: https://cdn.shopify.com/s/files/1/0981/0391/8937/files/WhatsApp_Image_2026-08-15_at_13.55.17.jpg — ya aplicado como imagen de la colección "Página de inicio" en Shopify. Pendiente: aplicarlo en el header/footer una vez se monte el tema.
+
+**Retrato de marca confirmado**: https://cdn.shopify.com/s/files/1/0981/0391/8937/files/WhatsApp_Image_2026-07-30_at_12.33.16.jpg — para la toma 7 del shot list (retrato de marca, fondo neutro).
+
+**Nota de estilo pendiente de decidir con el cliente**: el logo tiene un trazo orgánico/tribal que no encaja del todo con la línea "hormigón pulido, acero mate, cristal ahumado" del resto de la marca — vale como símbolo del sello, pero conviene decidir si se simplifica hacia algo más geométrico o se mantiene tal cual como elemento diferenciador expresivo.
 
 ## Titular
 La estrella que cae en cada barbería donde enseñamos.
