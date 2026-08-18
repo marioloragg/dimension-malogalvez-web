@@ -14,6 +14,11 @@ Tema no publicado — **no es visible públicamente**. Para verlo:
 `https://aaxv0k-kn.myshopify.com/?preview_theme_id=204158861657`
 (o desde el admin: Tienda online → Temas → "Dimension by Malo Gálvez" → Vista previa)
 
+## Ajuste adicional
+
+- El anuncio superior (announcement bar) tenía el texto de fábrica "Welcome to our store" — lo cambié a "Un estándar, no una franquicia — Dimension by Malo Gálvez".
+- **No apliqué el `mix-blend-mode` al logo del header.** Comprobé que el header usa `scheme-1` (fondo casi negro, #0B0B0C) — con tinta negra pura, el multiply ahí dejaría el logo casi invisible (negro sobre negro), no lo contrario. No quise arriesgarme a que el logo desaparezca sin poder verlo yo mismo antes de que tú revises. Lo dejo pendiente para resolverlo contigo viendo la vista previa real.
+
 ## Cosas a tener en cuenta
 
 - La sección "Tienda" del menú lleva a `/collections/all`, que **aparecerá vacía** en el previsualizador porque los 9 productos siguen en DRAFT (a la espera de tu validación de precios/marcas).
