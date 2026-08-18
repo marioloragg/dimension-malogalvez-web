@@ -25,6 +25,8 @@ Tema no publicado — **no es visible públicamente**. Para verlo:
 - Las 3 colecciones reales de Shopify (Pro Tools & Hardware, Clinical Grooming, Morphological Styling) ya tienen `descriptionHtml` propio — antes estaban vacías.
 - Las 3 páginas creadas ya no repiten el título como `<h1>` dentro del body (la plantilla de Dawn ya lo muestra).
 
+- Menú principal: "Tienda" ahora tiene desplegable con las 3 líneas reales (Herramientas, Para barberos, Para clientes), enlazando directo a cada colección.
+
 ## Cosas a tener en cuenta
 
 - La sección "Tienda" del menú lleva a `/collections/all`, que **aparecerá vacía** en el previsualizador porque los 9 productos siguen en DRAFT (a la espera de tu validación de precios/marcas).
