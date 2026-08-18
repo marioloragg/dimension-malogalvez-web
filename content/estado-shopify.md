@@ -27,6 +27,15 @@ Tema no publicado — **no es visible públicamente**. Para verlo:
 
 - Menú principal: "Tienda" ahora tiene desplegable con las 3 líneas reales (Herramientas, Para barberos, Para clientes), enlazando directo a cada colección.
 
+## Tercera pasada — puesta en marcha (logo, tienda completa, estilo Zara/Zarahome)
+
+1. **Logo**: aplicado `mix-blend-mode: multiply` + resplandor (`drop-shadow`) sobre el logo del header — ya no se ve el recuadro blanco, y el efecto de brillo compensa el bajo contraste de tinta negra sobre fondo casi negro. Vía `snippets/dimension-logo-fix.liquid`, incluido en `layout/theme.liquid`.
+2. **Tienda completa**: los 9 productos pasaron de DRAFT a **ACTIVE** — ya son visibles en el previsualizador.
+3. **Grid estilo Zara**: `templates/collection.json` ajustado a `image_ratio: portrait`, 4 columnas desktop, sin bordes/sombras en las tarjetas (ya estaba minimal, se afinó el ratio de imagen).
+4. **Rebautizado "MaloShop"**: la sección de tienda pasa a llamarse "MaloShop" en menú principal, menú de footer, la puerta de "Tres puertas" y el teaser de la home. **Aviso**: es la primera vez que aparece ese nombre — si no era intencional, dímelo y lo revierto a "Tienda".
+5. **Home estilo Zarahome sin fotos**: el hero y el cierre dejaron de ser secciones `image-banner` (que sin foto real mostraban un icono de placeholder feo) y pasaron a `rich-text` con **degradados propios** de fondo (grafito → negro → grafito) en vez de fotos — más limpio que un hueco vacío, sin inventar ninguna imagen.
+6. **Generador de fotos**: seguimos sin él (sin cuota gratuita en tu clave de Gemini). No he vuelto a intentarlo.
+
 ## Cosas a tener en cuenta
 
 - La sección "Tienda" del menú lleva a `/collections/all`, que **aparecerá vacía** en el previsualizador porque los 9 productos siguen en DRAFT (a la espera de tu validación de precios/marcas).
