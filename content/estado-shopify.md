@@ -36,6 +36,12 @@ Tema no publicado — **no es visible públicamente**. Para verlo:
 5. **Home estilo Zarahome sin fotos**: el hero y el cierre dejaron de ser secciones `image-banner` (que sin foto real mostraban un icono de placeholder feo) y pasaron a `rich-text` con **degradados propios** de fondo (grafito → negro → grafito) en vez de fotos — más limpio que un hueco vacío, sin inventar ninguna imagen.
 6. **Generador de fotos**: seguimos sin él (sin cuota gratuita en tu clave de Gemini). No he vuelto a intentarlo.
 
+## Cuarta pasada — color de acento
+
+Confirmado: "MaloShop" es el nombre definitivo de la tienda.
+
+Se introdujo un acento de color **oxblood/burdeos oscuro (#8B3A3F)** en todos los botones principales del sitio (las 5 paletas de color del tema) — antes eran blanco/plata sobre negro, ahora tienen un color propio. Es deliberado que sea solo en botones: mantiene la disciplina de "un solo acento, todo lo demás en calma" en vez de llenar la web de color. Nada de dorado, tal y como pediste.
+
 ## Cosas a tener en cuenta
 
 - La sección "Tienda" del menú lleva a `/collections/all`, que **aparecerá vacía** en el previsualizador porque los 9 productos siguen en DRAFT (a la espera de tu validación de precios/marcas).
