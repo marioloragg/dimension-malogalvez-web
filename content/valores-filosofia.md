@@ -10,7 +10,7 @@
 La estrella que cae en cada barbería donde enseñamos.
 
 ## Cuerpo
-Dimension no es una tienda de productos ni una escuela más: es el estándar que una barbería adopta cuando decide formar parte de la red. No se compra un producto ni se apunta a un curso — se paga por pertenecer a algo que ya funciona.
+Dimension no es una tienda de productos ni una escuela más: es el estándar que una barbería adopta cuando decide formar parte de la red. No se compra un producto — se pertenece a algo que ya funciona.
 
 Cada sello certifica tres cosas, en este orden:
 
