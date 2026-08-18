@@ -42,6 +42,13 @@ Confirmado: "MaloShop" es el nombre definitivo de la tienda.
 
 Se introdujo un acento de color **oxblood/burdeos oscuro (#8B3A3F)** en todos los botones principales del sitio (las 5 paletas de color del tema) — antes eran blanco/plata sobre negro, ahora tienen un color propio. Es deliberado que sea solo en botones: mantiene la disciplina de "un solo acento, todo lo demás en calma" en vez de llenar la web de color. Nada de dorado, tal y como pediste.
 
+## Quinta pasada — grises lobo en vez de rojo
+
+Rectificado: quitamos el acento oxblood y lo sustituimos por **grises lobo** de verdad — no solo negro/blanco:
+- Botones: gris lobo `#75767B` (antes rojo oxblood) en la mayoría de esquemas; `#5B5C61` sobre fondo claro.
+- Nuevo tono de fondo medio `#4B4B50` (scheme-5) aplicado a la sección "Sales siendo otra persona" — ya no todo es negro puro, hay un escalón de gris real en la página.
+- "Tres puertas" pasó de negro puro a gris grafito (scheme-2) para otro escalón de contraste.
+
 ## Cosas a tener en cuenta
 
 - La sección "Tienda" del menú lleva a `/collections/all`, que **aparecerá vacía** en el previsualizador porque los 9 productos siguen en DRAFT (a la espera de tu validación de precios/marcas).
