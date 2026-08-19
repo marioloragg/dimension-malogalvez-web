@@ -58,6 +58,10 @@ Rectificado: quitamos el acento oxblood y lo sustituimos por **grises lobo** de 
 - **Transportista confirmado**: Packlink PRO. Creé la página `/pages/envios` con política honesta (sin inventar plazos/costes exactos — se calculan en checkout) y la añadí al menú de footer.
 - **Pendiente de ti**: publicar la copia de trabajo — yo no puedo hacerlo (Shopify bloquea la mutación de publicar tema por seguridad). Ve a Tienda online → Temas → en "Copia de Dimension by Malo Gálvez" → **Publicar**.
 
+## Séptima pasada — bug del logo animado
+
+El efecto de chrome animado no se veía porque el CSS apuntaba a `.header__heading-logo-link`, una clase que no existe en este tema — verifiqué el `sections/header.liquid` real y la clase correcta es `.header__heading-logo-wrapper`. Corregido en la copia de trabajo. Revisa de nuevo la vista previa: `https://aaxv0k-kn.myshopify.com/?preview_theme_id=204773130585`.
+
 ## Cosas a tener en cuenta
 
 - La sección "Tienda" del menú lleva a `/collections/all`, que **aparecerá vacía** en el previsualizador porque los 9 productos siguen en DRAFT (a la espera de tu validación de precios/marcas).
