@@ -49,6 +49,15 @@ Rectificado: quitamos el acento oxblood y lo sustituimos por **grises lobo** de 
 - Nuevo tono de fondo medio `#4B4B50` (scheme-5) aplicado a la sección "Sales siendo otra persona" — ya no todo es negro puro, hay un escalón de gris real en la página.
 - "Tres puertas" pasó de negro puro a gris grafito (scheme-2) para otro escalón de contraste.
 
+## Sexta pasada — tema en vivo, chrome animado y envíos
+
+**Aviso crítico**: el tema "Dimension by Malo Gálvez" es ahora el **MAIN/en vivo** (lo publicó el cliente directamente en el admin, protegido con contraseña). Shopify bloquea escribir sobre un tema en vivo, así que a partir de aquí trabajo sobre una **copia sin publicar**: "Copia de Dimension by Malo Gálvez" (`gid://shopify/OnlineStoreTheme/204773130585`).
+
+- **Logo**: efecto de plata cromada líquida animada — un brillo diagonal recorre el logo en bucle continuo (3.2s), enmascarado exactamente a la forma del logo real (vía CSS `mask-image` + Liquid), sobre el fondo blanco ya eliminado con `multiply`. Vive en la copia, pendiente de publicar.
+- **Catálogo confirmado**: se mantienen los 9 productos (Wahl, JRL, Feather, Beardburys, Proraso, Reuzel) tal cual.
+- **Transportista confirmado**: Packlink PRO. Creé la página `/pages/envios` con política honesta (sin inventar plazos/costes exactos — se calculan en checkout) y la añadí al menú de footer.
+- **Pendiente de ti**: publicar la copia de trabajo — yo no puedo hacerlo (Shopify bloquea la mutación de publicar tema por seguridad). Ve a Tienda online → Temas → en "Copia de Dimension by Malo Gálvez" → **Publicar**.
+
 ## Cosas a tener en cuenta
 
 - La sección "Tienda" del menú lleva a `/collections/all`, que **aparecerá vacía** en el previsualizador porque los 9 productos siguen en DRAFT (a la espera de tu validación de precios/marcas).
