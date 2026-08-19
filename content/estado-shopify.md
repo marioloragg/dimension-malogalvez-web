@@ -95,6 +95,10 @@ El cuadrado persistía porque el JPG tiene ruido de compresión en el fondo (no 
 
 El cliente pidió volver a su estrella original (no la vectorial). Causa raíz encontrada por fin: tras `invert(1)` + `screen`, la estrella queda en **blanco puro (255,255,255)** — y casi ningún blend mode puede pintar color sobre blanco puro (por eso `color` y `overlay` se veían "solo blanco"). La excepción es `multiply`: `multiply(blanco, color) = color` (pinta el color exacto sobre la estrella) y `multiply(negro, color) ≈ negro` (el fondo se queda invisible solo, sin necesitar ninguna máscara). Con esto: estrella real, coloreada con el degradado metálico animado, sin cuadrado, sin máscara. Quité la estrella vectorial JS que había puesto de prueba.
 
+## Decimocuarta pasada — decisión final: estrella vectorial
+
+Cliente confirma: usar la versión vectorial de forma definitiva (garantiza cero riesgo de cuadrado, ya que no hay ningún archivo raster de por medio). Aplicado en la copia de trabajo. Código completo documentado en `content/logo-estrella-cromada.liquid` y enviado al cliente como archivo.
+
 ## Cosas a tener en cuenta
 
 - La sección "Tienda" del menú lleva a `/collections/all`, que **aparecerá vacía** en el previsualizador porque los 9 productos siguen en DRAFT (a la espera de tu validación de precios/marcas).
