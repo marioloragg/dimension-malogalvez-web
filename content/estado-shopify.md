@@ -62,6 +62,13 @@ Rectificado: quitamos el acento oxblood y lo sustituimos por **grises lobo** de 
 
 El efecto de chrome animado no se veía porque el CSS apuntaba a `.header__heading-logo-link`, una clase que no existe en este tema — verifiqué el `sections/header.liquid` real y la clase correcta es `.header__heading-logo-wrapper`. Corregido en la copia de trabajo. Revisa de nuevo la vista previa: `https://aaxv0k-kn.myshopify.com/?preview_theme_id=204773130585`.
 
+## Octava pasada — silueta real + gris metálico + movimiento líquido
+
+Cambié de técnica: en vez de mostrar el JPG y ponerle un brillo encima (lo que dejaba ver el rectángulo del archivo), ahora uso el logo como **máscara de silueta invertida** (SVG `feColorMatrix` + `mask`) y relleno esa silueta exacta con un degradado metálico de 8 tonos de gris. Resuelve los tres puntos pedidos:
+- **Negro → gris metálico**: la estrella ya no es negra, es el degradado plateado.
+- **Cuadrado eliminado**: la máscara sigue la silueta real de la estrella, no el rectángulo del JPG.
+- **Efecto líquido**: el degradado se mueve en un recorrido de 4 puntos (no solo izquierda-derecha) a lo largo de 6s en bucle, más orgánico que el barrido anterior.
+
 ## Cosas a tener en cuenta
 
 - La sección "Tienda" del menú lleva a `/collections/all`, que **aparecerá vacía** en el previsualizador porque los 9 productos siguen en DRAFT (a la espera de tu validación de precios/marcas).
