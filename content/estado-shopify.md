@@ -82,6 +82,11 @@ Diagnóstico real: con `mix-blend-mode: multiply` sobre el header casi negro, la
 - Encima, una capa con degradado metálico de 8 tonos y `mix-blend-mode: color`, que tiñe automáticamente solo donde hay brillo (la estrella), respetando su forma real sin máscara.
 - Movimiento: recorrido de 8 puntos con curva `cubic-bezier` suave a lo largo de 9s, más armónico/orgánico que el barrido anterior.
 
+## Undécima pasada — color visible + logo en la pantalla de contraseña
+
+- **Bug de color encontrado**: usaba `mix-blend-mode: color`, que solo transmite matiz/saturación — como mi degradado era de grises neutros (saturación ≈ 0), no se veía ningún color, solo blanco. Cambiado a `mix-blend-mode: overlay`, que sí responde a la luminosidad de cada tono del degradado — ahora se ven las bandas plateado/gris moviéndose de verdad.
+- **Pantalla de contraseña**: el logo ahí usa una clase distinta (`.password-logo`, sin wrapper). Añadí el wrapper y la clase `header__heading-logo` en `sections/main-password-header.liquid`, e incluí el snippet en `layout/password.liquid` — mismo efecto ahí también.
+
 ## Cosas a tener en cuenta
 
 - La sección "Tienda" del menú lleva a `/collections/all`, que **aparecerá vacía** en el previsualizador porque los 9 productos siguen en DRAFT (a la espera de tu validación de precios/marcas).
