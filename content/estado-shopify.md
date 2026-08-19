@@ -69,6 +69,12 @@ Cambié de técnica: en vez de mostrar el JPG y ponerle un brillo encima (lo que
 - **Cuadrado eliminado**: la máscara sigue la silueta real de la estrella, no el rectángulo del JPG.
 - **Efecto líquido**: el degradado se mueve en un recorrido de 4 puntos (no solo izquierda-derecha) a lo largo de 6s en bucle, más orgánico que el barrido anterior.
 
+## Novena pasada — revertido el cuadro, límite técnico real
+
+El intento de recolorear el negro a gris (SVG `feColorMatrix` invirtiendo la imagen para usarla como máscara) fallaba: los navegadores bloquean/ignoran filtros SVG aplicados a imágenes externas por seguridad entre dominios, así que la máscara no se invertía y se veía el rectángulo completo en vez de la silueta. Revertido a la versión confirmada sin cuadro (fondo eliminado con `multiply` + brillo líquido animado en 4 puntos con `mask-image` directo, que sí recorta bien a la silueta).
+
+**Límite real**: recolorear el negro del logo de forma limpia solo es fiable con una imagen con **canal alfa (PNG transparente)**, no con el JPG actual. Si el cliente puede conseguir una versión en PNG con fondo transparente del mismo logo, se puede aplicar el degradado metálico de verdad sobre la silueta exacta.
+
 ## Cosas a tener en cuenta
 
 - La sección "Tienda" del menú lleva a `/collections/all`, que **aparecerá vacía** en el previsualizador porque los 9 productos siguen en DRAFT (a la espera de tu validación de precios/marcas).
