@@ -75,6 +75,13 @@ El intento de recolorear el negro a gris (SVG `feColorMatrix` invirtiendo la ima
 
 **Límite real**: recolorear el negro del logo de forma limpia solo es fiable con una imagen con **canal alfa (PNG transparente)**, no con el JPG actual. Si el cliente puede conseguir una versión en PNG con fondo transparente del mismo logo, se puede aplicar el degradado metálico de verdad sobre la silueta exacta.
 
+## Décima pasada — por qué no salía la estrella, y técnica definitiva
+
+Diagnóstico real: con `mix-blend-mode: multiply` sobre el header casi negro, la tinta negra de la estrella se fundía con el fondo — bajo contraste, no un bug de posición. Cambié de técnica:
+- `filter: invert(1)` sobre la imagen (el negro se vuelve blanco) + `mix-blend-mode: screen` (el fondo, ahora negro, se vuelve invisible sobre cualquier fondo oscuro; la estrella, ahora blanca, brilla con fuerza). Sin necesitar ninguna máscara — elimina de raíz el riesgo de "cuadrado".
+- Encima, una capa con degradado metálico de 8 tonos y `mix-blend-mode: color`, que tiñe automáticamente solo donde hay brillo (la estrella), respetando su forma real sin máscara.
+- Movimiento: recorrido de 8 puntos con curva `cubic-bezier` suave a lo largo de 9s, más armónico/orgánico que el barrido anterior.
+
 ## Cosas a tener en cuenta
 
 - La sección "Tienda" del menú lleva a `/collections/all`, que **aparecerá vacía** en el previsualizador porque los 9 productos siguen en DRAFT (a la espera de tu validación de precios/marcas).
