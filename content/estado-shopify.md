@@ -105,9 +105,24 @@ Cliente confirma: usar la versión vectorial de forma definitiva (garantiza cero
 - No hay fotos reales todavía — el hero y la sección "huella" se ven con el placeholder gris de Dawn (sin imagen).
 - El logo se aplicó tal cual (fondo blanco original) — pendiente de resolver el recorte/fondo cuando podamos verlo con vista previa real (ver conversación sobre `mix-blend-mode`).
 
+## Decimoquinta pasada — el cliente publicó la copia; sincronizado el tema en borrador
+
+Descubrimiento a media sesión: el cliente publicó él mismo "Copia de Dimension by Malo Gálvez" desde el admin. Los roles de los temas se intercambiaron:
+- **MAIN (en vivo) ahora**: `gid://shopify/OnlineStoreTheme/204773130585` ("Copia de..."). Ya tenía la estrella vectorial correcta — el efecto quedó visible en vivo sin que yo tuviera que tocar nada más.
+- **UNPUBLISHED (borrador) ahora**: `gid://shopify/OnlineStoreTheme/204158861657` ("Dimension by Malo Gálvez", el original). Se quedó con el snippet antiguo (`mix-blend-mode: multiply`, sin la estrella) y sin renderizar el efecto en la pantalla de contraseña.
+
+Sincronicé ese tema en borrador con la versión correcta (snippet vectorial + render en `layout/password.liquid`) para que ambos temas queden coherentes.
+
+**Cambio de rumbo inmediato**: el cliente subió su logo real como PNG (`shopify://shop_images/star_liquid_metal.png`, mismo tamaño en píxeles que el JPG original — probablemente la misma foto con el fondo ya quitado) y pidió explícitamente el sol/estrella real, no la estrella vectorial genérica dibujada por JS. Ya lo había puesto como `settings.logo` del tema en borrador él mismo.
+
+Reescribí `snippets/dimension-logo-fix.liquid` **solo en el tema en borrador** (204158861657, por petición expresa: "al tema en borrador") para aplicar el degradado metálico animado directamente sobre la silueta real del PNG vía `mask-image` (la misma técnica ya validada en `content/liquid-chrome-metal-corregido.liquid`, con la sombra en un contenedor separado de la máscara para evitar el bug de Safari). Ya no dibuja una estrella genérica — recorta el degradado a la forma exacta del sol/estrella subido.
+
+**Aviso técnico**: no pude renderizar una captura de la vista previa real — el sandbox de esta sesión bloquea las conexiones salientes a `myshopify.com` y `cdn.shopify.com` (confirmado por el proxy de red). La implementación se apoya en la técnica de `mask-image` ya confirmada por el cliente en la sección Liquid Chrome Metal, y en que `star_liquid_metal.png` tenga canal alfa real (fondo transparente) — si al revisar la vista previa se ve un rectángulo en vez de solo la silueta, es señal de que ese PNG no tiene transparencia real y haría falta regenerarlo con fondo transparente de verdad.
+
+**Nota de alcance**: este cambio del sol real (en vez de la estrella vectorial) solo se aplicó al tema en borrador (204158861657), no al tema en vivo (204773130585), tal y como se pidió. Si el resultado convence en el borrador, hace falta repetir la misma escritura en el tema en vivo — cosa que la API bloquea (solo permite escribir en temas sin publicar), así que requeriría o bien que el cliente publique este borrador, o que yo lo haga cuando dejen de estar bloqueadas las escrituras al tema activo.
+
 ## Preguntas guardadas para cuando vuelvas
 
-1. ¿Publicamos este tema en vivo (visible a cualquiera) ya, o seguimos solo en el previsualizador hasta tener fotos/productos validados?
-2. ¿Activamos (ACTIVE) los 9 productos para que se vean en la tienda, o seguimos revisándolos primero?
-3. ¿Algo que quieras rescatar de la versión anterior (Academia/Ameba/Legado) antes de darla por sustituida del todo? Sigue existiendo como páginas sueltas (`/pages/academia`, `/pages/ameba`, `/pages/manifiesto`) que ya no están enlazadas desde el menú — no las he borrado por si acaso.
-4. Logo: ¿pruebo el tratamiento `mix-blend-mode`/cromado directamente en el tema (ahora que sí puedo verlo en vista previa), o prefieres mandarme una versión ya recortada tú?
+1. ¿Activamos (ACTIVE) los 9 productos para que se vean en la tienda, o seguimos revisándolos primero?
+2. ¿Algo que quieras rescatar de la versión anterior (Academia/Ameba/Legado) antes de darla por sustituida del todo? Sigue existiendo como páginas sueltas (`/pages/academia`, `/pages/ameba`, `/pages/manifiesto`) que ya no están enlazadas desde el menú — no las he borrado por si acaso.
+3. El sol/estrella real (`star_liquid_metal.png`) con el degradado metálico ya está aplicado en el tema en borrador (204158861657) — revísalo en el previsualizador de ese tema y dime si quieres que lo lleve también al tema en vivo (204773130585, "Copia de...").
