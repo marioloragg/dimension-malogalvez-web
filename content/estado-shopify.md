@@ -91,6 +91,10 @@ Diagnóstico real: con `mix-blend-mode: multiply` sobre el header casi negro, la
 
 El cuadrado persistía porque el JPG tiene ruido de compresión en el fondo (no es blanco puro, tiene variaciones), y cualquier técnica de máscara/blend basada en ese archivo terminaba mostrando algo del rectángulo. Solución definitiva: dejo de usar el JPG para el efecto y dibujo la estrella **directamente en SVG** (los mismos rayos + círculo del sello, generados por JS) con el degradado metálico de 8 tonos aplicado como `stroke`, y una rotación continua vía `animateTransform` (SMIL) — gira de verdad, sin trucos de `background-position`. El JPG original se oculta (`visibility:hidden`, sigue ahí para accesibilidad/SEO) y esta estrella vectorial ocupa su lugar. Al ser vectorial, es matemáticamente imposible que aparezca un cuadrado — no hay ningún rectángulo de por medio, solo los trazos de la estrella.
 
+## Decimotercera pasada — vuelta al logo real, técnica definitiva
+
+El cliente pidió volver a su estrella original (no la vectorial). Causa raíz encontrada por fin: tras `invert(1)` + `screen`, la estrella queda en **blanco puro (255,255,255)** — y casi ningún blend mode puede pintar color sobre blanco puro (por eso `color` y `overlay` se veían "solo blanco"). La excepción es `multiply`: `multiply(blanco, color) = color` (pinta el color exacto sobre la estrella) y `multiply(negro, color) ≈ negro` (el fondo se queda invisible solo, sin necesitar ninguna máscara). Con esto: estrella real, coloreada con el degradado metálico animado, sin cuadrado, sin máscara. Quité la estrella vectorial JS que había puesto de prueba.
+
 ## Cosas a tener en cuenta
 
 - La sección "Tienda" del menú lleva a `/collections/all`, que **aparecerá vacía** en el previsualizador porque los 9 productos siguen en DRAFT (a la espera de tu validación de precios/marcas).
