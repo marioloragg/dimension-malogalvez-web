@@ -121,6 +121,18 @@ Reescribí `snippets/dimension-logo-fix.liquid` **solo en el tema en borrador** 
 
 **Nota de alcance**: este cambio del sol real (en vez de la estrella vectorial) solo se aplicó al tema en borrador (204158861657), no al tema en vivo (204773130585), tal y como se pidió. Si el resultado convence en el borrador, hace falta repetir la misma escritura en el tema en vivo — cosa que la API bloquea (solo permite escribir en temas sin publicar), así que requeriría o bien que el cliente publique este borrador, o que yo lo haga cuando dejen de estar bloqueadas las escrituras al tema activo.
 
+## Decimosexta pasada — el sol real no se veía: causa encontrada
+
+Tras la Decimoquinta pasada, el cliente reportó que el logo seguía sin verse en absoluto (ni siquiera un rectángulo) en el editor de temas de la app móvil de Shopify. Descarté varias hipótesis por orden, con evidencia de la propia API en cada paso:
+
+1. **No era el editor recargando la sección por AJAX** (`shopify:section:load`) — añadí reconstrucción del efecto en ese evento y seguía sin verse.
+2. **No era un colapso de tamaño a 0×0** — encontré una regla real conflictiva en `assets/base.css` (`.header__heading-logo-wrapper { width: 100% }`, el mismo patrón de bug ya documentado en `liquid-chrome-metal-corregido.liquid`) y la pisé con `width`/`height` fijos en px + `!important`. Seguía sin verse.
+3. **Confirmé que el tema compilaba sin errores** (`processingFailed: false`) y que los archivos se habían guardado exactamente como se enviaron (sin truncar/corromper) — descartado también.
+
+Con las tres hipótesis anteriores agotadas y aun así sin resultado, la causa real solo podía estar en la propia técnica de `mask-image` + capas superpuestas (quizá el `mask-image`/`-webkit-mask-image` no se soporta en el WebView del editor de la app móvil, o algo en esa combinación específica fallaba silenciosamente). En vez de seguir intentando adivinar sin poder ver el resultado yo mismo (esta sesión tiene bloqueada la salida de red a `myshopify.com`/`cdn.shopify.com`), **retiré toda la complejidad**: sin máscara, sin capas, sin JavaScript. Ahora `snippets/dimension-logo-fix.liquid` solo aplica un `filter: drop-shadow(...)` directo sobre el `<img>` real (ya no oculto con `visibility: hidden`) — la foto tal cual, con un resplandor. **Confirmado por el cliente que así sí se ve.**
+
+**Pendiente si se quiere retomar la animación líquida**: ahora que la visibilidad base está confirmada, el efecto de degradado metálico animado habría que reconstruirlo con una técnica que NO dependa de `mask-image` (por ejemplo, `mix-blend-mode` sobre una capa de degradado encima de la imagen real, en vez de recortarla a su silueta) — evitando así el punto exacto que falló aquí.
+
 ## Preguntas guardadas para cuando vuelvas
 
 1. ¿Activamos (ACTIVE) los 9 productos para que se vean en la tienda, o seguimos revisándolos primero?
