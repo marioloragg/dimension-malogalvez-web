@@ -161,6 +161,15 @@ Con permiso explícito para trabajar sobre el tema en borrador (`Dimension by Ma
 
 **Resuelto**: la página Manifiesto ya está enlazada desde "Sello Dimension" (última línea, tras el bloque de posicionamiento) — se mantuvo el nombre/título "Sello Dimension" sin cambios, solo se añadió el enlace de salida hacia `/pages/manifiesto`.
 
+## Decimonovena pasada — halo del cristal y temblor del centro del sol
+
+El cliente reportó, con captura, una línea/halo justo encima del texto "corta. Se construye." — el degradado del cristal del header no se disolvía del todo ahí. Causa: el margen de disolución del `mask-image` estaba en porcentaje (últimos 30% de la altura del hueco). Con la cabecera ya encogida por el scroll, ese hueco es pequeño, así que el 30% se traducía en muy pocos píxeles reales — insuficiente para que un desenfoque de 14px hiciera una transición suave, y aparecía como un corte visible.
+
+- **Arreglado**: el margen de disolución de `snippets/dimension-motion.liquid` pasa de porcentaje a **64px fijos** (`calc(100% - 64px)`), así que la zona de transición es siempre varias veces mayor que el radio de desenfoque, sin importar cuánto haya encogido la cabecera.
+- **De paso**, subí también el arreglo que tenía preparado para el sol: el movimiento tipo llama de las puntas ahora vive en una capa aparte, recortada con una máscara de anillo (`snippets/dimension-logo-fix.liquid`) — el centro del sol (ojo/puntito) queda en una capa fija sin filtro, así que ya no tiembla con el resto.
+
+Ambos cambios ya están en el tema en borrador (204158861657). Pendiente de que el cliente confirme con la vista previa real antes de llevarlos también al tema en vivo.
+
 ## Preguntas guardadas para cuando vuelvas
 
 1. ¿Activamos (ACTIVE) los 9 productos para que se vean en la tienda, o seguimos revisándolos primero?
