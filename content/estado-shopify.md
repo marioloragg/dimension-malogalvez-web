@@ -145,8 +145,25 @@ Detalle de accesibilidad: la animación se desactiva automáticamente en disposi
 
 **Estado final del logo**: `snippets/dimension-logo-fix.liquid` en el tema en borrador (204158861657) dibuja el sol real del cliente en SVG puro con degradado metálico animado (9s, en bucle), respeta `prefers-reduced-motion`, y se reconstruye solo si el editor de temas recarga la sección por AJAX. Sin imagen externa, sin `mask-image`, sin `mix-blend-mode`. Pendiente únicamente: llevar este mismo cambio al tema en vivo (204773130585) cuando el cliente lo confirme, ya que la API sigue bloqueando escrituras directas al tema publicado.
 
+## Decimoctava pasada — auditoría completa + primeros arreglos de Fase 0
+
+Auditoría profesional del proyecto completo (estructura, Liquid/CSS/JS, assets, metafields, productos, SEO, velocidad, accesibilidad, UX, conversión) entregada como artefacto, con roadmap de 6 fases. Hallazgo más importante: ya existe una arquitectura de metafields bajo el namespace `ameba` (línea de producto, diagnóstico recomendado, nivel técnico, `probado_por_malo`, `uso_en_academia`) al 0% de uso — es el puente de datos hacia academia/marca personal que pide el roadmap, ya construido pero vacío. Hallazgo más urgente: 0 de 9 productos activos tienen imagen.
+
+Con permiso explícito para trabajar sobre el tema en borrador (`Dimension by Malo Gálvez`, sin publicar — el "original"), apliqué la primera tanda de arreglos de Fase 0, todos ya en producción real (páginas/redirects son contenido de tienda, no del tema, así que afectan al sitio en vivo de inmediato):
+
+1. **Traducciones al español**: "You may also like" → "También te puede interesar" y "Share" → "Compartir" en `templates/product.json` del tema en borrador.
+2. **Accesibilidad del logo**: el SVG animado del sol ahora lleva `role="img"` y `aria-label="{{ shop.name }}"` — un lector de pantalla vuelve a anunciar el nombre de la marca en el header.
+3. **Páginas huérfanas resueltas** (a petición del cliente: no solo ocultarlas, sino redirigirlas a destinos vivos y mejorar el contenido real):
+   - `/pages/academia` → redirect 301 a `/pages/formacion`.
+   - `/pages/ameba` → redirect 301 a `/collections/all` (MaloShop).
+   - `/pages/manifiesto` → en vez de redirigirla, se reescribió y se **publicó** como página real y propia — no duplica el contenido de "Sello Dimension" (que ya cubre los 3 pilares del sello), sino que aporta la tesis/filosofía de marca en bloques cortos y escaneables (no formato blog), aplicando el vocabulario y tono del skill `voz-marca-ameba` (sin "método"/"curso"/"corte de pelo"; tono clínico-empático-desafiante).
+   - `/pages/formacion` (antes un solo párrafo "en construcción") se reescribió con contenido real: itinerario Junior, itinerario Experto, y cómo funciona la mentoría — manteniendo honesto que el calendario de ciudades sigue pendiente, sin inventar fechas.
+
+**Pendiente**: la página Manifiesto está publicada pero no enlazada todavía desde ningún menú (footer o "Sello Dimension" serían candidatos naturales) — decisión de navegación que dejo para confirmar antes de tocar el menú.
+
 ## Preguntas guardadas para cuando vuelvas
 
 1. ¿Activamos (ACTIVE) los 9 productos para que se vean en la tienda, o seguimos revisándolos primero?
-2. ¿Algo que quieras rescatar de la versión anterior (Academia/Ameba/Legado) antes de darla por sustituida del todo? Sigue existiendo como páginas sueltas (`/pages/academia`, `/pages/ameba`, `/pages/manifiesto`) que ya no están enlazadas desde el menú — no las he borrado por si acaso.
-3. El logo del sol real, ya con el efecto metálico animado definitivo, está solo en el tema en borrador (204158861657) — dime cuándo quieres que lo lleve también al tema en vivo (204773130585, "Copia de...").
+2. El logo del sol real, ya con el efecto metálico animado definitivo, está solo en el tema en borrador (204158861657) — dime cuándo quieres que lo lleve también al tema en vivo (204773130585, "Copia de...").
+3. ¿Enlazo la nueva página Manifiesto desde algún sitio (footer, o desde "Sello Dimension"), o la dejas accesible solo por URL directa por ahora?
+4. Siguiente paso natural del roadmap: Fase 1 (fotografía real de los 9 productos) — es el mayor freno de conversión detectado en la auditoría.
