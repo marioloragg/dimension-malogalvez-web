@@ -133,8 +133,20 @@ Con las tres hipótesis anteriores agotadas y aun así sin resultado, la causa r
 
 **Pendiente si se quiere retomar la animación líquida**: ahora que la visibilidad base está confirmada, el efecto de degradado metálico animado habría que reconstruirlo con una técnica que NO dependa de `mask-image` (por ejemplo, `mix-blend-mode` sobre una capa de degradado encima de la imagen real, en vez de recortarla a su silueta) — evitando así el punto exacto que falló aquí.
 
+## Decimoséptima pasada — mix-blend-mode tampoco aísla la silueta; solución definitiva: silueta real trazada del canal alfa
+
+Probé `mix-blend-mode` (primero `overlay` con un brillo encima de la foto sin tocar la foto en sí — seguía viéndose el cuadro blanco; luego `multiply` directo sobre la foto, que si funde el blanco matemáticamente pero deja el sol como una mancha gris apagada, no un metal brillante). El cliente confirmó que ninguna de las dos aísla bien la silueta — pidió expresamente la forma del sol en blanco con el efecto metal, sin cuadrado, y me dio libertad para cambiar de técnica.
+
+Diagnóstico de por qué `mask-image` fallaba en el editor de la app: casi con seguridad es una restricción de origen cruzado (CORS) del WebView al usar una imagen de `cdn.shopify.com` como fuente de máscara — un `<img>` normal carga esa misma URL sin problema, pero `mask-image` exige acceso a nivel de píxel al recurso, como con `canvas`, y sin cabecera CORS adecuada el navegador lo descarta en silencio (de ahí que no se viera nada, ni un error).
+
+Solución: encontré el archivo original de la imagen del sol en el propio historial de esta conversación (Claude Code lo guarda en base64 dentro del transcript de la sesión), lo extraje a un PNG real, confirmé que sí tiene canal alfa auténtico (76% transparente, 17% opaco, 7% de antialiasing en los bordes — descartando definitivamente que la falta de transparencia fuera el problema), y usé `scikit-image` (`measure.find_contours` + `approximate_polygon`) para trazar la silueta exacta directamente de los píxeles, incluyendo los dos aros, el hueco central en forma de hoja/ojo con su detalle interno, y el puntito. Ese trazado se convirtió en un único `<path>` SVG con `fill-rule="evenodd"` (para que las 20 formas anidadas —contorno exterior + huecos— se recorten correctamente), relleno con el mismo degradado metálico animado de siempre, y sin depender de ninguna imagen externa — mismo enfoque 100% vectorial que ya se había confirmado como definitivo antes en este proyecto, pero esta vez con la silueta real del cliente en vez de una estrella genérica. **Confirmado por el cliente: "está perfecto".**
+
+Detalle de accesibilidad: la animación se desactiva automáticamente en dispositivos con "Reducir movimiento" activado (viene heredado de las versiones anteriores del efecto) — el cliente lo revisó y pidió dejarlo así a propósito, en vez de forzar el movimiento para todos.
+
+**Estado final del logo**: `snippets/dimension-logo-fix.liquid` en el tema en borrador (204158861657) dibuja el sol real del cliente en SVG puro con degradado metálico animado (9s, en bucle), respeta `prefers-reduced-motion`, y se reconstruye solo si el editor de temas recarga la sección por AJAX. Sin imagen externa, sin `mask-image`, sin `mix-blend-mode`. Pendiente únicamente: llevar este mismo cambio al tema en vivo (204773130585) cuando el cliente lo confirme, ya que la API sigue bloqueando escrituras directas al tema publicado.
+
 ## Preguntas guardadas para cuando vuelvas
 
 1. ¿Activamos (ACTIVE) los 9 productos para que se vean en la tienda, o seguimos revisándolos primero?
 2. ¿Algo que quieras rescatar de la versión anterior (Academia/Ameba/Legado) antes de darla por sustituida del todo? Sigue existiendo como páginas sueltas (`/pages/academia`, `/pages/ameba`, `/pages/manifiesto`) que ya no están enlazadas desde el menú — no las he borrado por si acaso.
-3. El sol/estrella real (`star_liquid_metal.png`) con el degradado metálico ya está aplicado en el tema en borrador (204158861657) — revísalo en el previsualizador de ese tema y dime si quieres que lo lleve también al tema en vivo (204773130585, "Copia de...").
+3. El logo del sol real, ya con el efecto metálico animado definitivo, está solo en el tema en borrador (204158861657) — dime cuándo quieres que lo lleve también al tema en vivo (204773130585, "Copia de...").
