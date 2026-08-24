@@ -159,11 +159,10 @@ Con permiso explícito para trabajar sobre el tema en borrador (`Dimension by Ma
    - `/pages/manifiesto` → en vez de redirigirla, se reescribió y se **publicó** como página real y propia — no duplica el contenido de "Sello Dimension" (que ya cubre los 3 pilares del sello), sino que aporta la tesis/filosofía de marca en bloques cortos y escaneables (no formato blog), aplicando el vocabulario y tono del skill `voz-marca-ameba` (sin "método"/"curso"/"corte de pelo"; tono clínico-empático-desafiante).
    - `/pages/formacion` (antes un solo párrafo "en construcción") se reescribió con contenido real: itinerario Junior, itinerario Experto, y cómo funciona la mentoría — manteniendo honesto que el calendario de ciudades sigue pendiente, sin inventar fechas.
 
-**Pendiente**: la página Manifiesto está publicada pero no enlazada todavía desde ningún menú (footer o "Sello Dimension" serían candidatos naturales) — decisión de navegación que dejo para confirmar antes de tocar el menú.
+**Resuelto**: la página Manifiesto ya está enlazada desde "Sello Dimension" (última línea, tras el bloque de posicionamiento) — se mantuvo el nombre/título "Sello Dimension" sin cambios, solo se añadió el enlace de salida hacia `/pages/manifiesto`.
 
 ## Preguntas guardadas para cuando vuelvas
 
 1. ¿Activamos (ACTIVE) los 9 productos para que se vean en la tienda, o seguimos revisándolos primero?
 2. El logo del sol real, ya con el efecto metálico animado definitivo, está solo en el tema en borrador (204158861657) — dime cuándo quieres que lo lleve también al tema en vivo (204773130585, "Copia de...").
-3. ¿Enlazo la nueva página Manifiesto desde algún sitio (footer, o desde "Sello Dimension"), o la dejas accesible solo por URL directa por ahora?
-4. Siguiente paso natural del roadmap: Fase 1 (fotografía real de los 9 productos) — es el mayor freno de conversión detectado en la auditoría.
+3. Siguiente paso natural del roadmap: Fase 1 (fotografía real de los 9 productos) — es el mayor freno de conversión detectado en la auditoría.
