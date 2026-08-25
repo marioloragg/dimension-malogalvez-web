@@ -235,6 +235,20 @@ Acciones de limpieza:
 
 **Causa raíz real, encontrada al seguir investigando**: el cliente reportó que "Herramientas" (pro-tools-hardware) tampoco cargaba, y ahí apareció el problema de fondo — **ninguna de las 3 colecciones de línea** (`morphological-styling`, `clinical-grooming`, `pro-tools-hardware`) tenía `resourcePublicationsV2` con ningún canal, ni siquiera "Tienda online". Y peor: **ninguno de los 12 productos activos estaba publicado en ningún canal de ventas tampoco** — "ACTIVE" es solo el campo de estado; la publicación a un canal (Tienda online / POS / Shop) es un paso completamente aparte que nunca se había hecho para este catálogo, probablemente desde que se dieron de alta. Con cero productos visibles en el canal, cualquier página de colección devolvía 404 real del tema, no una colección vacía. Corregido: publiqué explícitamente las 3 colecciones de línea y los 12 productos en "Tienda online" vía `publishablePublish`. Verificado por API tras la corrección: las 4 colecciones (`all` + las 3 líneas) y los 12 productos tienen `isPublished: true` en "Tienda online".
 
+## Vigesimoséptima pasada — retratamiento de las 12 fotos de producto (fondo plano, sin degradado)
+
+El cliente pidió una foto de producto "nítida, limpia, sin degradados ni colores que opaquen o tapen directamente al producto". Diagnóstico del tratamiento anterior (vigesimoquinta pasada): el degradado grafito→obsidiana salía irregular/con manchas, una curva de tonos aplicada a toda la imagen (incluido el propio producto) apagaba los colores reales (más grave en productos claros: el JRL blanco quedaba casi quemado por el halo), y el recorte por elipse suave dejaba fondo original filtrándose en los bordes (además de colar elementos de atrezzo ajenos al producto, como el gajo de pomelo de la foto de Beardburys).
+
+Retratadas las 12 desde las fotos de origen (no reprocesadas desde las versiones anteriores) con un pipeline nuevo:
+- Fondo **plano y sólido** (gris carbón mate, sin degradado ni ruido/grano).
+- Recorte por **máscara real del contorno del producto** (detección de color por distancia al fondo + selección del componente conexo más grande), no una elipse — así no se cuela atrezzo ni fondo original en los bordes.
+- **Sin curva de tonos** sobre el producto — se respeta el color/contraste real de cada foto.
+- Erosión fina del borde de la máscara para eliminar el halo blanco de contaminación de borde (típico al recortar sobre fondo blanco).
+- Sombra de contacto suave y sutil para que no lean como pegatinas planas.
+- Casos especiales: en el aceite Beardburys se excluyó el gajo de pomelo del recorte (quedaba fuera de la máscara del producto); en Captain Fawcett se recortó solo la navaja abierta sobre su estuche, descartando la caja y la tarjeta exteriores.
+
+Subidas las 12 vía `stagedUploadsCreate` + `productCreateMedia`, y borrada la imagen anterior de cada producto (`productDeleteMedia`) para que quede una sola imagen limpia por producto.
+
 ## Preguntas guardadas para cuando vuelvas
 
 1. El logo del sol real, ya con el efecto metálico animado definitivo (más los últimos ajustes de header/firma/transición), está solo en el tema en borrador (204158861657) — dime cuándo quieres que lo lleve también al tema en vivo (204773130585, "Copia de...").
