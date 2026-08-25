@@ -176,6 +176,12 @@ Confirmado por el cliente: el sol ya no queda eclipsado y la firma "Dimension / 
 1. Quité el fondo y la línea propios del aviso superior (`.utility-bar`) para que deje de leerse como una banderita en caja aparte y se funda con el negro del fondo — más presencia como título real.
 2. El hueco entre la firma y el sol se acortó a la mitad: el `padding-top` dinámico del header pasó de `24px + overflow` a `8px + (overflow * 0.5)` (el cristal de fondo sigue usando la extensión completa para el blur, solo el espacio en blanco se redujo), y el padding inferior del texto de 1.6rem a 1rem — para que la firma y el sol se sientan como una sola pieza en vez de dos bloques separados.
 
+## Vigesimotercera pasada — transición suave al volver arriba rápido
+
+El cliente notó que al hacer scroll rápido de vuelta arriba, el sol "saltaba" a su tamaño grande en vez de crecer con fluidez. Causa: el tamaño del sol (`--logo-scale`) se aplicaba con `transform: scale()` sin ninguna transición CSS — se recalculaba en cada frame de scroll de forma instantánea, así que un scroll brusco (en vez de uno lento y continuo) se notaba como un salto en vez de una animación. El hueco del header sí tenía transición, pero el sol y el fondo de cristal no, así que además iban desacompasados entre sí.
+
+Arreglado en `snippets/dimension-motion.liquid`: añadí `transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1)` al sol y la misma curva/duración al fondo de cristal (`top`/`height`) y al hueco del header (que ya tenía transición, ajustada para igualar) — los tres elementos ahora se mueven como una sola pieza con una curva de easing suave, sin importar la velocidad del scroll. Respeta `prefers-reduced-motion` (transición desactivada del todo ahí, como el resto del efecto).
+
 ## Vigésima pasada — el sol se comía el aviso de arriba
 
 Con captura, el cliente mostró que el sol (a su tamaño máximo, sin hacer scroll) quedaba eclipsado por el aviso superior "Dimension by Malo Gálvez" — sus puntas de arriba se cortaban contra ese texto. Causa: `.header` de Dawn tiene `padding-top: 0`, y el aviso va pegado justo encima en el DOM (sección `announcement-bar`); no había ningún hueco reservado para que el logo, escalado ×2 al cargar la página, creciera hacia arriba sin invadir ese espacio.
