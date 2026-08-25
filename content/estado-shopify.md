@@ -249,6 +249,12 @@ Retratadas las 12 desde las fotos de origen (no reprocesadas desde las versiones
 
 Subidas las 12 vía `stagedUploadsCreate` + `productCreateMedia`, y borrada la imagen anterior de cada producto (`productDeleteMedia`) para que quede una sola imagen limpia por producto.
 
+## Vigesimoctava pasada — 4 fotos sustituidas por fotografía real de marca
+
+El cliente pasó fotografía real (no de marketing recortado) para 4 de los 12 productos: Wahl Vapor (2 ángulos, se usó el frontal), JRL FreshFade 2020C (captura de ficha de producto de bellecosmetics.com, recortada para quitar la UI del navegador), y las dos Hey Joe (plata y oro). Mismo pipeline de la pasada anterior (fondo plano, máscara real de contorno, sin curva de tonos) — el salto de calidad es notable porque ahora parte de fotografía de producto real aislada en blanco en vez de una foto de marketing con contexto. En el Hey Joe Gold, el texto "Gold Edition" en script quedó fuera automáticamente por ser un componente conexo separado del de la navaja. Subidas y sustituidas en Shopify (misma mecánica: `stagedUploadsCreate` + `productCreateMedia` + `productDeleteMedia` sobre la imagen anterior).
+
+Quedan 8 productos con la foto tratada de la pasada anterior (a partir de fotos de marketing, no de producto aislado): si el cliente encuentra fuentes similares para esas marcas (Feather, Beardburys, Proraso, Reuzel, Captain Fawcett), mismo proceso.
+
 ## Preguntas guardadas para cuando vuelvas
 
 1. El logo del sol real, ya con el efecto metálico animado definitivo (más los últimos ajustes de header/firma/transición), está solo en el tema en borrador (204158861657) — dime cuándo quieres que lo lleve también al tema en vivo (204773130585, "Copia de...").
