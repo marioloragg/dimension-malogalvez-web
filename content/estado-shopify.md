@@ -170,6 +170,12 @@ El cliente reportó, con captura, una línea/halo justo encima del texto "corta.
 
 Ambos cambios ya están en el tema en borrador (204158861657). Pendiente de que el cliente confirme con la vista previa real antes de llevarlos también al tema en vivo.
 
+## Vigésima pasada — el sol se comía el aviso de arriba
+
+Con captura, el cliente mostró que el sol (a su tamaño máximo, sin hacer scroll) quedaba eclipsado por el aviso superior "Dimension by Malo Gálvez" — sus puntas de arriba se cortaban contra ese texto. Causa: `.header` de Dawn tiene `padding-top: 0`, y el aviso va pegado justo encima en el DOM (sección `announcement-bar`); no había ningún hueco reservado para que el logo, escalado ×2 al cargar la página, creciera hacia arriba sin invadir ese espacio.
+
+Arreglado en `snippets/dimension-motion.liquid`: `.header-wrapper .header` ahora lleva `padding-top: calc(24px + var(--dm-logo-overflow))` — el mismo margen dinámico que ya usaba el fondo de cristal para su propia extensión, más un colchón fijo de 24px. Crece cuando el logo está grande (arriba de la página) y se reduce solo al hacer scroll, en vez de un hueco fijo que sobrara o faltara según el tamaño del logo en cada momento.
+
 ## Preguntas guardadas para cuando vuelvas
 
 1. ¿Activamos (ACTIVE) los 9 productos para que se vean en la tienda, o seguimos revisándolos primero?
