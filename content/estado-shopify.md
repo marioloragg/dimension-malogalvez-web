@@ -223,6 +223,14 @@ El cliente preguntó cómo pensaba yo "negociar" con los distribuidores (Wahl, J
 
 De paso, verifiqué el estado real de los 9 productos vía API (la pregunta guardada #1 de abajo estaba resuelta pero la documentación no se había actualizado): los 9 ya están **ACTIVE**, no DRAFT — corregido en `productos.md`. Confirmado también por API: los 9 tienen `totalInventory: 0` y ninguno tiene imagen (`featuredMedia: null`), coincidiendo con el hallazgo de la auditoría.
 
+## Vigesimosexta pasada — verificación de `/collections/all` y limpieza de duplicados
+
+Retomé la sesión para revisar el apartado de productos (MaloShop). Por error intenté crear a mano una colección "All products" con handle `all` para que la sección `dimension-shop-lines.liquid` (que solo se renderiza si `collection.handle == 'all'`) tuviera dónde engancharse — innecesario: Shopify genera automáticamente una colección virtual en `/collections/all` que lista todo el catálogo activo sin que exista como recurso en el admin (por eso Shopify me devolvió el handle `all-products` en vez de `all`, ya reservado por el sistema). Verifiqué en el tema en borrador (`204158861657`) que `sections/dimension-shop-lines.liquid` y `templates/collection.json` ya estaban correctamente enlazados desde la vigesimoquinta pasada — no hacía falta ningún cambio ahí.
+
+Acciones de limpieza:
+- Borrada la colección "All products" (`gid://shopify/Collection/711699857753`) que había creado por error — redundante con la colección virtual de Shopify.
+- Detectado y borrado un **producto duplicado real**: "Navaja de Afeitar Hey Joe Premium Classic Razor Gold Edition" existía dos veces (`gid://shopify/Product/16526628782425`, sin imagen, creado por error en la vigesimoquinta pasada, y `gid://shopify/Product/16526721909081`, con imagen — el correcto, referenciado en `productos.md`). Se eliminó la copia sin imagen. El catálogo activo sigue en **12 productos**, como documenta `productos.md`.
+
 ## Preguntas guardadas para cuando vuelvas
 
 1. El logo del sol real, ya con el efecto metálico animado definitivo (más los últimos ajustes de header/firma/transición), está solo en el tema en borrador (204158861657) — dime cuándo quieres que lo lleve también al tema en vivo (204773130585, "Copia de...").
