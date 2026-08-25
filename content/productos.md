@@ -1,6 +1,6 @@
 # Catálogo — investigación de producto real
 
-Estado en Shopify: los 9 productos están creados como **DRAFT** (no visibles en tienda), 3 por colección, con SKU con prefijo `DIM-`. Precios en EUR.
+Estado en Shopify: los 9 productos están **ACTIVE** (visibles en tienda), 3 por colección, con SKU con prefijo `DIM-`. Precios en EUR. Ninguno tiene todavía imagen ni inventario cargado (0 unidades) — ver `shot-list.md` y la pregunta de negociación con distribuidores más abajo.
 
 ⚠️ **Nota de vigencia y rigor**: los precios provienen de comparadores y tiendas online españolas (idealo.es, tiendas oficiales de marca, distribuidores especializados) consultados en agosto de 2026. Son orientativos — fluctúan por distribuidor, formato y fecha — y deben verificarse directamente con el distribuidor antes de publicar el producto en firme o pagar a proveedor.
 

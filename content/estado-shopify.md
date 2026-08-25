@@ -192,8 +192,14 @@ Arreglado en `snippets/dimension-motion.liquid`: `.header-wrapper .header` ahora
 
 El cliente pidió que el texto del aviso superior ("Dimension by Malo Gálvez") se viera como una firma: "Dimension" en tamaño de título, y "by Malo Gálvez" debajo, más pequeño. Como el campo de texto del bloque se renderiza escapado (no admite HTML), añadí en `snippets/dimension-motion.liquid` un pequeño script que separa el texto por la primera palabra ("Dimension" / resto) y lo envuelve en dos `<span>` con estilos distintos — título en mayúsculas con tracking amplio, firma en cursiva y opacidad reducida debajo, apilados en columna. No se tocó el contenido del bloque en el admin, así que sigue editable ahí con normalidad (el script se re-ejecuta si la sección se recarga en el editor).
 
+## Vigesimocuarta pasada — verificación de estado real + aclaración sobre negociación con distribuidores
+
+El cliente preguntó cómo pensaba yo "negociar" con los distribuidores (Wahl, JRL, Beardburys, etc.) y a qué hora — aclarado: no tengo ningún canal de contacto (email/teléfono) conectado en esta sesión, y aunque lo tuviera, comprometer precios/stock con proveedores reales es una decisión de negocio que le corresponde a Malo directamente, no algo que deba hacer un asistente de forma autónoma. Esa parte del roadmap queda pendiente de que él la gestione en horario normal; yo puedo preparar un checklist de contacto por proveedor si lo pide.
+
+De paso, verifiqué el estado real de los 9 productos vía API (la pregunta guardada #1 de abajo estaba resuelta pero la documentación no se había actualizado): los 9 ya están **ACTIVE**, no DRAFT — corregido en `productos.md`. Confirmado también por API: los 9 tienen `totalInventory: 0` y ninguno tiene imagen (`featuredMedia: null`), coincidiendo con el hallazgo de la auditoría.
+
 ## Preguntas guardadas para cuando vuelvas
 
-1. ¿Activamos (ACTIVE) los 9 productos para que se vean en la tienda, o seguimos revisándolos primero?
-2. El logo del sol real, ya con el efecto metálico animado definitivo, está solo en el tema en borrador (204158861657) — dime cuándo quieres que lo lleve también al tema en vivo (204773130585, "Copia de...").
-3. Siguiente paso natural del roadmap: Fase 1 (fotografía real de los 9 productos) — es el mayor freno de conversión detectado en la auditoría.
+1. El logo del sol real, ya con el efecto metálico animado definitivo (más los últimos ajustes de header/firma/transición), está solo en el tema en borrador (204158861657) — dime cuándo quieres que lo lleve también al tema en vivo (204773130585, "Copia de...").
+2. Siguiente paso natural del roadmap: Fase 1 (fotografía real de los 9 productos, shot list ya lista en `shot-list.md`) — pendiente de que envíes las fotos.
+3. Negociación con distribuidores reales (precios netos, mínimos de pedido, plazos) antes de comprometer stock — pendiente de que la gestiones tú directamente; puedo preparar plantillas de contacto si las quieres.
