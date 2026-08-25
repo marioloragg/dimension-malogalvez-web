@@ -170,6 +170,12 @@ El cliente reportó, con captura, una línea/halo justo encima del texto "corta.
 
 Ambos cambios ya están en el tema en borrador (204158861657). Pendiente de que el cliente confirme con la vista previa real antes de llevarlos también al tema en vivo.
 
+## Vigesimosegunda pasada — firma sin caja + gap ajustado
+
+Confirmado por el cliente: el sol ya no queda eclipsado y la firma "Dimension / by Malo Gálvez" se ve bien dividida. Dos ajustes finales:
+1. Quité el fondo y la línea propios del aviso superior (`.utility-bar`) para que deje de leerse como una banderita en caja aparte y se funda con el negro del fondo — más presencia como título real.
+2. El hueco entre la firma y el sol se acortó a la mitad: el `padding-top` dinámico del header pasó de `24px + overflow` a `8px + (overflow * 0.5)` (el cristal de fondo sigue usando la extensión completa para el blur, solo el espacio en blanco se redujo), y el padding inferior del texto de 1.6rem a 1rem — para que la firma y el sol se sientan como una sola pieza en vez de dos bloques separados.
+
 ## Vigésima pasada — el sol se comía el aviso de arriba
 
 Con captura, el cliente mostró que el sol (a su tamaño máximo, sin hacer scroll) quedaba eclipsado por el aviso superior "Dimension by Malo Gálvez" — sus puntas de arriba se cortaban contra ese texto. Causa: `.header` de Dawn tiene `padding-top: 0`, y el aviso va pegado justo encima en el DOM (sección `announcement-bar`); no había ningún hueco reservado para que el logo, escalado ×2 al cargar la página, creciera hacia arriba sin invadir ese espacio.
