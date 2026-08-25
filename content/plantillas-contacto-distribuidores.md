@@ -55,4 +55,32 @@ Nota: como Beardburys y Proraso cubren varias referencias cada una, se puede man
 
 ## Contactos reales por marca
 
-_Pendiente — se completa en cuanto termine la investigación de canales oficiales en España._
+⚠️ **Sin verificar de primera mano**: esta sesión tiene bloqueado el acceso directo a estos dominios (solo se pudo buscar, no visitar las páginas), así que estos datos vienen de resultados de búsqueda y podrían estar desactualizados o ser imprecisos. Verifica cada uno visitando la URL antes de escribir el email formal.
+
+**1. Wahl** — Sin distribuidor exclusivo único en España; opera vía Wahl GmbH (matriz europea) y Wahl Spain, S.L.U. (Valencia).
+- Formulario profesional: `eu.wahl.com/contact-us` o `eu.wahl.com/contact-form`
+- Email atención Europa: service.europe@wahl-emea.com · Email corporativo: info@wahlgmbh.com
+- Web específica de barbería profesional: `consumer.wahlclipper.com/espana/wahl/profesional.html`
+- Revendedores autorizados en España (alternativa): Spain Hair Center (spainhaircenter.es/contacto), Elitienda, Dubal Cosmetics
+
+**2. JRL Professional** — Distribuidor oficial identificado: **Perfect Beauty S.L.** (Madrid).
+- Email: atencioncliente@perfectbeauty.es · Tel: +34 968 476 181 · web: perfectbeauty.es
+- Alternativa (matriz EEUU): info@jrlusa.com · formulario en jrlusa.com/pages/contact-us
+
+**3. Feather** — Sin importador exclusivo confirmado en España.
+- Contacto B2B europeo: HAARO Friseurbedarf-Handels GmbH (Solingen, Alemania) — info@haaro.de
+- Alternativa: tiendas especializadas como revendedores (Basler Beauty, Cuchillería Blanco/Moreno), sin confirmar si gestionan alta mayorista directa
+
+**4. Beardburys** (marca española, Carobels) — Canal B2B propio y claro.
+- Área Profesional: `beardburys.com/es/content/area-profesional-8` — requiere justificante de actividad (alta de autónomo/IAE/modelo 036); cuenta activada en ~24h laborables
+- Contacto general: hola@beardburys.com · Tel 987 001 887 · Avda. Antibióticos 73, 24009 León
+- Formulario: `beardburys.com/es/contactenos`
+
+**5. Proraso** — Sin distribuidor mayorista único confirmado en España.
+- Candidatos sin verificar cuál es el oficial: Vielong (Valencia) y GROUPEM (Humanes de Madrid, +34 674 996 452)
+- Alternativa segura: formulario de la matriz (Ludovico Martelli S.p.A., Italia) en `proraso.com/en/contact/` (seleccionar España)
+
+**6. Reuzel** — Canal B2B claro y específico.
+- Formulario de alta como distribuidor: `reuzel-spain.com/distribuidores/`
+- Email indicado: Info@reuzel.es (sin verificar)
+- Alternativa/matriz global: `pro.reuzel.com/pages/contact-us`
