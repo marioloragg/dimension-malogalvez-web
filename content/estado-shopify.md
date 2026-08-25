@@ -192,6 +192,31 @@ Arreglado en `snippets/dimension-motion.liquid`: `.header-wrapper .header` ahora
 
 El cliente pidió que el texto del aviso superior ("Dimension by Malo Gálvez") se viera como una firma: "Dimension" en tamaño de título, y "by Malo Gálvez" debajo, más pequeño. Como el campo de texto del bloque se renderiza escapado (no admite HTML), añadí en `snippets/dimension-motion.liquid` un pequeño script que separa el texto por la primera palabra ("Dimension" / resto) y lo envuelve en dos `<span>` con estilos distintos — título en mayúsculas con tracking amplio, firma en cursiva y opacidad reducida debajo, apilados en columna. No se tocó el contenido del bloque en el admin, así que sigue editable ahí con normalidad (el script se re-ejecuta si la sección se recarga en el editor).
 
+## Vigesimoquinta pasada — MaloShop: fotos de producto, ficha de producto, home, y 3 navajas nuevas
+
+Pase grande, brief con contexto de marca fijo (Malo Gálvez / Ameba) y cuatro entregables.
+
+**1. Tratamiento de imagen (9 productos originales + 3 navajas nuevas leídas del propio nombre en la foto: Captain Fawcett, Hey Joe Premium Classic Razor plata y oro)**. Técnica: edición programática con Python/Pillow, sin generación por IA.
+- Recorte que descarta el texto "quemado" en la foto de origen.
+- Curva de tonos que solo comprime los blancos de fondo hacia gris grafito (identidad de 0–130 casi intacta) — necesario tras comprobar que una curva uniforme borraba el Wahl negro contra el fondo oscuro.
+- Fusión sobre un fondo generado (degradado grafito→obsidiana, grano fino, luz superior) con un óvalo de transición muy amplio y suave — nada de vietas circulares tipo flash, nada de vetas que parecieran fibra de carbono (dos intentos descartados).
+- Bug corregido a mitad de pase: la escala solo miraba la altura del recorte; en fotos muy anchas y bajas (navajas en diagonal) el ancho se disparaba y el desenfoque del degradado se volvía enorme, dejando la imagen "lavada". Ahora la escala respeta ambas dimensiones.
+- Las tomas de "detalle" (zoom a textura/cierre) no se hicieron para el catálogo final: la resolución de origen no aguanta el zoom sin verse borroso — se documentó como límite real en vez de colar algo de baja calidad.
+- Las 12 imágenes se subieron a Shopify vía `stagedUploadsCreate` + `productCreateMedia` (no hay forma de subir archivo local directamente con las herramientas de producto).
+
+**2. Ficha de producto individual** (`snippets/dimension-motion.liquid`, ampliado — mismo patrón de inyección CSS/JS global usado en todo el proyecto, sin tocar `sections/main-product.liquid` de Dawn):
+- Badge de línea de producto sobre el título (Pro Tools & Hardware / Clinical Grooming / Morphological Styling).
+- 4 bloques fijos por producto (Qué es / Para quién / En el ritual / Envío y garantía) sustituyendo el volcado de descripción de Dawn — contenido real por producto, mapa por handle en el JS.
+- CTA relabeleado a "Añadir al ritual" (solo si el botón no está deshabilitado — con los 12 productos en 0 stock, no se verá hasta que haya inventario).
+- Microcopy de envío deliberadamente sin plazos inventados (no hay logística real definida todavía).
+- Se encontró un modelo de metafields `ameba.*` ya definido en Shopify (línea_producto, diagnóstico_recomendado, protocolo_de_uso) pero vacío en los 9 productos originales — no se usó para no reescribir arquitectura de contenido fuera de alcance; sí se rellenó `ameba.linea_producto` en los 3 productos nuevos por ser lo correcto de cara al futuro.
+
+**3. Home de MaloShop** (`sections/dimension-shop-lines.liquid`, nueva sección registrada en `templates/collection.json`, solo se renderiza si `collection.handle == 'all'`): frase de posicionamiento StoryBrand + 3 tarjetas enlazando a las colecciones reales por línea (ya existían: `morphological-styling`, `clinical-grooming`, `pro-tools-hardware`), sin banners de oferta ni contadores.
+
+**4. Resumen de neuromarketing**: entregado en el chat, no en un archivo — jerarquía visual, autoridad por criterio técnico (no prueba social), reducción a 3-4 bloques, aire generoso, CTA de decisión, todo justificado principio a principio.
+
+**Productos nuevos dados de alta**: ver tabla en `productos.md`. Pendiente: verificar precio de Captain Fawcett con fuente española, decidir si renombrar Wahl → "Wahl Vapor" (rompe el handle usado en la ficha si se hace sin avisar).
+
 ## Vigesimocuarta pasada — verificación de estado real + aclaración sobre negociación con distribuidores
 
 El cliente preguntó cómo pensaba yo "negociar" con los distribuidores (Wahl, JRL, Beardburys, etc.) y a qué hora — aclarado: no tengo ningún canal de contacto (email/teléfono) conectado en esta sesión, y aunque lo tuviera, comprometer precios/stock con proveedores reales es una decisión de negocio que le corresponde a Malo directamente, no algo que deba hacer un asistente de forma autónoma. Esa parte del roadmap queda pendiente de que él la gestione en horario normal; yo puedo preparar un checklist de contacto por proveedor si lo pide.
