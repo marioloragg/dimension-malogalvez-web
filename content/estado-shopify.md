@@ -255,6 +255,14 @@ El cliente pasó fotografía real (no de marketing recortado) para 4 de los 12 p
 
 Quedan 8 productos con la foto tratada de la pasada anterior (a partir de fotos de marketing, no de producto aislado): si el cliente encuentra fuentes similares para esas marcas (Feather, Beardburys, Proraso, Reuzel, Captain Fawcett), mismo proceso.
 
+## Vigesimonovena pasada — el cursor personalizado se volvía invisible
+
+El cliente reportó (Chrome, macOS) que el cursor desaparecía en cuanto entraba en el área de la web, en cualquier página, incluso en ventana privada — descartaba extensiones y ajustes del sistema.
+
+Causa encontrada en `snippets/dimension-motion.liquid`: el sitio dibuja un cursor personalizado propio (un punto + un anillo que siguen al ratón) y oculta el cursor nativo del sistema con `cursor: none`. El punto (`.dm-cursor-dot`) usaba `mix-blend-mode: difference` para invertir color contra lo que hubiera debajo — pero el header del mismo tema usa `backdrop-filter: blur()`, y esa combinación (`mix-blend-mode` + `backdrop-filter` en la misma página) es un choque de renderizado conocido en Chrome/macOS que puede volver invisible el elemento con blend-mode, dejando al usuario sin cursor nativo (oculto a propósito) ni cursor personalizado (invisible por el bug).
+
+**Arreglado**: quitado `mix-blend-mode: difference` del punto y del anillo del cursor personalizado; en su lugar llevan un color sólido (`--dm-paper`, crema/blanco) más un `box-shadow` de borde oscuro fino, así se ven siempre por contraste directo, sin depender de cómo el navegador componga el blend-mode. Aplicado vía `themeFilesUpsert` sobre el tema en borrador (204158861657) — el mismo que el cliente estaba usando para probar (badge "Draft" visible en sus capturas). Pendiente: confirmar que ya se ve bien, y llevarlo también al tema en vivo (204773130585) cuando el cliente lo confirme.
+
 ## Preguntas guardadas para cuando vuelvas
 
 1. El logo del sol real, ya con el efecto metálico animado definitivo (más los últimos ajustes de header/firma/transición), está solo en el tema en borrador (204158861657) — dime cuándo quieres que lo lleve también al tema en vivo (204773130585, "Copia de...").
