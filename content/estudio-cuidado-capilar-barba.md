@@ -1,8 +1,8 @@
-# Estudio — Top 10 productos de cuidado capilar y barba
+# Estudio — Top 11 productos de cuidado capilar y barba
 
-Investigación de mercado para ampliar **Morphological Styling** (categoría de cliente: aftershave, peinado, cuidado capilar), que hoy solo tiene 3 productos activos en Shopify (Reuzel Fiber Pomade, Bálsamo Aftershave Proraso Red, Champú Densify Beardburys — ver `productos.md`). Los 10 productos de abajo son **candidatos de investigación**, no un catálogo cerrado ni un acuerdo comercial.
+Investigación de mercado para ampliar **Morphological Styling** (categoría de cliente: aftershave, peinado, cuidado capilar), que hoy solo tiene 3 productos activos en Shopify (Reuzel Fiber Pomade, Bálsamo Aftershave Proraso Red, Champú Densify Beardburys — ver `productos.md`). Los 11 productos de abajo son **candidatos de investigación**, no un catálogo cerrado ni un acuerdo comercial.
 
-⚠️ **Nota de vigencia y rigor** (misma convención que `productos.md`): precios de comparadores y tiendas online españolas/europeas consultados en agosto de 2026, orientativos y sujetos a fluctuación por distribuidor, formato y fecha. **5 de los 10 tienen precio verificado directamente en idealo.es** (vía resultado de búsqueda con cifra explícita). **Los otros 5 están marcados con ⚠️**: encontré la ficha de producto y la tienda que lo vende, pero no una cifra de precio fiable en la búsqueda — el proxy de red de este entorno bloquea el fetch directo a idealo.es, beardburys.com y otros dominios de retail, igual que ya ocurrió con heyjoe.es en la investigación anterior. Hay que confirmar esos 5 precios a mano antes de usarlos en firme.
+⚠️ **Nota de vigencia y rigor** (misma convención que `productos.md`): precios de comparadores y tiendas online españolas/europeas consultados en agosto de 2026, orientativos y sujetos a fluctuación por distribuidor, formato y fecha. **5 de los 11 tienen precio verificado directamente en idealo.es** (vía resultado de búsqueda con cifra explícita). **Los otros 6 están marcados con ⚠️**: encontré la ficha de producto y la tienda que lo vende, pero no una cifra de precio fiable en la búsqueda — el proxy de red de este entorno bloquea el fetch directo a idealo.es, beardburys.com, octyl.es y otros dominios de retail, igual que ya ocurrió con heyjoe.es en la investigación anterior. Hay que confirmar esos 6 precios a mano antes de usarlos en firme.
 
 ## Cuidado capilar (hair)
 
@@ -12,6 +12,7 @@ Investigación de mercado para ampliar **Morphological Styling** (categoría de 
 | Classic Forming Cream | American Crew | 6,20 € (desde) | — | [idealo.es](https://www.idealo.es/precios/5222479/american-crew-classic-forming-cream.html) |
 | Daily Deep Moisturizing Shampoo | American Crew | 3,56 € (desde) | tamaño no especificado en la ficha de idealo — verificar si es el formato 250 ml antes de comprometer precio | [idealo.es](https://www.idealo.es/precios/201481060/american-crew-daily-deep-moisturizing-shampoo.html) |
 | Black Edition Pomade Wax (Dynamic) | Vasso | ⚠️ sin precio verificado | 150 ml | [evolutionvasso.com](https://www.evolutionvasso.com/products/vasso-black-edition-pomade-dynamic) — también distribuido en España por [latiendadepeluqueria.com](https://www.latiendadepeluqueria.com/productos-de-barberia-y-para-el-hombre/vasso/) |
+| Shampoo Anti-Hairloss | Octyl | ⚠️ sin precio verificado | 250 ml | [octyl.es](https://octyl.es/products/shampoo-anti-hairloss) (tienda oficial) — también en [amazon.es](https://www.amazon.es/OCTYL-profesional-antica%C3%ADda-Fortalecer-Crecimiento/dp/B0BVRVSGBJ) |
 
 ## Cuidado de barba (beard)
 
@@ -31,6 +32,7 @@ Investigación de mercado para ampliar **Morphological Styling** (categoría de 
 - **Bulldog** es la opción más barata del lote (5,95–6,75 €) y con más disponibilidad en gran distribución española (Mercadona, El Corte Inglés, Amazon) — encaja mal con el posicionamiento premium del resto del catálogo (Feather, JRL, Captain Fawcett), a valorar si se quiere esa gama de entrada o no.
 - **Captain Fawcett Maharajah** es la opción más cara por volumen (18,50 €/10 ml ≈ 92,50 €/100 ml) — coherente con que ya tenemos su navaja en Pro Tools & Hardware; posicionaría una línea "signature" de gama alta.
 - **Vasso, Percy Nobleman y The Bluebeards Revenge** amplían marca pero necesitan confirmación de precio y de distribuidor español antes de considerarlos — ninguno tiene tienda oficial en España confirmada en esta búsqueda (Percy Nobleman y Bluebeards Revenge son marcas UK).
+- **Octyl es el hallazgo más interesante para negociación**: es una marca profesional de barbería fabricada en España (Octyl Cosmetics SLU / Octyl by Oche Barber, creada por barberos), a diferencia de Bulldog, Percy Nobleman y The Bluebeards Revenge, que son marcas UK con logística de importación. Mejor punto de partida si se busca margen y trato directo con fabricante — pero no encontré un aceite de barba propio de la marca en esta búsqueda, solo línea de champú, gel de afeitado y aftershave; falta verificar precio y catálogo completo.
 
 ## Pendiente de validación con el cliente
 
