@@ -267,6 +267,16 @@ Causa encontrada en `snippets/dimension-motion.liquid`: el sitio dibuja un curso
 
 **Arreglo definitivo**: `display: block !important` en `.dm-cursor-dot` y `.dm-cursor-ring` dentro del media query — gana la pelea de especificidad sin ambigüedad. Aplicado vía `themeFilesUpsert` sobre el tema en borrador (204158861657), el que el cliente tiene abierto en su sesión de vista previa (confirmado explícitamente por él: es el borrador, no el tema en vivo). Nota interna: a mitad de esta pasada subí por error un placeholder de texto que sobrescribió el archivo un momento — corregido de inmediato con el contenido completo correcto antes de que el cliente pudiera notarlo.
 
+## Trigésima pasada — metafields ameba.* en los 9 productos originales
+
+Rellenados los metafields `ameba.*` que estaban definidos pero vacíos desde la auditoría (0% de uso):
+- `linea_producto` (referencia a metaobject): los 9 productos, según su línea real (Pro Tools & Hardware / Clinical Grooming / Morphological Styling) — ya estaba correcto en los 3 productos nuevos desde la vigesimoquinta pasada, ahora también en los 9 originales.
+- `protocolo_de_uso` (texto libre): instrucciones de uso reales y concretas por producto, tono clínico-empático, coherentes con los bloques "Qué es / Para quién / En el ritual" que ya existían en la ficha de producto.
+- `nivel_tecnico` (referencia a metaobject: Iniciación/Intermedio/Avanzado): solo en las herramientas profesionales y en los productos de uso en sillón por el barbero (Pro Tools & Hardware + Clinical Grooming) — no aplica a los productos que el cliente usa en casa (Morphological Styling), así que se dejó vacío ahí a propósito.
+- `diagnostico_recomendado` (lista de referencias a metaobject): solo en los 2 productos donde la relación es real y defendible — Champú Densify → "Densidad baja", Reuzel Fiber Pomade → "Textura rizada". El resto se dejó vacío en vez de forzar una relación débil con las únicas 3 opciones disponibles (Cuero cabelludo seco / Densidad baja / Textura rizada), que son específicas de diagnóstico capilar y no aplican a productos de afeitado/aftershave.
+
+**Deliberadamente sin tocar**: `probado_por_malo` y `uso_en_academia` (ambos booleanos) — son afirmaciones de hecho sobre el negocio (si Malo probó personalmente el producto, si está certificado para uso en la Academia) que no puedo verificar ni inventar. `materiales_ingredientes` tampoco se rellenó — habría requerido inventar listas de ingredientes de productos comerciales reales sin fuente verificada.
+
 ## Preguntas guardadas para cuando vuelvas
 
 1. El logo del sol real, ya con el efecto metálico animado definitivo (más los últimos ajustes de header/firma/transición), está solo en el tema en borrador (204158861657) — dime cuándo quieres que lo lleve también al tema en vivo (204773130585, "Copia de...").
