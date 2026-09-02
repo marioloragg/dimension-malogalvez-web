@@ -314,6 +314,18 @@ Estética: acordeón con transición de apertura (icono +/× rotado, fade-in del
 
 **Corrección importante en Red Dimension**: el cliente señaló, tras ver el borrador, que necesita transmitir **confianza y exclusividad** — y el punto 5 que yo había propuesto ("Sin exclusividad territorial: varias barberías Dimension pueden convivir en la misma ciudad") iba justo en la dirección contraria. Reescrito a **"Cupo limitado por ciudad"**: el número de barberías Dimension por ciudad es limitado a propósito para que el sello no se diluya — mantiene la coherencia con "no es una franquicia" (no es un contrato de territorio en propiedad legal) pero sí transmite exclusividad real (cupo escaso, no todo el mundo entra). De paso, reforcé el punto 3 (proceso de solicitud) con "y no todas se aceptan" — la selectividad explícita también suma a la confianza. Ambos cambios ya en vivo.
 
+## Trigésima cuarta pasada — el sello como solución de confianza al viajar
+
+El cliente señaló una funcionalidad de fondo que el copy de Sello Dimension no recogía: el sello resuelve un problema de confianza real para quien viaja, se muda, o simplemente no conoce la ciudad — no sabe qué barbería es buena, y el sello se lo dice sin tener que arriesgarse.
+
+Añadido un bloque nuevo (`.sd-traveler`) justo después de la intro, antes de los 3 pilares — aplicando el framework Job-to-be-Done + StoryBrand del skill `marketing-hibrido`: problema (llegas a una ciudad que no conoces, sin referencias, sin tiempo de investigar) → guía (el sello garantiza el mismo diagnóstico morfológico y el mismo criterio en cualquier barbería de la red) → llamada a la acción implícita ("búscalo antes de sentarte").
+
+**Decisión de tono deliberada**: el cliente pidió "servicio de lujo", pero por la regla de `voz-marca-ameba` de evitar adjetivos vacíos sin respaldo, no escribí "lujo" — lo traduje al mecanismo concreto que ya sostiene esa promesa (mismo diagnóstico, mismo criterio), que es más creíble y verificable que una palabra sin definir.
+
+**Vacío real que esto deja al descubierto, sin resolver todavía**: el punto 6 de Red Dimension ya promete a las barberías "presencia en el directorio de Red Dimension dentro de esta web" — pero ese directorio no existe como página real. Ahora mismo, si un viajero lee este nuevo bloque y quiere buscar una barbería Dimension en su ciudad, no hay dónde hacerlo. Con 0 barberías certificadas todavía en la red, no construí una página de directorio vacía por iniciativa propia — pendiente de que el cliente decida si la quiere ya (con aviso honesto de "primeras barberías próximamente") o cuando haya al menos una barbería real que listar.
+
+## Preguntas guardadas para cuando vuelvas
+
 1. El logo del sol real, ya con el efecto metálico animado definitivo (más los últimos ajustes de header/firma/transición), está solo en el tema en borrador (204158861657) — dime cuándo quieres que lo lleve también al tema en vivo (204773130585, "Copia de...").
 2. Siguiente paso natural del roadmap: Fase 1 (fotografía real de los 9 productos, shot list ya lista en `shot-list.md`) — pendiente de que envíes las fotos.
 3. Negociación con distribuidores reales (precios netos, mínimos de pedido, plazos) antes de comprometer stock — pendiente de que la gestiones tú directamente; puedo preparar plantillas de contacto si las quieres.
