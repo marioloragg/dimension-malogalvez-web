@@ -381,6 +381,25 @@ Sustituí el aviso de "pendiente" en cada desplegable por el índice capitular r
 
 El cliente pidió mejorar el gancho de "Con Malo, no con un manual...". Reescrito con la imagen fuerte primero en vez de al final: "Con Malo, en el sillón de al lado. Sin clase magistral, sin vídeo grabado: diagnóstico en vivo sobre clientes reales, ciudad por ciudad." Primera versión llevaba también "No con un manual" al principio; el cliente pidió quitarlo explícitamente y se quitó en el segundo ajuste. Aplicado en vivo en `/pages/formacion`.
 
+## Cuadragésima segunda pasada — intro de "la estrella que cae" en Sello Dimension
+
+El cliente pidió un efecto de entrada específico: al llegar a Sello Dimension, el logo del header intensifica su movimiento, un haz de luz crece desde su centro, al llegar a diámetro máximo cae hacia el centro de la pantalla como si impactara contra el suelo, y ahí se despliega la página dando paso a la frase "La estrella que cae en cada barbería donde enseñamos".
+
+**Decisiones tomadas con el cliente antes de construirlo** (preguntadas explícitamente):
+- Frecuencia: **una vez por sesión** (se ve completa la primera vez que se entra a la página en esa visita; no se repite si se recarga o se vuelve después, solo si se cierra y reabre el navegador — vía `sessionStorage`).
+- Interacción: **bloquea la navegación real hasta terminar, pero cualquier clic o tecla la salta al instante** — un listener de captura en `document` intercepta cualquier clic (incluido el menú) y en vez de dejar navegar, corta la secuencia y revela la página. Aviso visible "Toca para continuar" para que se sepa que se puede saltar.
+
+**Decisión técnica**: en vez de tocar `snippets/dimension-motion.liquid` (archivo de tema compartido, con toda la fricción de tema en borrador/en vivo que ya hemos tenido), todo el efecto vive dentro del propio contenido de la página Sello Dimension — un script de guarda al principio del body (evita el parpadeo del contenido antes de decidir si se muestra la intro) más la orquestación completa al final. Solo toca el DOM del logo por una clase estable y ya confirmada (`.header__heading-logo-wrapper`, de `sections/header.liquid`), sin depender de la implementación interna de la animación metálica del logo — así no hay riesgo de romper nada si esa animación cambia en el futuro.
+
+**Mecánica real**:
+1. Halo de luz (radial-gradient blanco→plateado, `mix-blend-mode: screen`) nace en el punto exacto donde está el logo (calculado con `getBoundingClientRect`), crece de 6px a ~16% del lado mayor del viewport en 1.1s con la curva armónica ya establecida del sitio.
+2. El logo se ilumina y escala un 6% durante toda la secuencia (`.sd-logo-boost`).
+3. El halo cae hasta el 50% de la altura de la pantalla en 0.9s (curva de caída, aceleración tipo gravedad).
+4. Impacto: destello que se expande y se desvanece en 0.55s.
+5. La página (antes invisible) se revela con fade + ligero desplazamiento hacia arriba, dejando ver primero la frase icónica.
+
+Usa la Web Animations API (`element.animate`) en vez de encadenar `setTimeout` con transiciones CSS, para que cada fase espere de verdad a que la anterior termine sin desincronizarse. Respeta `prefers-reduced-motion` (salta directo al contenido) y tiene fallback si el navegador no soporta `Element.animate`.
+
 ## Preguntas guardadas para cuando vuelvas
 
 1. El logo del sol real, ya con el efecto metálico animado definitivo (más los últimos ajustes de header/firma/transición), está solo en el tema en borrador (204158861657) — dime cuándo quieres que lo lleve también al tema en vivo (204773130585, "Copia de...").
