@@ -377,6 +377,10 @@ El cliente adjuntó el documento real: `Arquitectura_Capilar_by_Malo_Gálvez.doc
 
 Sustituí el aviso de "pendiente" en cada desplegable por el índice capitular real (tal cual aparece en la sección "Índice capitular" del documento, sin resumir ni inventar redacción) más la duración. Aplicado vía `pageUpdate` en `/pages/formacion`.
 
+## Cuadragésima primera pasada — ajuste del gancho de confianza en Formación
+
+El cliente pidió mejorar el gancho de "Con Malo, no con un manual...". Reescrito con la imagen fuerte primero en vez de al final: "Con Malo, en el sillón de al lado. Sin clase magistral, sin vídeo grabado: diagnóstico en vivo sobre clientes reales, ciudad por ciudad." Primera versión llevaba también "No con un manual" al principio; el cliente pidió quitarlo explícitamente y se quitó en el segundo ajuste. Aplicado en vivo en `/pages/formacion`.
+
 ## Preguntas guardadas para cuando vuelvas
 
 1. El logo del sol real, ya con el efecto metálico animado definitivo (más los últimos ajustes de header/firma/transición), está solo en el tema en borrador (204158861657) — dime cuándo quieres que lo lleve también al tema en vivo (204773130585, "Copia de...").
