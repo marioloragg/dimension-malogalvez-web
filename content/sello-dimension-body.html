@@ -123,34 +123,36 @@
   }
 
   /* Red de seguridad: pase lo que pase con la animación (excepción, navegador raro,
-     API no soportada), la página se acaba mostrando sí o sí — nunca se queda invisible. */
-  var safety = setTimeout(function () { revealDoc(); markSeen(); }, 4500);
+     API no soportada, evento que nunca llega), la página se acaba mostrando sí o
+     sí — nunca se queda invisible ni a medias. */
+  var safety = setTimeout(function () { revealDoc(); markSeen(); }, 5000);
 
+  /* Deliberadamente NO depende de encontrar el logo real del header ni de encadenar
+     animaciones vía JS (Element.animate): eso fallaba en silencio en algunos
+     navegadores móviles a mitad de la secuencia, dejando solo el primer paso visible.
+     Aquí todo el movimiento (caída + impacto) es una única animación CSS por
+     elemento, con un solo punto de fallo real: si "animationend" no llega, la red
+     de seguridad de arriba se encarga. */
   function runIntro() {
     try {
-      var logoWrap = document.querySelector('.header__heading-logo-wrapper');
-      var supportsAnimate = typeof Element !== 'undefined' && 'animate' in Element.prototype;
+      var w = window.innerWidth || document.documentElement.clientWidth || 360;
+      var h = window.innerHeight || document.documentElement.clientHeight || 640;
+      var centerX = w / 2;
+      var startY = Math.max(56, h * 0.1);
+      var groundY = h * 0.46;
 
-      if (!logoWrap || !supportsAnimate) {
-        clearTimeout(safety);
-        revealDoc();
-        markSeen();
-        return;
-      }
+      var meteor = document.createElement('div');
+      meteor.className = 'sd-meteor';
+      meteor.style.left = centerX + 'px';
+      meteor.style.top = startY + 'px';
+      meteor.style.setProperty('--sd-fall', (groundY - startY) + 'px');
+      document.body.appendChild(meteor);
 
-      var rect = logoWrap.getBoundingClientRect();
-      var centerX = rect.left + rect.width / 2;
-      var startY = rect.bottom - 4;
-
-      var beam = document.createElement('div');
-      beam.className = 'sd-beam';
-      beam.style.left = centerX + 'px';
-      beam.style.top = startY + 'px';
-      beam.style.width = '6px';
-      beam.style.height = '6px';
-      document.body.appendChild(beam);
-
-      logoWrap.classList.add('sd-logo-boost');
+      /* Toque opcional: si el logo real del header existe, se ilumina también —
+         pero es puramente decorativo, nunca bloquea ni condiciona la caída. */
+      var logoWrap = null;
+      try { logoWrap = document.querySelector('.header__heading-logo-wrapper'); } catch (e) {}
+      if (logoWrap) logoWrap.classList.add('sd-logo-boost');
 
       var finished = false;
       var skipEnabled = false;
@@ -162,8 +164,8 @@
         if (finished) return;
         finished = true;
         clearTimeout(safety);
-        logoWrap.classList.remove('sd-logo-boost');
-        if (beam.parentNode) beam.parentNode.removeChild(beam);
+        if (logoWrap) logoWrap.classList.remove('sd-logo-boost');
+        if (meteor.parentNode) meteor.parentNode.removeChild(meteor);
         if (hint && hint.parentNode) hint.parentNode.removeChild(hint);
         if (flash && flash.parentNode) flash.parentNode.removeChild(flash);
         if (ring && ring.parentNode) ring.parentNode.removeChild(ring);
@@ -173,10 +175,10 @@
         document.removeEventListener('keydown', keyHandler, true);
       }
 
-      /* El toque/clic para saltar solo se activa a partir del impacto: así, tanto
-         en móvil como en ordenador, la estrella siempre llega a caer y estrellarse
-         antes de que se pueda saltar — un toque reflejo nada más cargar la página
-         ya no se come el efecto. */
+      /* El toque/clic para saltar solo se activa a partir del impacto: así, tanto en
+         móvil como en ordenador, la estrella siempre llega a caer y estrellarse antes
+         de que se pueda saltar — un toque reflejo nada más cargar la página ya no se
+         come el efecto. */
       function skipHandler(e) {
         if (!skipEnabled) return;
         e.preventDefault();
@@ -190,71 +192,43 @@
       document.addEventListener('click', skipHandler, true);
       document.addEventListener('keydown', keyHandler, true);
 
-      function enableSkip() {
-        if (skipEnabled || finished) return;
+      function playImpact() {
+        if (finished) return;
         skipEnabled = true;
         hint = document.createElement('div');
         hint.className = 'sd-intro-skip-hint';
         hint.textContent = 'Toca para continuar';
         document.body.appendChild(hint);
         requestAnimationFrame(function () { hint.classList.add('sd-visible-hint'); });
+
+        if (meteor.parentNode) meteor.parentNode.removeChild(meteor);
+
+        flash = document.createElement('div');
+        flash.className = 'sd-impact-flash sd-impact-play';
+        flash.style.left = centerX + 'px';
+        flash.style.top = groundY + 'px';
+        document.body.appendChild(flash);
+
+        ring = document.createElement('div');
+        ring.className = 'sd-impact-ring sd-impact-play';
+        ring.style.left = centerX + 'px';
+        ring.style.top = groundY + 'px';
+        document.body.appendChild(ring);
+
+        var doneCalled = false;
+        function done() { if (!doneCalled) { doneCalled = true; finish(); } }
+        ring.addEventListener('animationend', done);
+        /* Respaldo local por si "animationend" no llega en algún navegador raro. */
+        setTimeout(done, 900);
       }
 
-      var maxDiameter = Math.max(window.innerWidth, window.innerHeight) * 0.16;
-      var groundY = window.innerHeight * 0.5;
+      meteor.addEventListener('animationend', playImpact);
+      /* Respaldo local por si "animationend" de la caída no llega. */
+      setTimeout(function () { if (!finished && meteor.parentNode) playImpact(); }, 2100);
 
-      var growAnim = beam.animate([
-        { width: '6px', height: '6px', opacity: 0.25, filter: 'blur(2px)' },
-        { width: maxDiameter + 'px', height: maxDiameter + 'px', opacity: 1, filter: 'blur(3px)' }
-      ], { duration: 1100, easing: 'cubic-bezier(0.22, 1, 0.36, 1)', fill: 'forwards' });
-
-      growAnim.onfinish = function () {
-        if (finished) return;
-        try {
-          var fallAnim = beam.animate([
-            { top: startY + 'px' },
-            { top: groundY + 'px' }
-          ], { duration: 900, easing: 'cubic-bezier(0.55, 0, 0.85, 0.35)', fill: 'forwards' });
-
-          fallAnim.onfinish = function () {
-            if (finished) return;
-            try {
-              enableSkip();
-
-              flash = document.createElement('div');
-              flash.className = 'sd-impact-flash';
-              flash.style.left = centerX + 'px';
-              flash.style.top = groundY + 'px';
-              document.body.appendChild(flash);
-
-              ring = document.createElement('div');
-              ring.className = 'sd-impact-ring';
-              ring.style.left = centerX + 'px';
-              ring.style.top = groundY + 'px';
-              document.body.appendChild(ring);
-
-              var impactAnim = beam.animate([
-                { transform: 'translate(-50%, -50%) scale(1)', opacity: 1 },
-                { transform: 'translate(-50%, -50%) scale(0.35)', opacity: 0 }
-              ], { duration: 220, easing: 'cubic-bezier(0.55, 0, 0.85, 0.35)', fill: 'forwards' });
-
-              flash.animate([
-                { transform: 'translate(-50%, -50%) scale(0.2)', opacity: 0 },
-                { transform: 'translate(-50%, -50%) scale(1)', opacity: 0.95, offset: 0.18 },
-                { transform: 'translate(-50%, -50%) scale(2.6)', opacity: 0 }
-              ], { duration: 420, easing: 'cubic-bezier(0.22, 1, 0.36, 1)', fill: 'forwards' });
-
-              var ringAnim = ring.animate([
-                { transform: 'translate(-50%, -50%) scale(0.1)', opacity: 0.85 },
-                { transform: 'translate(-50%, -50%) scale(1)', opacity: 0.5 },
-                { transform: 'translate(-50%, -50%) scale(3.2)', opacity: 0 }
-              ], { duration: 750, easing: 'cubic-bezier(0.16, 1, 0.3, 1)', fill: 'forwards' });
-
-              ringAnim.onfinish = function () { finish(); };
-            } catch (e) { finish(); }
-          };
-        } catch (e) { finish(); }
-      };
+      requestAnimationFrame(function () {
+        meteor.classList.add('sd-meteor-play');
+      });
     } catch (e) {
       revealDoc();
       markSeen();
@@ -265,7 +239,7 @@
     clearTimeout(safety);
     revealDoc();
   } else {
-    setTimeout(runIntro, 250);
+    setTimeout(runIntro, 200);
   }
 })();
 </script>
@@ -287,15 +261,29 @@
   transform: scale(1.06);
 }
 
-.sd-beam {
+.sd-meteor {
   position: fixed;
   z-index: 400;
+  width: 64px;
+  height: 64px;
+  margin-left: -32px;
+  margin-top: -32px;
   border-radius: 50%;
   pointer-events: none;
   background: radial-gradient(circle, rgba(255,255,255,0.95) 0%, rgba(216,217,220,0.65) 32%, rgba(154,155,161,0.3) 62%, rgba(154,155,161,0) 100%);
   mix-blend-mode: screen;
-  transform: translate(-50%, -50%);
-  will-change: transform, width, height, top;
+  opacity: 0;
+  transform: translateY(0) scale(0.12);
+  will-change: transform, opacity;
+}
+.sd-meteor.sd-meteor-play {
+  animation: sd-meteor-fall 1.85s cubic-bezier(0.4, 0.02, 0.6, 0.94) forwards;
+}
+@keyframes sd-meteor-fall {
+  0%   { opacity: 0;    transform: translateY(0) scale(0.12); filter: blur(1px); }
+  14%  { opacity: 1;    transform: translateY(0) scale(1);    filter: blur(2px); }
+  60%  { opacity: 1;    transform: translateY(calc(var(--sd-fall, 240px) * 0.55)) scale(1); filter: blur(2px); }
+  100% { opacity: 1;    transform: translateY(var(--sd-fall, 240px)) scale(1.15); filter: blur(1px); }
 }
 
 .sd-impact-flash {
@@ -303,12 +291,23 @@
   z-index: 401;
   width: 46px;
   height: 46px;
+  margin-left: -23px;
+  margin-top: -23px;
   border-radius: 50%;
   pointer-events: none;
   background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(230,231,235,0.85) 35%, rgba(200,201,206,0.35) 65%, rgba(200,201,206,0) 100%);
   mix-blend-mode: screen;
-  transform: translate(-50%, -50%);
+  opacity: 0;
+  transform: scale(0.2);
   will-change: transform, opacity;
+}
+.sd-impact-flash.sd-impact-play {
+  animation: sd-impact-flash-burst 0.42s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+@keyframes sd-impact-flash-burst {
+  0%   { opacity: 0;    transform: scale(0.2); }
+  18%  { opacity: 0.95; transform: scale(1); }
+  100% { opacity: 0;    transform: scale(2.6); }
 }
 
 .sd-impact-ring {
@@ -316,13 +315,24 @@
   z-index: 400;
   width: 90px;
   height: 90px;
+  margin-left: -45px;
+  margin-top: -45px;
   border-radius: 50%;
   pointer-events: none;
   border: 2px solid rgba(216,217,220,0.85);
   box-shadow: 0 0 12px rgba(216,217,220,0.4);
   mix-blend-mode: screen;
-  transform: translate(-50%, -50%);
+  opacity: 0;
+  transform: scale(0.1);
   will-change: transform, opacity;
+}
+.sd-impact-ring.sd-impact-play {
+  animation: sd-impact-ring-burst 0.75s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+@keyframes sd-impact-ring-burst {
+  0%   { opacity: 0.85; transform: scale(0.1); }
+  35%  { opacity: 0.5;  transform: scale(1); }
+  100% { opacity: 0;    transform: scale(3.2); }
 }
 
 .sd-intro-skip-hint {
