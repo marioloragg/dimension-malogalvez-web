@@ -150,38 +150,55 @@
       beam.style.height = '6px';
       document.body.appendChild(beam);
 
-      var hint = document.createElement('div');
-      hint.className = 'sd-intro-skip-hint';
-      hint.textContent = 'Toca para continuar';
-      document.body.appendChild(hint);
-      requestAnimationFrame(function () { hint.classList.add('sd-visible-hint'); });
-
       logoWrap.classList.add('sd-logo-boost');
 
       var finished = false;
+      var skipEnabled = false;
+      var hint = null;
+      var flash = null;
+      var ring = null;
+
       function finish() {
         if (finished) return;
         finished = true;
         clearTimeout(safety);
         logoWrap.classList.remove('sd-logo-boost');
         if (beam.parentNode) beam.parentNode.removeChild(beam);
-        if (hint.parentNode) hint.parentNode.removeChild(hint);
+        if (hint && hint.parentNode) hint.parentNode.removeChild(hint);
+        if (flash && flash.parentNode) flash.parentNode.removeChild(flash);
+        if (ring && ring.parentNode) ring.parentNode.removeChild(ring);
         revealDoc();
         markSeen();
         document.removeEventListener('click', skipHandler, true);
         document.removeEventListener('keydown', keyHandler, true);
       }
 
+      /* El toque/clic para saltar solo se activa a partir del impacto: así, tanto
+         en móvil como en ordenador, la estrella siempre llega a caer y estrellarse
+         antes de que se pueda saltar — un toque reflejo nada más cargar la página
+         ya no se come el efecto. */
       function skipHandler(e) {
+        if (!skipEnabled) return;
         e.preventDefault();
         e.stopPropagation();
         finish();
       }
       function keyHandler(e) {
+        if (!skipEnabled) return;
         if (e.key === 'Escape' || e.key === 'Enter' || e.key === ' ') finish();
       }
       document.addEventListener('click', skipHandler, true);
       document.addEventListener('keydown', keyHandler, true);
+
+      function enableSkip() {
+        if (skipEnabled || finished) return;
+        skipEnabled = true;
+        hint = document.createElement('div');
+        hint.className = 'sd-intro-skip-hint';
+        hint.textContent = 'Toca para continuar';
+        document.body.appendChild(hint);
+        requestAnimationFrame(function () { hint.classList.add('sd-visible-hint'); });
+      }
 
       var maxDiameter = Math.max(window.innerWidth, window.innerHeight) * 0.16;
       var groundY = window.innerHeight * 0.5;
@@ -202,11 +219,38 @@
           fallAnim.onfinish = function () {
             if (finished) return;
             try {
+              enableSkip();
+
+              flash = document.createElement('div');
+              flash.className = 'sd-impact-flash';
+              flash.style.left = centerX + 'px';
+              flash.style.top = groundY + 'px';
+              document.body.appendChild(flash);
+
+              ring = document.createElement('div');
+              ring.className = 'sd-impact-ring';
+              ring.style.left = centerX + 'px';
+              ring.style.top = groundY + 'px';
+              document.body.appendChild(ring);
+
               var impactAnim = beam.animate([
                 { transform: 'translate(-50%, -50%) scale(1)', opacity: 1 },
-                { transform: 'translate(-50%, -50%) scale(2.4)', opacity: 0 }
-              ], { duration: 550, easing: 'cubic-bezier(0.22, 1, 0.36, 1)', fill: 'forwards' });
-              impactAnim.onfinish = function () { finish(); };
+                { transform: 'translate(-50%, -50%) scale(0.35)', opacity: 0 }
+              ], { duration: 220, easing: 'cubic-bezier(0.55, 0, 0.85, 0.35)', fill: 'forwards' });
+
+              flash.animate([
+                { transform: 'translate(-50%, -50%) scale(0.2)', opacity: 0 },
+                { transform: 'translate(-50%, -50%) scale(1)', opacity: 0.95, offset: 0.18 },
+                { transform: 'translate(-50%, -50%) scale(2.6)', opacity: 0 }
+              ], { duration: 420, easing: 'cubic-bezier(0.22, 1, 0.36, 1)', fill: 'forwards' });
+
+              var ringAnim = ring.animate([
+                { transform: 'translate(-50%, -50%) scale(0.1)', opacity: 0.85 },
+                { transform: 'translate(-50%, -50%) scale(1)', opacity: 0.5 },
+                { transform: 'translate(-50%, -50%) scale(3.2)', opacity: 0 }
+              ], { duration: 750, easing: 'cubic-bezier(0.16, 1, 0.3, 1)', fill: 'forwards' });
+
+              ringAnim.onfinish = function () { finish(); };
             } catch (e) { finish(); }
           };
         } catch (e) { finish(); }
@@ -252,6 +296,33 @@
   mix-blend-mode: screen;
   transform: translate(-50%, -50%);
   will-change: transform, width, height, top;
+}
+
+.sd-impact-flash {
+  position: fixed;
+  z-index: 401;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  pointer-events: none;
+  background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(230,231,235,0.85) 35%, rgba(200,201,206,0.35) 65%, rgba(200,201,206,0) 100%);
+  mix-blend-mode: screen;
+  transform: translate(-50%, -50%);
+  will-change: transform, opacity;
+}
+
+.sd-impact-ring {
+  position: fixed;
+  z-index: 400;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  pointer-events: none;
+  border: 2px solid rgba(216,217,220,0.85);
+  box-shadow: 0 0 12px rgba(216,217,220,0.4);
+  mix-blend-mode: screen;
+  transform: translate(-50%, -50%);
+  will-change: transform, opacity;
 }
 
 .sd-intro-skip-hint {
