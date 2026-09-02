@@ -337,6 +337,10 @@ Este formulario le da a Malo una señal real de demanda por ciudad — quién es
 
 **Enlazado desde los dos puntos que lo mencionaban sin apuntar a ningún sitio**: la frase "directorio de Red Dimension" en el punto 6 de Red Dimension, y la línea de cierre del bloque nuevo de viajeros en Sello Dimension. Añadida también al menú de footer (entre Red Dimension y Sello Dimension) para que sea localizable sin depender solo de esos enlaces cruzados.
 
+## Trigésima sexta pasada — Directorio también en el menú principal
+
+El cliente preguntó si el directorio podía estar en el menú, no solo en el footer. Añadido como desplegable dentro de "Red Dimension" en `main-menu` (mismo patrón que ya usa "MaloShop" con sus 3 líneas) en vez de como sexto punto suelto — evita saturar la barra principal. Verificado antes por API que el tema en vivo (`204773130585`, "Copia de Dimension by Malo Gálvez") renderiza el menú `footer` en `sections/footer-group.json` tal cual, así que los cambios de footer de la pasada anterior ya eran visibles ahí.
+
 ## Preguntas guardadas para cuando vuelvas
 
 1. El logo del sol real, ya con el efecto metálico animado definitivo (más los últimos ajustes de header/firma/transición), está solo en el tema en borrador (204158861657) — dime cuándo quieres que lo lleve también al tema en vivo (204773130585, "Copia de...").
