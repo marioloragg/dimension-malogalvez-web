@@ -413,6 +413,22 @@ El cliente reportó que la intro no se ve. No pude verificarlo yo mismo (sin nav
 
 **Pendiente**: sigo sin poder verlo yo mismo (sandbox sin navegador ni conexión a `myshopify.com`). Si sigue sin verse tras este arreglo, lo más útil sería que me digas exactamente qué ves — ¿la página normal sin ningún efecto, o la pantalla en blanco/vacía? — para descartar entre "el efecto no salta" y "algo sigue rompiendo el reveal".
 
+## Cuadragésima cuarta pasada — la causa real de "no se ve", encontrada y verificada de verdad
+
+Seguía sin verse el efecto completo (ni en móvil ni en ordenador) tras el endurecido de la pasada anterior. Esta vez, en vez de seguir adivinando, monté una réplica local fiel del tema real: descargué por API el `base.css`, el `header.liquid`, el `animations.js` y la configuración real de header/colores del tema en vivo (`204773130585`), reconstruí la página tal cual la sirve Shopify, y la ejecuté en un Chromium real con Playwright — leyendo estilos computados fotograma a fotograma en vez de leer el código y suponer.
+
+**Causa raíz encontrada, no adivinada esta vez:** `base.css` del tema Dawn trae una regla global de limpieza — `div:empty { display: none; }` — pensada para esconder párrafos vacíos que deja el editor de texto. El meteorito, el flash de impacto y la onda de choque son `<div>` creados por JavaScript puramente decorativos (sin texto ni hijos dentro). El tema los ocultaba con `display:none` desde el instante en que se creaban, sin importar qué clase de animación CSS les añadiéramos encima — por eso `animationend` nunca llegaba a disparar, y lo único que se veía era el resultado final revelado por los timeouts de respaldo (que sí funcionaban, por eso la página no se quedaba atascada) pero nunca la animación en sí.
+
+**Arreglo:** cada uno de esos `<div>` recibe ahora un espacio de ancho cero como contenido (deja de estar "vacío" para el selector del tema), más `display: block !important` en su propia regla CSS como red de seguridad adicional.
+
+**Esta vez sí verificado, con capturas de pantalla y lectura de opacity/transform fotograma a fotograma**, en viewport de móvil (390×844) y de escritorio (1440×900): la estrella crece, cae con blur, y al llegar al suelo dispara el flash blanco y el anillo de choque expandiéndose — confirmado visualmente en las capturas, no solo por el código.
+
+**Ya sincronizado** en el repo (rama `claude/dimension-malo-galvez-redesign-fwyzdr`). Pendiente de subir a Shopify — lo hacemos juntos cuando confirmes.
+
+**De paso**, guardadas en el repo (`content/manifiesto-body.html`, `content/envios-body.html`) las dos páginas que estaban publicadas en Shopify pero nunca se habían guardado como fuente local — ya tenemos control de versiones real sobre las 6 páginas de contenido propio (Sello Dimension, Formación, Red Dimension, Directorio, Manifiesto, Envíos).
+
+**Aviso menor sin urgencia**: de paso vi que quedan dos páginas antiguas sin publicar en la tienda — "Academia" y "Ameba" (`isPublished: false`), restos de la estructura previa a la marca Dimension. No están visibles públicamente y no las he tocado; dime si quieres que las borre o las dejo ahí sin más.
+
 ## Preguntas guardadas para cuando vuelvas
 
 1. El logo del sol real, ya con el efecto metálico animado definitivo (más los últimos ajustes de header/firma/transición), está solo en el tema en borrador (204158861657) — dime cuándo quieres que lo lleve también al tema en vivo (204773130585, "Copia de...").
