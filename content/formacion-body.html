@@ -4,21 +4,29 @@
 
 <div class="fm-pillars">
 
-  <div class="fm-pillar" data-index="0">
-    <span class="fm-num">01</span>
-    <div class="fm-pillar-text">
-      <h2>Itinerario Junior</h2>
+  <details class="fm-pillar" data-index="0">
+    <summary>
+      <span class="fm-num">01</span>
+      <span class="fm-pillar-title">Itinerario Junior</span>
+    </summary>
+    <div class="fm-pillar-body">
       <p>Para quien empieza a construir un criterio propio de Arquitectura Capilar: diagnóstico morfológico, fundamentos del ritual, y la disciplina de decidir antes de cortar.</p>
+      <h3>Índice del itinerario</h3>
+      <p class="fm-index-pending"><em>Pendiente de confirmar el temario real contigo — en cuanto lo tengamos, aquí aparece el índice completo, módulo a módulo, en vez de este aviso.</em></p>
     </div>
-  </div>
+  </details>
 
-  <div class="fm-pillar" data-index="1">
-    <span class="fm-num">02</span>
-    <div class="fm-pillar-text">
-      <h2>Itinerario Experto</h2>
+  <details class="fm-pillar" data-index="1">
+    <summary>
+      <span class="fm-num">02</span>
+      <span class="fm-pillar-title">Itinerario Experto</span>
+    </summary>
+    <div class="fm-pillar-body">
       <p>Para quien ya sostiene la navaja y quiere llevar su criterio al estándar de la Red Dimension: casos reales, mentoría directa, y la certificación que distingue a una barbería Dimension de una barbería cualquiera.</p>
+      <h3>Índice del itinerario</h3>
+      <p class="fm-index-pending"><em>Pendiente de confirmar el temario real contigo — en cuanto lo tengamos, aquí aparece el índice completo, módulo a módulo, en vez de este aviso.</em></p>
     </div>
-  </div>
+  </details>
 
 </div>
 
@@ -124,10 +132,6 @@
   gap: 0;
 }
 .fm-pillar {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  align-items: baseline;
-  gap: 1.5rem;
   padding: 1.6rem 0;
   border-top: 1px solid rgba(255,255,255,0.14);
   opacity: 0;
@@ -136,6 +140,24 @@
 }
 .fm-pillar:last-child { border-bottom: 1px solid rgba(255,255,255,0.14); }
 .fm-pillar.fm-visible { opacity: 1; transform: translateY(0); }
+
+.fm-pillar summary {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 1.5rem;
+  cursor: pointer;
+  list-style: none;
+}
+.fm-pillar summary::-webkit-details-marker { display: none; }
+.fm-pillar summary::after {
+  content: "+";
+  font-size: 1.6rem;
+  line-height: 1;
+  color: #9a9ba1;
+  transition: transform 0.25s ease;
+}
+.fm-pillar[open] summary::after { transform: rotate(45deg); }
 
 .fm-num {
   font-size: clamp(2.4rem, 6vw, 3.6rem);
@@ -156,8 +178,32 @@
   0% { background-position: 0% 0; }
   100% { background-position: 250% 0; }
 }
-.fm-pillar-text h2 { margin: 0 0 0.4rem; }
-.fm-pillar-text p { margin: 0; color: #c9cad0; }
+.fm-pillar-title {
+  font-family: var(--font-heading-family, inherit);
+  font-size: 1.8rem;
+}
+.fm-pillar-body {
+  padding-top: 1.2rem;
+  animation: fm-fade 0.25s ease;
+}
+.fm-pillar-body p { margin: 0 0 1rem; color: #c9cad0; }
+.fm-pillar-body h3 {
+  margin: 1.4rem 0 0.5rem;
+  font-size: 1.1rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  opacity: 0.75;
+}
+.fm-index-pending {
+  padding: 0.9rem 1.1rem;
+  border: 1px dashed rgba(255,255,255,0.25);
+  background: rgba(255,255,255,0.02);
+  font-size: 0.95rem;
+}
+@keyframes fm-fade {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 
 .fm-trust {
   margin: 2rem 0;

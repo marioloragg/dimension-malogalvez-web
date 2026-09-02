@@ -358,6 +358,14 @@ Siguiente punto del menú tras Red Dimension/Sello Dimension: `/pages/formacion`
 
 **Lo que NO hice, a propósito**: el skill `servicios-itinerante` pide productizar con precio/duración/entregables fijos (regla 80/20) — no tengo esos datos reales (precio, duración exacta, qué incluye cada itinerario) y no los inventé. Sigue pendiente si quieres que lo definamos juntos, igual que hicimos con las condiciones de Red Dimension.
 
+## Trigésima novena pasada — itinerarios como desplegables + intento fallido de leer el "índice del temario"
+
+El cliente pidió convertir cada itinerario en desplegable, con hueco para el índice del temario, y mencionó "el índice del temario" como si ya lo hubiera compartido antes. Lo busqué en todo el repo (contenido, historial de git) y no existe — solo encontré un archivo suelto y vacío (`# Arquitectura Capilar by Malo Gálvez`, 48 bytes, contenido `README.md# Arquitectura Capilar by Malo Gálvez`) que es claramente un accidente de terminal de otra sesión, no un temario real.
+
+El cliente pegó un enlace `https://claude.ai/api/organizations/.../files/.../contents` — intenté leerlo con WebFetch y devolvió **403 Forbidden**: es un endpoint autenticado de claude.ai al que esta sesión no tiene acceso (no es lo mismo que un artifact público). Pendiente de que lo pegue como texto directo o lo adjunte de otra forma legible.
+
+**Lo que sí construí, sin inventar contenido**: cada itinerario (`Itinerario Junior` / `Itinerario Experto`) pasa de `<div>` fijo a `<details>` desplegable — mismo patrón visual que Sello Dimension (numeral con degradado metálico como `<summary>`) combinado con el mecanismo de acordeón ya usado en Red Dimension (icono +/× rotado, fade-in del contenido). Dentro de cada uno, debajo del resumen ya existente, añadí un apartado "Índice del itinerario" con un aviso honesto en caja punteada ("pendiente de confirmar el temario real") en vez de rellenarlo con módulos inventados — listo para sustituir en cuanto llegue el contenido real.
+
 ## Preguntas guardadas para cuando vuelvas
 
 1. El logo del sol real, ya con el efecto metálico animado definitivo (más los últimos ajustes de header/firma/transición), está solo en el tema en borrador (204158861657) — dime cuándo quieres que lo lleve también al tema en vivo (204773130585, "Copia de...").
