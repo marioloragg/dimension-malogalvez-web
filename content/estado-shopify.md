@@ -277,6 +277,14 @@ Rellenados los metafields `ameba.*` que estaban definidos pero vacíos desde la 
 
 **Deliberadamente sin tocar**: `probado_por_malo` y `uso_en_academia` (ambos booleanos) — son afirmaciones de hecho sobre el negocio (si Malo probó personalmente el producto, si está certificado para uso en la Academia) que no puedo verificar ni inventar. `materiales_ingredientes` tampoco se rellenó — habría requerido inventar listas de ingredientes de productos comerciales reales sin fuente verificada.
 
+## Trigésima primera pasada — "Inicio" como primer punto del menú principal
+
+El cliente pidió retomar el trabajo de la web "de forma ordenada, punto por punto del menú" y, como primer punto, añadir "Inicio" al principio del menú principal (antes solo eran 4 puntos: Formación & Mentoría, MaloShop, Red Dimension, Sello Dimension — sin enlace explícito a la home, solo el logo servía de acceso implícito).
+
+Añadido vía `menuUpdate` sobre el menú `main-menu` (`gid://shopify/Menu/313506136409`): nuevo item "Inicio" (tipo `FRONTPAGE`, `/`) como primer elemento, preservando los 4 puntos existentes y el desplegable de MaloShop (Herramientas / Para barberos / Para clientes) tal cual estaban. Verificado sin `userErrors`. Menú principal ahora: **Inicio → Formación & Mentoría → MaloShop → Red Dimension → Sello Dimension**.
+
+De paso, verifiqué el estado real de las páginas vía API antes de este cambio: `/pages/formacion` y `/pages/sello-dimension` tienen contenido real y publicado; **`/pages/red-dimension` sigue siendo un stub** ("Página en construcción — condiciones de entrada a la red pendientes de definir"), pendiente de ser el siguiente punto a desarrollar si seguimos el orden del menú.
+
 ## Preguntas guardadas para cuando vuelvas
 
 1. El logo del sol real, ya con el efecto metálico animado definitivo (más los últimos ajustes de header/firma/transición), está solo en el tema en borrador (204158861657) — dime cuándo quieres que lo lleve también al tema en vivo (204773130585, "Copia de...").
