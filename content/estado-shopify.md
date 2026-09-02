@@ -285,6 +285,29 @@ Añadido vía `menuUpdate` sobre el menú `main-menu` (`gid://shopify/Menu/31350
 
 De paso, verifiqué el estado real de las páginas vía API antes de este cambio: `/pages/formacion` y `/pages/sello-dimension` tienen contenido real y publicado; **`/pages/red-dimension` sigue siendo un stub** ("Página en construcción — condiciones de entrada a la red pendientes de definir"), pendiente de ser el siguiente punto a desarrollar si seguimos el orden del menú.
 
+## Trigésima segunda pasada — condiciones reales de Red Dimension + formulario de solicitud de reunión
+
+Sustituido el stub de `/pages/red-dimension` ("Página en construcción") por contenido real, vía `pageUpdate` directo sobre el recurso de página (independiente del tema, así que ya está en vivo).
+
+**Condiciones del sello**, en 9 puntos con desplegable (`<details>/<summary>`, nativo, accesible, sin dependencia de JS para funcionar):
+1. Requisito de entrada: al menos un barbero con Itinerario Experto — sin cuota aparte.
+2. El diagnóstico morfológico como paso obligatorio del servicio.
+3. Solicitud revisada caso a caso por Malo, no automática.
+4. Revisión cada 12–18 meses, aprovechando visitas itinerantes ya programadas.
+5. Sin exclusividad territorial — varias barberías Dimension pueden convivir en una ciudad.
+6. Qué recibe la barbería: sello, directorio, condiciones de mayorista en MaloShop, prioridad de plaza en mentoría.
+7. Encuentro periódico de la red (mentoría cruzada entre barberías certificadas) — mecanismo añadido a petición del cliente para reforzar "red" real, no solo sello individual.
+8. Mecanismo de reclamación: una queja de cliente activa revisión anticipada, no solo la periódica — también añadido a petición del cliente.
+9. Salida: el sello se retira si se deja de sostener el estándar.
+
+**Formulario de solicitud de reunión**: HTML nativo (no Liquid `{% form %}`, porque el contenido de una Page no ejecuta Liquid) que apunta a `/contact` — el endpoint de formulario de contacto nativo de Shopify, con `form_type=contact` y los campos estándar (`contact[name]`, `contact[email]`, `contact[phone]`, `contact[body]`). Es la vía más fiable para notificar: no depende de ninguna app ni backend propio, y Shopify ya envía cada envío a la dirección de contacto de la tienda — verificado por API: `shop.email` = `marioloragg@gmail.com` (la del propio cliente), así que las solicitudes llegan directamente a su bandeja sin configuración adicional. Recomendable que confirme en Shopify → Configuración → Notificaciones que esa sigue siendo la dirección de "Notificaciones del personal" para asegurarse de que no se haya añadido/cambiado desde entonces.
+
+Detalle técnico: como el envío del formulario recarga la página (comportamiento nativo de `/contact`, no hay Liquid disponible para mostrar "enviado con éxito" dentro del body de una Page), añadí un `sessionStorage` flag por JS que se marca justo antes de enviar y se lee al recargar — así, tras el envío real, el formulario se sustituye por un mensaje de confirmación sin depender de ningún parámetro de URL que Shopify pueda o no añadir.
+
+Estética: acordeón con transición de apertura (icono +/× rotado, fade-in del contenido) y formulario en tarjeta oscura con acento gris lobo en el botón — misma paleta ya confirmada del proyecto (sin dorado).
+
+**Pendiente de tu confirmación**: revisar el contenido real en la vista previa antes de darlo por definitivo — sobre todo el texto de las 9 condiciones, que es una propuesta mía, no un documento legal.
+
 ## Preguntas guardadas para cuando vuelvas
 
 1. El logo del sol real, ya con el efecto metálico animado definitivo (más los últimos ajustes de header/firma/transición), está solo en el tema en borrador (204158861657) — dime cuándo quieres que lo lleve también al tema en vivo (204773130585, "Copia de...").

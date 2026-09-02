@@ -1,0 +1,177 @@
+<div class="rd-doc">
+<p>El sello que distingue a las barberías que se forman con nosotros. Un estándar, no una franquicia.</p>
+<p>No se compra: se gana sosteniendo el mismo criterio, itinerario tras itinerario, sillón tras sillón.</p>
+
+<h2>Cómo funciona el sello</h2>
+
+<details class="rd-item">
+<summary>1. Requisito de entrada</summary>
+<div class="rd-item-body"><p>Al menos un barbero de tu equipo debe haber completado el Itinerario Experto de Arquitectura Capilar. No hay cuota aparte: el itinerario ya es la entrada — la pertenencia no se compra, se gana.</p></div>
+</details>
+
+<details class="rd-item">
+<summary>2. El estándar que se adopta</summary>
+<div class="rd-item-body"><p>El diagnóstico morfológico pasa a ser el primer paso de cada servicio, no un extra. Es lo que distingue a una barbería Dimension de una barbería cualquiera.</p></div>
+</details>
+
+<details class="rd-item">
+<summary>3. Proceso de solicitud</summary>
+<div class="rd-item-body"><p>Cada solicitud se revisa caso a caso con Malo Gálvez — no es un trámite automático. El sello certifica un criterio real, no un formulario relleno.</p></div>
+</details>
+
+<details class="rd-item">
+<summary>4. Revisión periódica</summary>
+<div class="rd-item-body"><p>Cada 12–18 meses, aprovechando las visitas itinerantes ya programadas en tu ciudad — sin auditoría aparte. Si el barbero certificado deja el equipo, el sello queda en pausa hasta certificar a otro miembro.</p></div>
+</details>
+
+<details class="rd-item">
+<summary>5. Sin exclusividad territorial</summary>
+<div class="rd-item-body"><p>Varias barberías Dimension pueden convivir en la misma ciudad. El criterio es el estándar que se sostiene, no un territorio en propiedad.</p></div>
+</details>
+
+<details class="rd-item">
+<summary>6. Qué recibe tu barbería</summary>
+<div class="rd-item-body"><p>El sello para tu local y tu comunicación, presencia en el directorio de Red Dimension dentro de esta web, condiciones de mayorista en el catálogo de MaloShop, y prioridad de plaza en las próximas fechas de mentoría en tu ciudad.</p></div>
+</details>
+
+<details class="rd-item">
+<summary>7. Encuentro de la Red</summary>
+<div class="rd-item-body"><p>Las barberías certificadas se reúnen periódicamente para mentoría cruzada entre ellas — la red crece en criterio, no solo en número.</p></div>
+</details>
+
+<details class="rd-item">
+<summary>8. Mecanismo de reclamación</summary>
+<div class="rd-item-body"><p>Si un cliente reporta que el diagnóstico no se aplicó, se activa una revisión antes de la siguiente fecha programada — el sello se protege de forma activa, no solo en la revisión periódica.</p></div>
+</details>
+
+<details class="rd-item">
+<summary>9. Salida</summary>
+<div class="rd-item-body"><p>Si una barbería deja de sostener el estándar, el sello se retira. Sin ambigüedad: el valor de la red depende de que el criterio sea real en todas partes.</p></div>
+</details>
+
+<h2>¿Quieres que hablemos?</h2>
+<p>El primer paso siempre es una conversación directa con Malo — no un formulario que decide por ti. Cuéntanos tu barbería, tu ciudad, y qué barbero de tu equipo tiene (o quiere tener) el Itinerario Experto, y te contactamos para fijar una reunión.</p>
+
+<form id="rd-contact-form" class="rd-form" method="post" action="/contact#rd-contact-form" accept-charset="UTF-8">
+  <input type="hidden" name="form_type" value="contact">
+  <input type="hidden" name="utf8" value="&#10003;">
+  <input type="hidden" name="contact[tags]" value="red-dimension-solicitud">
+  <div class="rd-field">
+    <label for="rd-name">Nombre *</label>
+    <input id="rd-name" type="text" name="contact[name]" required>
+  </div>
+  <div class="rd-field">
+    <label for="rd-email">Email *</label>
+    <input id="rd-email" type="email" name="contact[email]" required>
+  </div>
+  <div class="rd-field">
+    <label for="rd-phone">Teléfono</label>
+    <input id="rd-phone" type="tel" name="contact[phone]">
+  </div>
+  <div class="rd-field rd-field-full">
+    <label for="rd-body">Mensaje *</label>
+    <textarea id="rd-body" name="contact[body]" rows="4" required placeholder="Nombre de la barbería, ciudad, y el barbero de tu equipo con Itinerario Experto (si ya lo tiene)."></textarea>
+  </div>
+  <button type="submit" class="rd-submit">Solicitar una reunión</button>
+</form>
+
+<div id="rd-contact-thanks" class="rd-thanks" hidden>
+  <p>Gracias — hemos recibido tu solicitud. Malo te contactará directamente para fijar la reunión.</p>
+</div>
+
+<script>
+(function () {
+  var form = document.getElementById('rd-contact-form');
+  var thanks = document.getElementById('rd-contact-thanks');
+  if (!form || !thanks) return;
+  try {
+    if (sessionStorage.getItem('rd_contact_sent') === '1') {
+      form.hidden = true;
+      thanks.hidden = false;
+      sessionStorage.removeItem('rd_contact_sent');
+    }
+  } catch (e) {}
+  form.addEventListener('submit', function () {
+    try { sessionStorage.setItem('rd_contact_sent', '1'); } catch (e) {}
+  });
+})();
+</script>
+
+<style>
+.rd-doc { max-width: 780px; }
+.rd-item {
+  border-top: 1px solid rgba(255,255,255,0.14);
+  padding: 0.9rem 0;
+}
+.rd-item:last-of-type { border-bottom: 1px solid rgba(255,255,255,0.14); }
+.rd-item summary {
+  cursor: pointer;
+  font-weight: 600;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.rd-item summary::-webkit-details-marker { display: none; }
+.rd-item summary::after {
+  content: "+";
+  font-size: 1.3em;
+  line-height: 1;
+  color: #9a9ba1;
+  transition: transform 0.25s ease;
+  flex: 0 0 auto;
+}
+.rd-item[open] summary::after { transform: rotate(45deg); }
+.rd-item-body {
+  padding-top: 0.6rem;
+  color: #c9cad0;
+  animation: rd-fade 0.2s ease;
+}
+@keyframes rd-fade {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.rd-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.14);
+}
+.rd-field { display: flex; flex-direction: column; gap: 0.35rem; }
+.rd-field-full { grid-column: 1 / -1; }
+.rd-form label { font-size: 0.85rem; letter-spacing: 0.02em; color: #c9cad0; }
+.rd-form input, .rd-form textarea {
+  background: rgba(0,0,0,0.25);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: inherit;
+  padding: 0.6rem 0.7rem;
+  font: inherit;
+}
+.rd-form input:focus, .rd-form textarea:focus { outline: 1px solid #c9cad0; }
+.rd-submit {
+  grid-column: 1 / -1;
+  justify-self: start;
+  padding: 0.75rem 1.6rem;
+  background: #75767B;
+  color: #0B0B0C;
+  border: none;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+}
+.rd-submit:hover { background: #9a9ba1; }
+.rd-thanks {
+  margin-top: 1.5rem;
+  padding: 1.25rem 1.5rem;
+  border: 1px solid rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.03);
+}
+@media (max-width: 640px) {
+  .rd-form { grid-template-columns: 1fr; }
+}
+</style>
+</div>
