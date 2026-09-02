@@ -366,6 +366,17 @@ El cliente pegó un enlace `https://claude.ai/api/organizations/.../files/.../co
 
 **Lo que sí construí, sin inventar contenido**: cada itinerario (`Itinerario Junior` / `Itinerario Experto`) pasa de `<div>` fijo a `<details>` desplegable — mismo patrón visual que Sello Dimension (numeral con degradado metálico como `<summary>`) combinado con el mecanismo de acordeón ya usado en Red Dimension (icono +/× rotado, fade-in del contenido). Dentro de cada uno, debajo del resumen ya existente, añadí un apartado "Índice del itinerario" con un aviso honesto en caja punteada ("pendiente de confirmar el temario real") en vez de rellenarlo con módulos inventados — listo para sustituir en cuanto llegue el contenido real.
 
+## Cuadragésima pasada — índice real del temario, extraído del .docx
+
+El cliente adjuntó el documento real: `Arquitectura_Capilar_by_Malo_Gálvez.docx` (guardado en `content/fuentes/` para no depender de que siga disponible en el chat). Lo abrí con `python-docx` (pandoc no estaba instalado en este entorno) y extraje solo la estructura de índice — sin copiar el contenido detallado de cada capítulo (contenido desarrollado / ejemplo aplicado / nota para el profesor), que es el material de impartición, no algo que deba ir en la web pública.
+
+**Datos reales confirmados** (sección "Duración y formato" del documento):
+- Cada itinerario: **24 horas de estudio intenso**, formato presencial o itinerante, modular por diseño.
+- Itinerario Junior: **13 capítulos** (de "Orígenes de la barbería" a "Principios iniciales de psicología y comunicación con el cliente").
+- Itinerario Experto: **10 capítulos** (de "Del técnico al maestro" a "El futuro de la barbería").
+
+Sustituí el aviso de "pendiente" en cada desplegable por el índice capitular real (tal cual aparece en la sección "Índice capitular" del documento, sin resumir ni inventar redacción) más la duración. Aplicado vía `pageUpdate` en `/pages/formacion`.
+
 ## Preguntas guardadas para cuando vuelvas
 
 1. El logo del sol real, ya con el efecto metálico animado definitivo (más los últimos ajustes de header/firma/transición), está solo en el tema en borrador (204158861657) — dime cuándo quieres que lo lleve también al tema en vivo (204773130585, "Copia de...").
