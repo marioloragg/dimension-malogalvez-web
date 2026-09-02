@@ -308,7 +308,11 @@ Estética: acordeón con transición de apertura (icono +/× rotado, fade-in del
 
 **Pendiente de tu confirmación**: revisar el contenido real en la vista previa antes de darlo por definitivo — sobre todo el texto de las 9 condiciones, que es una propuesta mía, no un documento legal.
 
-## Preguntas guardadas para cuando vuelvas
+## Trigésima tercera pasada — Sello Dimension con impacto visual + corrección de exclusividad en Red Dimension
+
+**Sello Dimension** (`/pages/sello-dimension`): los 3 pilares (Diagnóstico/Atención/Paz), antes tres `<h2>` seguidos sin nada más, pasan a un bloque interactivo: numeral 01/02/03 grande con degradado metálico animado (mismo lenguaje visual que el logo del header, `sd-shine`, 7s en bucle), y cada pilar aparece con fade + desplazamiento al entrar en el viewport (`IntersectionObserver`, escalonado 120ms entre uno y otro), respetando `prefers-reduced-motion`. El bloque de "Posicionamiento" pasa de párrafo suelto a caja con borde de acento para que no se pierda entre el resto de texto. Añadido enlace de cierre a `/pages/red-dimension` (antes solo enlazaba a Manifiesto). Aplicado vía `pageUpdate` — copia también guardada en `content/sello-dimension-body.html`.
+
+**Corrección importante en Red Dimension**: el cliente señaló, tras ver el borrador, que necesita transmitir **confianza y exclusividad** — y el punto 5 que yo había propuesto ("Sin exclusividad territorial: varias barberías Dimension pueden convivir en la misma ciudad") iba justo en la dirección contraria. Reescrito a **"Cupo limitado por ciudad"**: el número de barberías Dimension por ciudad es limitado a propósito para que el sello no se diluya — mantiene la coherencia con "no es una franquicia" (no es un contrato de territorio en propiedad legal) pero sí transmite exclusividad real (cupo escaso, no todo el mundo entra). De paso, reforcé el punto 3 (proceso de solicitud) con "y no todas se aceptan" — la selectividad explícita también suma a la confianza. Ambos cambios ya en vivo.
 
 1. El logo del sol real, ya con el efecto metálico animado definitivo (más los últimos ajustes de header/firma/transición), está solo en el tema en borrador (204158861657) — dime cuándo quieres que lo lleve también al tema en vivo (204773130585, "Copia de...").
 2. Siguiente paso natural del roadmap: Fase 1 (fotografía real de los 9 productos, shot list ya lista en `shot-list.md`) — pendiente de que envíes las fotos.
