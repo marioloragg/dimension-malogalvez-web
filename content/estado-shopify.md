@@ -400,6 +400,19 @@ El cliente pidió un efecto de entrada específico: al llegar a Sello Dimension,
 
 Usa la Web Animations API (`element.animate`) en vez de encadenar `setTimeout` con transiciones CSS, para que cada fase espere de verdad a que la anterior termine sin desincronizarse. Respeta `prefers-reduced-motion` (salta directo al contenido) y tiene fallback si el navegador no soporta `Element.animate`.
 
+## Cuadragésima tercera pasada — "no se ve": endurecido el efecto de Sello Dimension
+
+El cliente reportó que la intro no se ve. No pude verificarlo yo mismo (sin navegador en esta sesión), así que en vez de adivinar a ciegas, audité el código y corregí dos fallos reales de diseño defensivo, cualquiera de los cuales podía explicarlo:
+
+1. **Riesgo real de página atascada invisible**: si algo fallaba a media secuencia (una excepción en cualquiera de los `beam.animate(...)` encadenados, una API no soportada), `revealDoc()` nunca se llamaba y la página se quedaba en `opacity:0` para siempre — el peor caso posible de "no se ve". Añadida una **red de seguridad**: un `setTimeout` de 4.5s que fuerza mostrar la página pase lo que pase, más `try/catch` alrededor de cada fase de la animación.
+2. **Riesgo de parpadeo/orden de CSS**: la regla que oculta `.sd-doc` vivía en el `<style>` grande al final del documento — el navegador podía pintar el contenido visible una fracción de segundo antes de aplicar esa regla. Movida a un `<style>` mínimo justo después del script de guarda, al principio del todo, para que la ocultación sea instantánea y sin parpadeo.
+
+**Verificado por API** que el problema no era el tema equivocado: `.header__heading-logo-wrapper` existe igual en el tema en vivo (`204773130585`, "Copia de...") que en el borrador — la clase que usa el efecto para encontrar el logo es correcta en ambos.
+
+**Añadido para poder probarlo sin esperar a que expire la sesión**: `?intro=1` al final de la URL de la página fuerza que la secuencia se reproduzca aunque ya se haya visto; `?intro=0` la salta siempre. Útil para verificar juntos si ahora sí se ve.
+
+**Pendiente**: sigo sin poder verlo yo mismo (sandbox sin navegador ni conexión a `myshopify.com`). Si sigue sin verse tras este arreglo, lo más útil sería que me digas exactamente qué ves — ¿la página normal sin ningún efecto, o la pantalla en blanco/vacía? — para descartar entre "el efecto no salta" y "algo sigue rompiendo el reveal".
+
 ## Preguntas guardadas para cuando vuelvas
 
 1. El logo del sol real, ya con el efecto metálico animado definitivo (más los últimos ajustes de header/firma/transición), está solo en el tema en borrador (204158861657) — dime cuándo quieres que lo lleve también al tema en vivo (204773130585, "Copia de...").
