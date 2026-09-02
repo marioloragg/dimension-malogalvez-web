@@ -143,6 +143,13 @@
 
       var meteor = document.createElement('div');
       meteor.className = 'sd-meteor';
+      /* El tema oculta con "display:none" cualquier <div> vacío (regla
+         "div:empty" de base.css, pensada para limpiar párrafos huecos del
+         editor). Sin contenido, esto ocultaba el meteorito entero pasara lo
+         que pasara con su animación — de ahí que no se viera ni en móvil ni
+         en ordenador. Un espacio de ancho cero basta para que deje de estar
+         "vacío" y la regla del tema deje de aplicar. */
+      meteor.textContent = '​';
       meteor.style.left = centerX + 'px';
       meteor.style.top = startY + 'px';
       meteor.style.setProperty('--sd-fall', (groundY - startY) + 'px');
@@ -205,12 +212,14 @@
 
         flash = document.createElement('div');
         flash.className = 'sd-impact-flash sd-impact-play';
+        flash.textContent = '​';
         flash.style.left = centerX + 'px';
         flash.style.top = groundY + 'px';
         document.body.appendChild(flash);
 
         ring = document.createElement('div');
         ring.className = 'sd-impact-ring sd-impact-play';
+        ring.textContent = '​';
         ring.style.left = centerX + 'px';
         ring.style.top = groundY + 'px';
         document.body.appendChild(ring);
@@ -262,6 +271,11 @@
 }
 
 .sd-meteor {
+  /* !important: el tema oculta con display:none cualquier <div> sin
+     contenido ("div:empty" en base.css). El JS ya le da un espacio de
+     ancho cero para evitarlo, pero esto es un respaldo por si algún día
+     se edita el JS y se pierde ese detalle. */
+  display: block !important;
   position: fixed;
   z-index: 400;
   width: 64px;
@@ -287,6 +301,7 @@
 }
 
 .sd-impact-flash {
+  display: block !important;
   position: fixed;
   z-index: 401;
   width: 46px;
@@ -311,6 +326,7 @@
 }
 
 .sd-impact-ring {
+  display: block !important;
   position: fixed;
   z-index: 400;
   width: 90px;
