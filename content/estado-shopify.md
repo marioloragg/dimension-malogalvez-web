@@ -347,6 +347,17 @@ El cliente pidió un efecto armónico para los desplegables del menú (MaloShop 
 
 Arreglado en `snippets/dimension-motion.liquid` (tema en borrador, `204158861657`, el "original" — igual que el resto de trabajo de tema de esta sesión): forcé `.header__submenu { display: block !important; }` para que el `<ul>` del submenú deje de depender del show/hide nativo del navegador, y en su lugar controlo la visibilidad con `opacity` + `transform: translateY/scale` + `visibility`, animables en ambas direcciones (abrir y cerrar) con la misma curva `cubic-bezier(0.22, 1, 0.36, 1)` que ya usa el resto del sitio (cristal del header, escalado del logo) — mismo lenguaje de movimiento, no uno nuevo, que es justo lo que hace que se sienta "armónico" y no un efecto añadido de más. `visibility` lleva un retraso de transición (0s con delay 0.38s al cerrar) para que el submenú deje de ser interactivo/enfocable en cuanto termina de desvanecerse, sin comerse la animación. Respeta `prefers-reduced-motion`. No toqué el JS de Dawn que gestiona el foco/teclado/clic-fuera (`header-menu` en `global.js`) — la mejora es puramente visual sobre el estado que ese JS ya controla.
 
+## Trigésima octava pasada — Formación & Mentoría con el mismo pulido visual + solicitud de plaza
+
+Siguiente punto del menú tras Red Dimension/Sello Dimension: `/pages/formacion` tenía contenido real (itinerarios Junior/Experto) pero en texto plano, sin el tratamiento visual/interactivo que ya tienen las otras páginas. Aplicado vía `pageUpdate`:
+
+- **Itinerarios como pillars 01/02** (mismo componente que Sello Dimension: numeral con degradado metálico animado + fade-in escalonado al hacer scroll) — coherencia visual entre páginas, no un estilo nuevo por sección.
+- **"Cómo funciona" reestructurado en 3 pasos** — mismo contenido que ya existía (diagnóstico en vivo, mentoría directa, calendario abierto), solo mejor organizado, sin añadir ningún dato nuevo.
+- **Bloque de confianza** ("Con Malo, no con un manual") — señal de confianza honesta según el skill `servicios-itinerante` (mentoría en persona, no grabada), sin inventar credenciales/testimonios que no tengo.
+- **Formulario "¿Quieres que la formación llegue a tu ciudad?"** — mismo mecanismo nativo `/contact` de Shopify ya validado en Red Dimension/Directorio, con confirmación por `sessionStorage`. Cierra el hueco real que tenía la página: antes solo decía "calendario próximamente" sin ninguna forma de que alguien manifestara interés.
+
+**Lo que NO hice, a propósito**: el skill `servicios-itinerante` pide productizar con precio/duración/entregables fijos (regla 80/20) — no tengo esos datos reales (precio, duración exacta, qué incluye cada itinerario) y no los inventé. Sigue pendiente si quieres que lo definamos juntos, igual que hicimos con las condiciones de Red Dimension.
+
 ## Preguntas guardadas para cuando vuelvas
 
 1. El logo del sol real, ya con el efecto metálico animado definitivo (más los últimos ajustes de header/firma/transición), está solo en el tema en borrador (204158861657) — dime cuándo quieres que lo lleve también al tema en vivo (204773130585, "Copia de...").
