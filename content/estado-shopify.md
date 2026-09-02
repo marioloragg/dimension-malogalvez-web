@@ -341,6 +341,12 @@ Este formulario le da a Malo una señal real de demanda por ciudad — quién es
 
 El cliente preguntó si el directorio podía estar en el menú, no solo en el footer. Añadido como desplegable dentro de "Red Dimension" en `main-menu` (mismo patrón que ya usa "MaloShop" con sus 3 líneas) en vez de como sexto punto suelto — evita saturar la barra principal. Verificado antes por API que el tema en vivo (`204773130585`, "Copia de Dimension by Malo Gálvez") renderiza el menú `footer` en `sections/footer-group.json` tal cual, así que los cambios de footer de la pasada anterior ya eran visibles ahí.
 
+## Trigésima séptima pasada — efecto armónico en los desplegables del menú
+
+El cliente pidió un efecto armónico para los desplegables del menú (MaloShop y Red Dimension). Diagnóstico: Dawn oculta el contenido de `<details>` de forma binaria (`display:none` ↔ `block`, gestionado por el propio navegador) — no hay transición posible sobre eso, el menú aparecía/desaparecía de golpe.
+
+Arreglado en `snippets/dimension-motion.liquid` (tema en borrador, `204158861657`, el "original" — igual que el resto de trabajo de tema de esta sesión): forcé `.header__submenu { display: block !important; }` para que el `<ul>` del submenú deje de depender del show/hide nativo del navegador, y en su lugar controlo la visibilidad con `opacity` + `transform: translateY/scale` + `visibility`, animables en ambas direcciones (abrir y cerrar) con la misma curva `cubic-bezier(0.22, 1, 0.36, 1)` que ya usa el resto del sitio (cristal del header, escalado del logo) — mismo lenguaje de movimiento, no uno nuevo, que es justo lo que hace que se sienta "armónico" y no un efecto añadido de más. `visibility` lleva un retraso de transición (0s con delay 0.38s al cerrar) para que el submenú deje de ser interactivo/enfocable en cuanto termina de desvanecerse, sin comerse la animación. Respeta `prefers-reduced-motion`. No toqué el JS de Dawn que gestiona el foco/teclado/clic-fuera (`header-menu` en `global.js`) — la mejora es puramente visual sobre el estado que ese JS ya controla.
+
 ## Preguntas guardadas para cuando vuelvas
 
 1. El logo del sol real, ya con el efecto metálico animado definitivo (más los últimos ajustes de header/firma/transición), está solo en el tema en borrador (204158861657) — dime cuándo quieres que lo lleve también al tema en vivo (204773130585, "Copia de...").
