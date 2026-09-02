@@ -324,6 +324,19 @@ Añadido un bloque nuevo (`.sd-traveler`) justo después de la intro, antes de l
 
 **Vacío real que esto deja al descubierto, sin resolver todavía**: el punto 6 de Red Dimension ya promete a las barberías "presencia en el directorio de Red Dimension dentro de esta web" — pero ese directorio no existe como página real. Ahora mismo, si un viajero lee este nuevo bloque y quiere buscar una barbería Dimension en su ciudad, no hay dónde hacerlo. Con 0 barberías certificadas todavía en la red, no construí una página de directorio vacía por iniciativa propia — pendiente de que el cliente decida si la quiere ya (con aviso honesto de "primeras barberías próximamente") o cuando haya al menos una barbería real que listar.
 
+## Trigésima quinta pasada — Directorio Red Dimension (nueva página, "próximamente" honesto)
+
+Creada `/pages/directorio-red-dimension` (`gid://shopify/Page/721713430873`) vía `pageCreate`, cerrando el vacío detectado en la pasada anterior. Contenido:
+
+- **Badge "Próximamente"** con punto animado (pulso suave, respeta `prefers-reduced-motion`).
+- **Estado honesto**: dice explícitamente que hoy no hay ninguna barbería certificada y que la página se irá llenando ciudad a ciudad — nada de barberías inventadas ni cifras ficticias.
+- **Tarjeta "¿Tienes una barbería?"**: enlaza a Red Dimension.
+- **Tarjeta "¿Quieres que te avisemos?"**: mini-formulario (nombre, email, ciudad) que reutiliza el mismo mecanismo nativo `/contact` de Shopify que ya validamos en Red Dimension — la ciudad se compone por JS dentro de `contact[body]` antes de enviar (el endpoint nativo solo reconoce name/email/phone/body, así que no hay un campo "ciudad" propio en Shopify). Mismo patrón de confirmación con `sessionStorage` que ya usamos antes.
+
+Este formulario le da a Malo una señal real de demanda por ciudad — quién está esperando qué barbería, en qué sitio — antes incluso de tener una barbería certificada.
+
+**Enlazado desde los dos puntos que lo mencionaban sin apuntar a ningún sitio**: la frase "directorio de Red Dimension" en el punto 6 de Red Dimension, y la línea de cierre del bloque nuevo de viajeros en Sello Dimension. Añadida también al menú de footer (entre Red Dimension y Sello Dimension) para que sea localizable sin depender solo de esos enlaces cruzados.
+
 ## Preguntas guardadas para cuando vuelvas
 
 1. El logo del sol real, ya con el efecto metálico animado definitivo (más los últimos ajustes de header/firma/transición), está solo en el tema en borrador (204158861657) — dime cuándo quieres que lo lleve también al tema en vivo (204773130585, "Copia de...").
