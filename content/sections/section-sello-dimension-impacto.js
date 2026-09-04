@@ -11,22 +11,32 @@
       var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
       stages.forEach(function (stage) {
-        var played = false;
+        var everPlayed = false;
+
+        /* Reinicia la animación de verdad (quitar+añadir la misma clase no
+           basta: hace falta forzar un reflow entre medias para que el
+           navegador la vuelva a reproducir desde el principio). */
         function play() {
-          if (played) return;
-          played = true;
-          stage.classList.add('sd2-play');
+          everPlayed = true;
+          stage.classList.remove('sd2-play');
+          void stage.offsetWidth;
+          requestAnimationFrame(function () {
+            stage.classList.add('sd2-play');
+          });
+        }
+        function reset() {
+          stage.classList.remove('sd2-play');
         }
 
         if (reduceMotion || !('IntersectionObserver' in window)) {
-          play();
+          stage.classList.add('sd2-play');
           return;
         }
 
-        /* Red de seguridad: si el observer nunca dispara en esta página real
-           (cabecera sticky, barra de anuncios y demás complejidad que una
-           prueba aislada no reproduce), el contenido no se queda invisible
-           para siempre — se revela igualmente a los 4s. */
+        /* Red de seguridad SOLO para el primer disparo: si el observer nunca
+           llega a marcar la sección como visible (cabecera sticky, barra de
+           anuncios y demás complejidad que una prueba aislada no reproduce),
+           el contenido no se queda invisible para siempre. */
         var safety = setTimeout(play, 4000);
 
         try {
@@ -36,7 +46,10 @@
                 if (entry.isIntersecting) {
                   clearTimeout(safety);
                   play();
-                  observer.unobserve(entry.target);
+                } else if (everPlayed) {
+                  /* Se sale de la vista: se reinicia para que el efecto se
+                     reproduzca de nuevo la próxima vez que entre. */
+                  reset();
                 }
               });
             },

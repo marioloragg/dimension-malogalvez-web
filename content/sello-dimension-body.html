@@ -1,7 +1,8 @@
 <script>
 (function () {
   try {
-    if (!sessionStorage.getItem('sd_intro_seen')) {
+    var forceSkip = /[?&]intro=0(&|$)/.test(window.location.search);
+    if (!forceSkip) {
       document.documentElement.classList.add('sd-intro-pending');
     }
   } catch (e) {}
@@ -102,13 +103,13 @@
 
   var params = null;
   try { params = new URLSearchParams(window.location.search); } catch (e) {}
-  var forcePlay = !!(params && params.get('intro') === '1');
   var forceSkip = !!(params && params.get('intro') === '0');
 
-  var seen;
-  try { seen = sessionStorage.getItem('sd_intro_seen'); } catch (e) { seen = '1'; }
-  if (forcePlay) seen = null;
-  if (forceSkip) seen = '1';
+  /* Se reproduce siempre, en cada visita — antes solo la primera vez por
+     sesión de navegador (sessionStorage), lo que llevaba a pensar que
+     estaba rota tras recargar varias veces. ?intro=0 sigue permitiendo
+     saltarla a propósito. */
+  var seen = forceSkip;
 
   var revealed = false;
   function revealDoc() {
