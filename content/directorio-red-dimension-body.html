@@ -1,0 +1,158 @@
+<div class="dr-doc">
+
+<div class="dr-badge"><span class="dr-dot"></span> Próximamente</div>
+
+<p><strong>El directorio, en construcción.</strong></p>
+<p>Red Dimension acaba de empezar: todavía no hay ninguna barbería certificada. Este directorio se irá llenando ciudad a ciudad, según se vayan sumando barberías reales — no de golpe, y no antes de que lo sean de verdad.</p>
+<p>Cuando una barbería complete el proceso descrito en <a href="/pages/red-dimension">Red Dimension</a>, aparecerá aquí con su ciudad. Hasta entonces, esta página se queda tal cual: sin inventar barberías que todavía no existen.</p>
+
+<div class="dr-grid">
+
+  <div class="dr-card">
+    <h2>¿Tienes una barbería?</h2>
+    <p>Las condiciones reales para sumarte a la red — requisitos, revisión, qué recibe tu barbería — están en <a href="/pages/red-dimension">Red Dimension</a>.</p>
+    <a class="dr-link" href="/pages/red-dimension">Ver condiciones →</a>
+  </div>
+
+  <div class="dr-card">
+    <h2>¿Quieres que te avisemos?</h2>
+    <p>Déjanos tu ciudad y te escribimos en cuanto haya una barbería Dimension cerca — sin listas de espera falsas, solo cuando sea real.</p>
+
+    <form id="dir-notify-form" class="dr-form" method="post" action="/contact#dir-notify-form" accept-charset="UTF-8">
+      <input type="hidden" name="form_type" value="contact">
+      <input type="hidden" name="utf8" value="&#10003;">
+      <input type="hidden" id="dir-body" name="contact[body]" value="">
+      <div class="dr-field">
+        <label for="dir-name">Nombre</label>
+        <input id="dir-name" type="text" name="contact[name]" required>
+      </div>
+      <div class="dr-field">
+        <label for="dir-email">Email</label>
+        <input id="dir-email" type="email" name="contact[email]" required>
+      </div>
+      <div class="dr-field">
+        <label for="dir-city">Tu ciudad</label>
+        <input id="dir-city" type="text" required>
+      </div>
+      <button type="submit" class="dr-submit">Avísame</button>
+    </form>
+
+    <div id="dir-notify-thanks" class="dr-thanks" hidden>
+      <p>Hecho — cuando haya una barbería Dimension en tu ciudad, te escribimos.</p>
+    </div>
+  </div>
+
+</div>
+
+</div>
+
+<script>
+(function () {
+  var form = document.getElementById('dir-notify-form');
+  var thanks = document.getElementById('dir-notify-thanks');
+  var bodyField = document.getElementById('dir-body');
+  var cityField = document.getElementById('dir-city');
+  if (!form || !thanks) return;
+
+  try {
+    if (sessionStorage.getItem('dir_notify_sent') === '1') {
+      form.hidden = true;
+      thanks.hidden = false;
+      sessionStorage.removeItem('dir_notify_sent');
+    }
+  } catch (e) {}
+
+  form.addEventListener('submit', function () {
+    if (bodyField && cityField) {
+      bodyField.value = 'Aviso de directorio Red Dimension. Ciudad: ' + cityField.value;
+    }
+    try { sessionStorage.setItem('dir_notify_sent', '1'); } catch (e) {}
+  });
+})();
+</script>
+
+<style>
+.dr-doc { max-width: 820px; }
+
+.dr-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #c9cad0;
+  border: 1px solid rgba(255,255,255,0.2);
+  padding: 0.35rem 0.8rem;
+  margin-bottom: 1.4rem;
+}
+.dr-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #9a9ba1;
+  animation: dr-pulse 1.8s ease-in-out infinite;
+}
+@keyframes dr-pulse {
+  0%, 100% { opacity: 0.35; transform: scale(0.85); }
+  50% { opacity: 1; transform: scale(1); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .dr-dot { animation: none; opacity: 1; }
+}
+
+.dr-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-top: 2.2rem;
+}
+.dr-card {
+  padding: 1.5rem;
+  border: 1px solid rgba(255,255,255,0.14);
+  background: rgba(255,255,255,0.03);
+}
+.dr-card h2 { margin-top: 0; }
+.dr-card p { color: #c9cad0; }
+.dr-link {
+  display: inline-block;
+  margin-top: 0.6rem;
+  color: inherit;
+  border-bottom: 1px solid currentColor;
+}
+
+.dr-form { display: flex; flex-direction: column; gap: 0.8rem; margin-top: 1rem; }
+.dr-field { display: flex; flex-direction: column; gap: 0.3rem; }
+.dr-form label { font-size: 0.85rem; letter-spacing: 0.02em; color: #c9cad0; }
+.dr-form input {
+  background: rgba(0,0,0,0.25);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: inherit;
+  padding: 0.55rem 0.65rem;
+  font: inherit;
+}
+.dr-form input:focus { outline: 1px solid #c9cad0; }
+.dr-submit {
+  align-self: flex-start;
+  padding: 0.65rem 1.4rem;
+  background: #75767B;
+  color: #0B0B0C;
+  border: none;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+}
+.dr-submit:hover { background: #9a9ba1; }
+
+.dr-thanks {
+  margin-top: 1rem;
+  padding: 1rem 1.2rem;
+  border: 1px solid rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.03);
+}
+.dr-thanks p { margin: 0; }
+
+@media (max-width: 640px) {
+  .dr-grid { grid-template-columns: 1fr; }
+}
+</style>

@@ -1,0 +1,143 @@
+{%- comment -%}
+  Estrella cromada animada — Dimension by Malo Gálvez
+  Sustituye visualmente el logo (settings.logo) por una estrella dibujada
+  en SVG (rayos + círculo), con un degradado metálico de 8 tonos de gris
+  que gira de forma continua mediante SMIL (animateTransform).
+
+  Por qué vectorial y no el JPG del logo: el archivo JPG original tiene
+  ruido de compresión en el fondo que impedía aislar limpiamente la
+  silueta de la estrella con máscaras o mezclas CSS (mix-blend-mode) —
+  cualquier técnica basada en ese archivo terminaba mostrando un
+  rectángulo visible. Al dibujar la estrella con código no existe ningún
+  archivo rectangular de por medio, así que es imposible que aparezca.
+
+  Uso: colocar en snippets/dimension-logo-fix.liquid y renderizar con
+  {% render 'dimension-logo-fix' %} dentro de <head> (ya está enganchado
+  en layout/theme.liquid y layout/password.liquid). Requiere que el
+  contenedor real del logo tenga la clase .header__heading-logo-wrapper
+  (ya aplicado en sections/header.liquid y sections/main-password-header.liquid).
+{%- endcomment -%}
+
+{%- if settings.logo != blank -%}
+<style>
+  .header__heading-logo-wrapper {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .header__heading-logo-wrapper img.header__heading-logo {
+    visibility: hidden; /* el JPG original se mantiene en el DOM (alt/SEO) pero no se ve */
+  }
+  .dimension-chrome-star {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .dimension-chrome-star animateTransform {
+      display: none;
+    }
+  }
+</style>
+<script>
+  (function () {
+    function dimensionBuildStar() {
+      var ns = "http://www.w3.org/2000/svg";
+      document.querySelectorAll(".header__heading-logo-wrapper").forEach(function (wrapper, idx) {
+        if (wrapper.querySelector(".dimension-chrome-star")) return;
+        var gradId = "dimension-chrome-grad-" + idx;
+
+        var svg = document.createElementNS(ns, "svg");
+        svg.setAttribute("class", "dimension-chrome-star");
+        svg.setAttribute("viewBox", "0 0 100 100");
+
+        // Degradado metálico animado (gira 360º cada 9s)
+        var defs = document.createElementNS(ns, "defs");
+        var grad = document.createElementNS(ns, "linearGradient");
+        grad.setAttribute("id", gradId);
+        grad.setAttribute("gradientUnits", "objectBoundingBox");
+        grad.setAttribute("x1", "0");
+        grad.setAttribute("y1", "0");
+        grad.setAttribute("x2", "1");
+        grad.setAttribute("y2", "1");
+        var stops = [
+          ["0%", "#3a3a3d"], ["14%", "#eceae6"], ["28%", "#55565b"], ["42%", "#f7f6f3"],
+          ["56%", "#6f7176"], ["70%", "#dcdde0"], ["84%", "#2c2d30"], ["100%", "#c7c9cd"]
+        ];
+        stops.forEach(function (s) {
+          var stop = document.createElementNS(ns, "stop");
+          stop.setAttribute("offset", s[0]);
+          stop.setAttribute("stop-color", s[1]);
+          grad.appendChild(stop);
+        });
+        var anim = document.createElementNS(ns, "animateTransform");
+        anim.setAttribute("attributeName", "gradientTransform");
+        anim.setAttribute("type", "rotate");
+        anim.setAttribute("from", "0 0.5 0.5");
+        anim.setAttribute("to", "360 0.5 0.5");
+        anim.setAttribute("dur", "9s");
+        anim.setAttribute("repeatCount", "indefinite");
+        grad.appendChild(anim);
+        defs.appendChild(grad);
+        svg.appendChild(defs);
+
+        // Geometría de la estrella: anillo + 16 rayos alternos + círculo central + punto
+        var g = document.createElementNS(ns, "g");
+        g.setAttribute("fill", "none");
+        g.setAttribute("stroke", "url(#" + gradId + ")");
+        g.setAttribute("stroke-width", "3");
+        g.setAttribute("stroke-linecap", "round");
+
+        var circle = document.createElementNS(ns, "circle");
+        circle.setAttribute("cx", "50");
+        circle.setAttribute("cy", "50");
+        circle.setAttribute("r", "46");
+        circle.setAttribute("stroke-width", "1.5");
+        g.appendChild(circle);
+
+        var n = 16, cx = 50, cy = 50, rInner = 13;
+        for (var i = 0; i < n; i++) {
+          var a = (i / n) * Math.PI * 2 - Math.PI / 2;
+          var len = (i % 2 === 0) ? 32 : 20; // rayos largos/cortos alternos
+          var x1 = cx + Math.cos(a) * rInner;
+          var y1 = cy + Math.sin(a) * rInner;
+          var x2 = cx + Math.cos(a) * (rInner + len);
+          var y2 = cy + Math.sin(a) * (rInner + len);
+          var line = document.createElementNS(ns, "line");
+          line.setAttribute("x1", x1);
+          line.setAttribute("y1", y1);
+          line.setAttribute("x2", x2);
+          line.setAttribute("y2", y2);
+          g.appendChild(line);
+        }
+
+        var inner = document.createElementNS(ns, "circle");
+        inner.setAttribute("cx", "50");
+        inner.setAttribute("cy", "50");
+        inner.setAttribute("r", "10");
+        inner.setAttribute("stroke-width", "2");
+        g.appendChild(inner);
+
+        var dot = document.createElementNS(ns, "circle");
+        dot.setAttribute("cx", "50");
+        dot.setAttribute("cy", "50");
+        dot.setAttribute("r", "2");
+        dot.setAttribute("fill", "url(#" + gradId + ")");
+        dot.setAttribute("stroke", "none");
+        g.appendChild(dot);
+
+        svg.appendChild(g);
+        wrapper.appendChild(svg);
+      });
+    }
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", dimensionBuildStar);
+    } else {
+      dimensionBuildStar();
+    }
+  })();
+</script>
+{%- endif -%}

@@ -1,0 +1,213 @@
+.sello-dimension-impacto-section .sd2-stage {
+  position: relative;
+  overflow: visible;
+  text-align: center;
+}
+
+.sello-dimension-impacto-section .sd2-content {
+  position: relative;
+  z-index: 1;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.sello-dimension-impacto-section .sd2-content > * {
+  margin-top: 0;
+  margin-bottom: 1.1rem;
+}
+.sello-dimension-impacto-section .sd2-content > *:last-child {
+  margin-bottom: 0;
+}
+
+/* Título / subtítulo: jerarquía deliberadamente marcada, no sutil. */
+.sello-dimension-impacto-section .sd2-title {
+  font-family: var(--font-heading-family);
+  font-style: var(--font-heading-style);
+  font-weight: 700;
+  font-size: clamp(2.6rem, 3rem + 2vw, 4.6rem);
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.9rem;
+}
+
+.sello-dimension-impacto-section .sd2-subtitle {
+  font-family: var(--font-body-family);
+  font-style: normal;
+  font-weight: 400;
+  font-size: clamp(1rem, 0.85rem + 0.4vw, 1.15rem);
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: rgba(var(--color-foreground), 0.62);
+  margin-top: 0;
+  margin-bottom: 2.2rem;
+}
+
+.sello-dimension-impacto-section .sd2-text {
+  color: rgba(var(--color-foreground), 0.78);
+}
+.sello-dimension-impacto-section .sd2-text p {
+  margin: 0 0 1rem;
+}
+.sello-dimension-impacto-section .sd2-text p:last-child {
+  margin-bottom: 0;
+}
+
+.sello-dimension-impacto-section .sd2-cta {
+  margin-top: 1.6rem;
+}
+
+/* Proyectil / flash / onda: elementos decorativos, siempre <span>
+   (nunca <div>) — el tema oculta con display:none cualquier <div> sin
+   contenido ("div:empty" en base.css) pero esa regla no afecta a span.
+   display:block !important es un respaldo adicional por si acaso. */
+.sello-dimension-impacto-section .sd2-projectile,
+.sello-dimension-impacto-section .sd2-flash,
+.sello-dimension-impacto-section .sd2-shockwave {
+  display: block !important;
+  position: absolute;
+  left: 50%;
+  top: 0;
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.sello-dimension-impacto-section .sd2-projectile {
+  width: 30px;
+  height: 30px;
+  margin-left: -15px;
+  margin-top: -15px;
+  background: radial-gradient(circle, #ffffff 0%, #d8d9dc 35%, #9a9ba1 70%, rgba(154, 155, 161, 0) 100%);
+  mix-blend-mode: screen;
+  transform: translateY(-7rem) scale(0.35);
+  z-index: 3;
+  will-change: transform, opacity;
+}
+
+.sello-dimension-impacto-section .sd2-flash {
+  width: 64px;
+  height: 64px;
+  margin-left: -32px;
+  margin-top: -32px;
+  background: radial-gradient(circle, #ffffff 0%, #e6e7eb 30%, rgba(196, 197, 201, 0.45) 62%, rgba(196, 197, 201, 0) 100%);
+  mix-blend-mode: screen;
+  transform: scale(0.2);
+  z-index: 2;
+  will-change: transform, opacity;
+}
+
+.sello-dimension-impacto-section .sd2-shockwave {
+  width: 120px;
+  height: 120px;
+  margin-left: -60px;
+  margin-top: -60px;
+  border: 2px solid rgba(216, 217, 220, 0.85);
+  box-shadow: 0 0 16px rgba(216, 217, 220, 0.35);
+  mix-blend-mode: screen;
+  transform: scale(0.1);
+  z-index: 2;
+  will-change: transform, opacity;
+}
+
+/* Estado oculto por defecto: SOLO cuando el JS de esta sección ha
+   arrancado de verdad (añade html.sd2-js en su primera línea). Si el
+   script no llega a ejecutarse por lo que sea, el contenido nunca se
+   oculta — visible por defecto, nunca al revés. */
+html.sd2-js .sello-dimension-impacto-section .sd2-content > * {
+  opacity: 0;
+  transform: translateY(14px);
+}
+
+.sello-dimension-impacto-section .sd2-stage.sd2-play .sd2-projectile {
+  animation: sd2-fall 0.38s cubic-bezier(0.55, 0.05, 0.9, 0.45) forwards;
+}
+
+.sello-dimension-impacto-section .sd2-stage.sd2-play .sd2-flash {
+  animation: sd2-flash-burst 0.32s ease-out 0.36s forwards;
+}
+
+.sello-dimension-impacto-section .sd2-stage.sd2-play .sd2-shockwave {
+  animation: sd2-shock-burst 0.42s cubic-bezier(0.16, 1, 0.3, 1) 0.36s forwards;
+}
+
+.sello-dimension-impacto-section .sd2-stage.sd2-play .sd2-content > * {
+  animation: sd2-reveal 0.42s cubic-bezier(0.22, 1, 0.36, 1) 0.36s forwards;
+}
+
+@keyframes sd2-fall {
+  0% {
+    opacity: 0;
+    transform: translateY(-7rem) scale(0.35);
+  }
+  20% {
+    opacity: 1;
+  }
+  82% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  100% {
+    /* Se consume en el flash del impacto en vez de quedarse flotando. */
+    opacity: 0;
+    transform: translateY(0) scale(1.15);
+  }
+}
+
+@keyframes sd2-flash-burst {
+  0% {
+    opacity: 0;
+    transform: scale(0.2);
+  }
+  25% {
+    opacity: 0.95;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(2.4);
+  }
+}
+
+@keyframes sd2-shock-burst {
+  0% {
+    opacity: 0.85;
+    transform: scale(0.1);
+  }
+  35% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(3);
+  }
+}
+
+@keyframes sd2-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sello-dimension-impacto-section .sd2-projectile,
+  .sello-dimension-impacto-section .sd2-flash,
+  .sello-dimension-impacto-section .sd2-shockwave {
+    display: none !important;
+  }
+  html.sd2-js .sello-dimension-impacto-section .sd2-content > * {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media screen and (max-width: 749px) {
+  .sello-dimension-impacto-section .sd2-content {
+    max-width: 100%;
+  }
+}

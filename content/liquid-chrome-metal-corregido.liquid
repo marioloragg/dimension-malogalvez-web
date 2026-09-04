@@ -1,0 +1,265 @@
+{% comment %}
+  ------------------------------------------------------------------
+  Liquid Chrome Metal Effect (v3 — corregido)
+  ------------------------------------------------------------------
+  Sección de Shopify (theme section) que aplica un efecto de metal
+  líquido / cromado (base gris claro) a un texto o a una imagen con
+  transparencia (por ejemplo el logo/estrella con fondo transparente).
+
+  Cómo funciona:
+  - Se genera un gradiente animado con varios tonos de gris (sombra,
+    gris base, brillo casi blanco) que se desplaza en bucle.
+  - En modo "texto": el gradiente se recorta al texto con
+    background-clip: text.
+  - En modo "imagen": el gradiente se recorta a la silueta de la
+    imagen (debe tener fondo transparente) usando mask-image, así
+    que el metal líquido "fluye" dentro de la forma del logo.
+
+  v2: el mask-image se escribe directo en el atributo style (sin
+  pasar por una custom property) y la sombra (drop-shadow) se aplica
+  en un contenedor aparte, separado del elemento enmascarado/recortado.
+  Combinar filter + mask/background-clip en el MISMO elemento hace
+  que Safari lo renderice invisible.
+
+  v3 — CORRECCIÓN DEL BUG "en blanco dentro del personalizador":
+  En modo imagen, el contenedor con el mask-image no tenía ningún
+  ancho absoluto — dependía de `width: 100%` (un porcentaje) sobre
+  un padre flex. Si esa cadena de contenedores no resuelve un ancho
+  real a tiempo (algo que pasa dentro de la estructura del
+  personalizador de temas de Shopify, pero no en una página de
+  prueba aislada), el 100% se convierte en 0, `aspect-ratio` calcula
+  una altura de 0 sobre esa base, y el elemento desaparece aunque su
+  mask-image y su aspect-ratio computados sean correctos.
+  Solución: ancho fijo en px como base (inmune al padre), con
+  max-width en % solo como límite para pantallas pequeñas, y
+  `flex: none` para que flexbox no intente encogerlo. Además se
+  añade un min-height de seguridad por si aspect-ratio fallara por
+  cualquier otro motivo (imagen sin metadatos aún, por ejemplo).
+
+  Instalación (tema Shopify):
+  1) Guarda este archivo como  sections/liquid-chrome-metal.liquid
+  2) En el editor de temas, usa "Añadir sección" (no "Añadir bloque")
+     dentro del cuerpo de la plantilla que estés editando (home,
+     página...) — no dentro del grupo de Encabezado ni de Pie de
+     página, salvo que quieras que se repita en toda la web.
+  3) Configura el modo (texto/imagen), el texto o la imagen, y los
+     tonos de gris/velocidad desde el panel de ajustes.
+  ------------------------------------------------------------------
+{% endcomment %}
+
+{%- liquid
+  assign mode = section.settings.mode
+  assign chrome_text = section.settings.text | default: 'CHROME'
+  assign chrome_image = section.settings.image
+  assign color_shadow = section.settings.color_shadow
+  assign color_base = section.settings.color_base
+  assign color_light = section.settings.color_light
+  assign color_highlight = section.settings.color_highlight
+  assign speed = section.settings.speed | default: 6
+  assign angle = section.settings.angle | default: 110
+  assign max_width = section.settings.max_width | default: 480
+  assign show_image = false
+  if mode == 'image' and chrome_image != blank
+    assign show_image = true
+    assign image_src = chrome_image | image_url: width: 1600
+    assign image_ratio = chrome_image.aspect_ratio | default: 1
+  endif
+-%}
+
+<div class="liquid-chrome-metal" style="--lcm-speed: {{ speed }}s; --lcm-angle: {{ angle }}deg;">
+  <div class="lcm-shadow-wrap">
+    {%- if show_image -%}
+      <div
+        class="lcm-surface lcm-surface--image"
+        style="width: {{ max_width }}px; max-width: 100%; aspect-ratio: {{ image_ratio }}; -webkit-mask-image: url('{{ image_src }}'); mask-image: url('{{ image_src }}');"
+        role="img"
+        aria-label="{{ chrome_image.alt | default: chrome_text | escape }}"
+      ></div>
+    {%- else -%}
+      <span class="lcm-surface lcm-surface--text" style="max-width: {{ max_width }}px;">{{ chrome_text }}</span>
+    {%- endif -%}
+  </div>
+</div>
+
+{% style %}
+  .liquid-chrome-metal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 3rem 1rem;
+    background: {{ section.settings.bg_color | default: '#111114' }};
+  }
+
+  /* La sombra vive en su propio contenedor: nunca en el mismo
+     elemento que el mask-image o el background-clip: text. */
+  .lcm-shadow-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.35));
+  }
+
+  .lcm-surface {
+    --lcm-gradient: linear-gradient(
+      var(--lcm-angle),
+      {{ color_shadow | default: '#6d6e72' }} 0%,
+      {{ color_base | default: '#a9aaae' }} 22%,
+      {{ color_light | default: '#e3e4e6' }} 40%,
+      {{ color_highlight | default: '#ffffff' }} 50%,
+      {{ color_light | default: '#e3e4e6' }} 60%,
+      {{ color_base | default: '#a9aaae' }} 78%,
+      {{ color_shadow | default: '#6d6e72' }} 100%
+    );
+    background-image: var(--lcm-gradient);
+    background-size: 250% 250%;
+    background-position: 0% 50%;
+    animation: lcm-flow var(--lcm-speed) ease-in-out infinite;
+  }
+
+  /* --- Modo texto: el gradiente se recorta a las letras --- */
+  .lcm-surface--text {
+    font-family: inherit;
+    font-weight: 800;
+    font-size: clamp(2.5rem, 8vw, 6rem);
+    line-height: 1;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    text-align: center;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* --- Modo imagen: el gradiente se recorta a la silueta del PNG ---
+     Ancho fijo en px (no % ) para que sea inmune a que el padre no
+     resuelva un ancho a tiempo dentro del personalizador de temas.
+     flex: none evita que flexbox intente encogerlo por su cuenta. */
+  .lcm-surface--image {
+    display: block;
+    flex: none;
+    min-height: 120px; /* red de seguridad si aspect-ratio fallara */
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    -webkit-mask-position: center;
+    mask-position: center;
+  }
+
+  @keyframes lcm-flow {
+    0%   { background-position: 0% 50%; }
+    50%  { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .lcm-surface {
+      animation: none;
+      background-position: 35% 50%;
+    }
+  }
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "Liquid Chrome Metal",
+  "settings": [
+    {
+      "type": "select",
+      "id": "mode",
+      "label": "Modo",
+      "options": [
+        { "value": "text", "label": "Texto" },
+        { "value": "image", "label": "Imagen (PNG con fondo transparente)" }
+      ],
+      "default": "text"
+    },
+    {
+      "type": "text",
+      "id": "text",
+      "label": "Texto (modo texto)",
+      "default": "CHROME"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Imagen (modo imagen, PNG con fondo transparente)"
+    },
+    {
+      "type": "header",
+      "content": "Colores del degradado metálico"
+    },
+    {
+      "type": "color",
+      "id": "color_shadow",
+      "label": "Sombra",
+      "default": "#6d6e72"
+    },
+    {
+      "type": "color",
+      "id": "color_base",
+      "label": "Gris base",
+      "default": "#a9aaae"
+    },
+    {
+      "type": "color",
+      "id": "color_light",
+      "label": "Gris claro",
+      "default": "#e3e4e6"
+    },
+    {
+      "type": "color",
+      "id": "color_highlight",
+      "label": "Brillo",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Fondo de la sección",
+      "default": "#111114"
+    },
+    {
+      "type": "header",
+      "content": "Animación y tamaño"
+    },
+    {
+      "type": "range",
+      "id": "speed",
+      "label": "Velocidad (segundos por ciclo)",
+      "min": 2,
+      "max": 20,
+      "step": 1,
+      "default": 6
+    },
+    {
+      "type": "range",
+      "id": "angle",
+      "label": "Ángulo del degradado",
+      "min": 0,
+      "max": 180,
+      "step": 5,
+      "unit": "°",
+      "default": 110
+    },
+    {
+      "type": "range",
+      "id": "max_width",
+      "label": "Ancho máximo",
+      "min": 200,
+      "max": 900,
+      "step": 20,
+      "unit": "px",
+      "default": 480
+    }
+  ],
+  "presets": [
+    {
+      "name": "Liquid Chrome Metal"
+    }
+  ]
+}
+{% endschema %}
