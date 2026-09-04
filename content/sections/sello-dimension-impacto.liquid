@@ -1,0 +1,170 @@
+{{ 'section-sello-dimension-impacto.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+{%- liquid
+  assign text_blocks = section.blocks | where: 'type', 'text'
+  assign button_blocks = section.blocks | where: 'type', 'button'
+-%}
+
+<div class="color-{{ section.settings.color_scheme }} gradient">
+  <div class="sd2-stage section-{{ section.id }}-padding{% if section.settings.full_width %} page-width page-width--full{% else %} page-width page-width--narrow{% endif %}"
+    data-sd2-stage
+  >
+    <span class="sd2-projectile" aria-hidden="true"></span>
+    <span class="sd2-flash" aria-hidden="true"></span>
+    <span class="sd2-shockwave" aria-hidden="true"></span>
+
+    <div class="sd2-content">
+      {% if section.settings.heading != blank %}
+        <h2 class="sd2-title">{{ section.settings.heading }}</h2>
+      {% endif %}
+      {% if section.settings.subheading != blank %}
+        <p class="sd2-subtitle">{{ section.settings.subheading }}</p>
+      {% endif %}
+
+      {% for block in text_blocks %}
+        <div class="sd2-text" {{ block.shopify_attributes }}>{{ block.settings.text }}</div>
+      {% endfor %}
+
+      {% if button_blocks.size > 0 %}
+        <div class="sd2-cta">
+          {% for block in button_blocks %}
+            {% if block.settings.button_label != blank %}
+              <a
+                {% if block.settings.button_link == blank %}role="link" aria-disabled="true"{% else %}href="{{ block.settings.button_link }}"{% endif %}
+                class="button{% if block.settings.button_style_secondary %} button--secondary{% else %} button--primary{% endif %}"
+                {{ block.shopify_attributes }}
+              >
+                {{ block.settings.button_label }}
+              </a>
+            {% endif %}
+          {% endfor %}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+<script src="{{ 'section-sello-dimension-impacto.js' | asset_url }}" defer="defer"></script>
+
+{% schema %}
+{
+  "name": "Sello Dimension (impacto)",
+  "tag": "section",
+  "class": "section sello-dimension-impacto-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Título y subtítulo"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Título",
+      "default": "Sello Dimensión"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subtítulo",
+      "default": "La estrella que cae en cada barbería donde enseñamos"
+    },
+    {
+      "type": "header",
+      "content": "Estilo"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Esquema de color",
+      "default": "scheme-2"
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "Ancho completo",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Espacio superior",
+      "default": 72
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Espacio inferior",
+      "default": 72
+    }
+  ],
+  "blocks": [
+    {
+      "type": "text",
+      "name": "Texto",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Contenido",
+          "default": "<p>Texto de la sección.</p>"
+        }
+      ]
+    },
+    {
+      "type": "button",
+      "name": "Botón",
+      "settings": [
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Texto del botón",
+          "default": "Sumar mi barbería"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Enlace"
+        },
+        {
+          "type": "checkbox",
+          "id": "button_style_secondary",
+          "label": "Estilo secundario",
+          "default": true
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Sello Dimension (impacto)",
+      "blocks": [
+        { "type": "text" },
+        { "type": "text" },
+        { "type": "button" }
+      ]
+    }
+  ]
+}
+{% endschema %}

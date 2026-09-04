@@ -1,0 +1,338 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "hero": {
+      "type": "rich-text",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "La huella que dejas no se corta. Se construye.",
+            "heading_size": "hxl"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Un espacio de paz, confianza y valor personal para quien se sienta en el sillón — y un itinerario de mentoría para quien sostiene la navaja.</p>"
+          }
+        },
+        "button_1": {
+          "type": "button",
+          "settings": {
+            "button_label": "Entrar a MaloShop",
+            "button_link": "/collections/all",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        },
+        "button_2": {
+          "type": "button",
+          "settings": {
+            "button_label": "Ver la mentoría",
+            "button_link": "/pages/formacion",
+            "button_style_secondary": true,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading",
+        "text",
+        "button_1",
+        "button_2"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-1",
+        "full_width": true,
+        "padding_top": 100,
+        "padding_bottom": 100
+      }
+    },
+    "manifiesto": {
+      "type": "rich-text",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "No cortamos el pelo. Dejamos una huella que el cliente se lleva puesta.",
+            "heading_size": "h1"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Cada barbería que entra en Dimension pasa por el mismo diagnóstico morfológico antes de tocar una herramienta. El resultado no es un peinado: es una versión más segura de la persona que entró.</p>"
+          }
+        },
+        "button": {
+          "type": "button",
+          "settings": {
+            "button_label": "Leer el Sello Dimension",
+            "button_link": "/pages/sello-dimension",
+            "button_style_secondary": true,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading",
+        "text",
+        "button"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-3",
+        "full_width": true,
+        "padding_top": 72,
+        "padding_bottom": 52
+      }
+    },
+    "tres_puertas": {
+      "type": "multicolumn",
+      "blocks": {
+        "col_formacion": {
+          "type": "column",
+          "settings": {
+            "title": "Formación & Mentoría",
+            "text": "<p>Itinerarios junior y experto en Arquitectura Capilar. Mentoría directa, ciudad por ciudad, para barberos que quieren dejar su propia huella.</p>",
+            "link_label": "Ver itinerarios",
+            "link": "/pages/formacion"
+          }
+        },
+        "col_tienda": {
+          "type": "column",
+          "settings": {
+            "title": "MaloShop",
+            "text": "<p>Herramientas profesionales, cuidado de sillón y ritual para casa — las tres líneas que sostienen cada diagnóstico.</p>",
+            "link_label": "Ver catálogo",
+            "link": "/collections/all"
+          }
+        },
+        "col_red": {
+          "type": "column",
+          "settings": {
+            "title": "Red Dimension",
+            "text": "<p>El sello que distingue a las barberías que se forman con nosotros. Un estándar, no una franquicia.</p>",
+            "link_label": "Sumar mi barbería",
+            "link": "/pages/red-dimension"
+          }
+        }
+      },
+      "block_order": [
+        "col_formacion",
+        "col_tienda",
+        "col_red"
+      ],
+      "settings": {
+        "title": "Tres puertas, una misma huella",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "square",
+        "button_label": "",
+        "button_link": "",
+        "columns_desktop": 3,
+        "column_alignment": "center",
+        "background_style": "none",
+        "color_scheme": "scheme-2",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "huella": {
+      "type": "rich-text",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Sales siendo otra persona",
+            "heading_size": "h1"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>No es una frase de marketing: es el criterio con el que diagnosticamos cada morfología antes de decidir una sola línea de corte. La paz llega cuando el resultado encaja con quién eres, no con la tendencia del mes.</p><p>Por eso cada barbería Dimension repite el mismo ritual: diagnóstico, ejecución, y un cierre pensado para que el cliente salga en calma.</p>"
+          }
+        },
+        "button": {
+          "type": "button",
+          "settings": {
+            "button_label": "Conocer el criterio",
+            "button_link": "/pages/sello-dimension",
+            "button_style_secondary": true,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading",
+        "text",
+        "button"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-5",
+        "full_width": true,
+        "padding_top": 72,
+        "padding_bottom": 72
+      }
+    },
+    "sello": {
+      "type": "sello-dimension-impacto",
+      "blocks": {
+        "text_1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Dimension no es una tienda de productos ni una escuela más: es el estándar que una barbería adopta cuando decide formar parte de la red. No se compra un producto — se pertenece a algo que ya funciona.</p>"
+          }
+        },
+        "text_2": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>01 — El diagnóstico.</strong> Antes de tocar una herramienta, se entiende la morfología de quien se sienta.<br><strong>02 — La atención.</strong> El mismo nivel de cuidado, en cualquier ciudad donde llegue la mentoría.<br><strong>03 — La paz.</strong> El cliente sale sintiéndose otra persona, no solo mejor peinado.</p>"
+          }
+        },
+        "button": {
+          "type": "button",
+          "settings": {
+            "button_label": "Sumar mi barbería",
+            "button_link": "/pages/red-dimension",
+            "button_style_secondary": true
+          }
+        }
+      },
+      "block_order": [
+        "text_1",
+        "text_2",
+        "button"
+      ],
+      "settings": {
+        "heading": "Sello Dimensión",
+        "subheading": "La estrella que cae en cada barbería donde enseñamos",
+        "color_scheme": "scheme-2",
+        "full_width": true,
+        "padding_top": 72,
+        "padding_bottom": 72
+      }
+    },
+    "tienda_teaser": {
+      "type": "collection-list",
+      "blocks": {
+        "linea_1": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "morphological-styling"
+          }
+        },
+        "linea_2": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "clinical-grooming"
+          }
+        },
+        "linea_3": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "pro-tools-hardware"
+          }
+        }
+      },
+      "block_order": [
+        "linea_1",
+        "linea_2",
+        "linea_3"
+      ],
+      "settings": {
+        "title": "MaloShop — tres líneas, un mismo criterio",
+        "heading_size": "h1",
+        "image_ratio": "square",
+        "columns_desktop": 3,
+        "color_scheme": "scheme-1",
+        "show_view_all": false,
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "cierre": {
+      "type": "rich-text",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Un estándar, no una franquicia",
+            "heading_size": "h0"
+          }
+        },
+        "button_1": {
+          "type": "button",
+          "settings": {
+            "button_label": "Sumar mi barbería",
+            "button_link": "/pages/red-dimension",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        },
+        "button_2": {
+          "type": "button",
+          "settings": {
+            "button_label": "Reservar diagnóstico",
+            "button_link": "/pages/formacion",
+            "button_style_secondary": true,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading",
+        "button_1",
+        "button_2"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-4",
+        "full_width": true,
+        "padding_top": 100,
+        "padding_bottom": 100
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "manifiesto",
+    "tres_puertas",
+    "huella",
+    "sello",
+    "tienda_teaser",
+    "cierre"
+  ]
+}
