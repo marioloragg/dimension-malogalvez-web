@@ -392,45 +392,36 @@ a.m-item--flat {
 }
 
 /* ==========================================================================
-   Hero — layout editorial de dos columnas con scroll storytelling
-   Izquierda: reclamo fijo. Derecha: imagen + ficha que ciclan por fase.
+   Hero — bloque de texto puro, sin imágenes de producto.
+   Entrada suave (fundido + leve desplazamiento) al cargar; respeta
+   prefers-reduced-motion mostrando el contenido ya asentado.
    ========================================================================== */
 
-.hero-track {
-  position: relative;
-  height: 320vh;
-}
-@media (max-width: 760px) {
-  .hero-track { height: auto; }
-}
-
-.hero-pin {
-  position: sticky;
-  top: 0;
-  height: 100vh;
-  width: 100%;
-  overflow: hidden;
-  background: radial-gradient(120% 90% at 50% 30%, var(--c-graphite-800) 0%, var(--c-obsidian) 70%);
+.hero-simple {
+  min-height: calc(100vh - var(--nav-height));
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-@media (max-width: 760px) {
-  .hero-pin { position: relative; height: auto; min-height: 100vh; padding: calc(var(--nav-height) + 40px) 0 48px; justify-content: flex-start; }
+  align-items: center;
+  background: radial-gradient(120% 90% at 50% 30%, var(--c-graphite-800) 0%, var(--c-obsidian) 70%);
 }
 
-.hero-grid {
+.hero-simple__inner {
   width: 100%;
   max-width: 1400px;
   margin: 0 auto;
-  padding: 0 clamp(20px, 4vw, 48px);
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
-  gap: clamp(32px, 5vw, 80px);
+  padding: clamp(48px, 10vh, 96px) clamp(20px, 4vw, 48px);
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 700ms var(--ease-panel), transform 700ms var(--ease-panel);
+}
+.hero-simple__inner.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-simple__inner { opacity: 1; transform: none; transition: none; }
 }
 
-.hero-left__kicker {
+.hero-simple__kicker {
   font-family: var(--font-body);
   font-size: 0.72rem;
   letter-spacing: 0.24em;
@@ -438,196 +429,120 @@ a.m-item--flat {
   color: var(--c-metal);
   margin: 0 0 22px;
 }
-.hero-left__headline {
+.hero-simple__headline {
   font-family: var(--font-display);
   font-weight: 600;
-  font-size: clamp(2.4rem, 5vw, 4.4rem);
-  line-height: 1.08;
+  font-size: clamp(2.6rem, 7vw, 5.2rem);
+  line-height: 1.06;
   color: var(--c-chalk);
-  margin: 0 0 22px;
+  margin: 0 0 26px;
+  max-width: 16ch;
 }
-.hero-left__headline em {
+.hero-simple__headline em {
   font-style: italic;
   color: var(--c-metal-light);
 }
-.hero-left__sub {
+.hero-simple__sub {
   font-family: var(--font-body);
-  font-size: clamp(0.98rem, 1.3vw, 1.12rem);
+  font-size: clamp(1rem, 1.4vw, 1.2rem);
   color: var(--c-chalk-dim);
-  max-width: 34ch;
-  margin: 0;
+  max-width: 38ch;
+  margin: 0 0 34px;
 }
-
-.hero-right {
-  position: relative;
-}
-.hero-right__frame {
-  position: relative;
-  width: min(44vw, 540px);
-  aspect-ratio: 1 / 1;
-  margin-left: auto;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  overflow: hidden;
-}
-.hero-right__frame .shine-wrap {
-  position: absolute;
-  inset: 0;
-  opacity: 0;
-  transition: opacity 500ms var(--ease-panel);
-}
-.hero-right__frame .shine-wrap[data-hero-figure="1"] { opacity: 1; }
-.hero-right__frame .shine-wrap img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-/* Destello metálico: barrido de brillo periódico sobre las tijeras,
-   independiente del scroll-storytelling — funciona también en el
-   fallback estático. */
-.shine-wrap {
-  position: relative;
-  overflow: hidden;
-  isolation: isolate;
-}
-.shine-wrap::after {
-  content: '';
-  position: absolute;
-  inset: -20% -60%;
-  background: linear-gradient(115deg, transparent 42%, rgba(255, 255, 255, 0.5) 50%, transparent 58%);
-  transform: translateX(-140%);
-  animation: dm-shine 5s ease-in-out infinite;
-  pointer-events: none;
-}
-@keyframes dm-shine {
-  0%, 55% { transform: translateX(-140%); }
-  75% { transform: translateX(140%); }
-  100% { transform: translateX(140%); }
-}
-@media (prefers-reduced-motion: reduce) {
-  .shine-wrap::after { animation: none; display: none; }
-}
-
-.hero-right__caption {
-  position: absolute;
-  top: 60%;
-  left: 0;
-  width: min(30vw, 380px);
-  z-index: 2;
-  padding-right: 16px;
-}
-.hero-right__index {
-  font-family: var(--font-body);
-  font-size: 0.7rem;
-  letter-spacing: 0.24em;
-  text-transform: uppercase;
-  color: var(--c-metal-light);
-  margin: 0 0 10px;
-}
-.hero-right__headline {
-  font-family: var(--font-display);
-  font-weight: 500;
-  font-size: clamp(1.15rem, 1.7vw, 1.5rem);
-  line-height: 1.25;
-  color: var(--c-chalk);
-  margin: 0 0 10px;
-}
-.hero-right__sub {
-  font-family: var(--font-body);
-  font-size: 0.88rem;
-  line-height: 1.5;
-  color: var(--c-chalk-dim);
-  margin: 0;
-}
-
-.hero-bar {
-  position: absolute;
-  bottom: clamp(20px, 3.6vh, 40px);
-  left: 0;
-  right: 0;
-  display: flex;
+.hero-simple__cta {
+  display: inline-flex;
   align-items: center;
-  gap: 20px;
-  padding: 0 clamp(20px, 4vw, 48px);
-  z-index: 3;
-}
-@media (max-width: 760px) { .hero-bar { display: none; } }
-.hero-bar__cue,
-.hero-bar__count {
+  gap: 10px;
+  padding: 14px 26px;
   font-family: var(--font-body);
-  font-size: 0.7rem;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--c-metal);
-  white-space: nowrap;
+  font-size: 0.86rem;
+  letter-spacing: 0.04em;
+  font-weight: 600;
+  color: var(--c-obsidian);
+  background: var(--c-chalk);
+  transition: background 150ms var(--ease-panel), transform 150ms var(--ease-panel);
 }
-.hero-bar__line {
-  flex: 1;
-  height: 1px;
-  background: rgba(255, 255, 255, 0.14);
+.hero-simple__cta:hover,
+.hero-simple__cta:focus-visible {
+  background: var(--c-metal-light);
+  transform: translateX(2px);
 }
 
-/* Reduced-motion / static fallback: sin pin, sin scroll-jacking */
-.hero-static {
-  display: none;
-}
-.no-scrollstory .hero-track { height: auto; }
-.no-scrollstory .hero-pin { position: relative; height: auto; min-height: 0; padding: calc(var(--nav-height) + 40px) 0 48px; }
-.no-scrollstory .hero-grid,
-.no-scrollstory .hero-bar { display: none; }
-.no-scrollstory .hero-static {
-  display: grid;
-  gap: 28px;
-  width: 100%;
-  max-width: 720px;
+/* ==========================================================================
+   Profesor — presenta a Malo Gálvez como docente antes que como marca,
+   inmediatamente después del hero.
+   ========================================================================== */
+
+.professor {
+  max-width: 1400px;
   margin: 0 auto;
-  padding: 0 24px;
+  padding: clamp(64px, 10vh, 120px) clamp(20px, 4vw, 48px);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.hero-static__intro { margin-bottom: 12px; }
-.hero-static__intro .hero-left__sub { max-width: none; }
-
-.hero-static__index {
-  font-family: var(--font-body);
-  font-size: 0.68rem;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--c-metal-light);
-  margin: 0 0 6px;
-}
-
-.hero-static__card {
-  display: grid;
-  grid-template-columns: 160px 1fr;
-  gap: 20px;
-  align-items: center;
-  padding: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  background: var(--c-graphite-800);
-  opacity: 0;
-  transform: translateY(16px);
-  transition: opacity 500ms var(--ease-panel), transform 500ms var(--ease-panel);
-}
-.hero-static__card.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-@media (prefers-reduced-motion: reduce) {
-  .hero-static__card { transition: none; transform: none; }
-}
-@media (max-width: 560px) {
-  .hero-static__card { grid-template-columns: 1fr; text-align: center; }
-}
-.hero-static__card img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; }
-.hero-static__card .shine-wrap { display: block; width: 100%; }
-.hero-static__card h3 {
+.professor__intro { max-width: 720px; margin: 0 0 clamp(40px, 6vh, 64px); }
+.professor__headline {
   font-family: var(--font-display);
-  font-size: 1.15rem;
-  margin: 0 0 6px;
+  font-weight: 600;
+  font-size: clamp(1.7rem, 3.4vw, 2.6rem);
+  line-height: 1.16;
   color: var(--c-chalk);
+  margin: 14px 0 20px;
 }
-.hero-static__card p { margin: 0; color: var(--c-chalk-dim); font-size: 0.92rem; }
+.professor__headline em { font-style: italic; color: var(--c-metal-light); }
+.professor__sub {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--c-chalk-dim);
+  margin: 0;
+}
+
+.professor__pillars {
+  display: grid;
+  gap: 1px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  grid-template-columns: 1fr;
+}
+@media (min-width: 760px) {
+  .professor__pillars { grid-template-columns: repeat(3, 1fr); }
+}
+.professor__pillar {
+  background: var(--c-graphite-800);
+  padding: 32px 28px;
+}
+.professor__pillar-index {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  color: var(--c-metal);
+  margin-bottom: 14px;
+}
+.professor__pillar h3 {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  color: var(--c-chalk);
+  margin: 0 0 10px;
+}
+.professor__pillar p {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--c-chalk-dim);
+  margin: 0;
+}
+
+.professor__link {
+  display: inline-block;
+  margin-top: clamp(28px, 4vh, 40px);
+  font-size: 0.86rem;
+  letter-spacing: 0.04em;
+  color: var(--c-metal-light);
+  border-bottom: 1px solid var(--c-metal-dim);
+  padding-bottom: 2px;
+}
 
 /* ==========================================================================
    Accesos — tres puertas de entrada
@@ -661,6 +576,122 @@ a.m-item--flat {
 .gateway h2 { font-family: var(--font-display); font-size: 1.3rem; margin: 6px 0 0; color: var(--c-chalk); }
 .gateway p { margin: 0; color: var(--c-chalk-dim); font-size: 0.92rem; line-height: 1.6; }
 .gateway .gateway-link { margin-top: auto; font-size: 0.8rem; letter-spacing: 0.06em; color: var(--c-metal-light); border-bottom: 1px solid var(--c-metal-dim); padding-bottom: 2px; align-self: flex-start; }
+
+.gateway--split { padding: 0; }
+.gateway__body {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 44px 32px 20px;
+}
+.gateway-subline {
+  display: block;
+  margin: 0 32px 28px;
+  font-size: 0.76rem;
+  color: var(--c-metal);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 16px;
+}
+.gateway-subline:hover { color: var(--c-metal-light); }
+
+/* ==========================================================================
+   Carrusel de producto — MaloShop, bucle horizontal con inercia.
+   Flujo constante hacia la izquierda; se interrumpe al arrastrar y,
+   al soltar, la velocidad decae hasta volver al flujo de crucero
+   (no se detiene en seco: "sigue flotando").
+   ========================================================================== */
+
+.shop-carousel {
+  padding: clamp(56px, 9vh, 100px) 0 clamp(80px, 11vh, 130px);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+}
+
+.shop-carousel__intro {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 clamp(20px, 4vw, 48px);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: clamp(32px, 5vh, 56px);
+}
+.shop-carousel__headline {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 2.8vw, 2.1rem);
+  color: var(--c-chalk);
+  margin: 10px 0 0;
+}
+.shop-carousel__cta {
+  font-size: 0.84rem;
+  letter-spacing: 0.04em;
+  color: var(--c-metal-light);
+  border-bottom: 1px solid var(--c-metal-dim);
+  padding-bottom: 2px;
+  white-space: nowrap;
+}
+
+.shop-carousel__viewport {
+  width: 100%;
+  overflow: hidden;
+  cursor: grab;
+  touch-action: pan-y;
+  -webkit-user-select: none;
+  user-select: none;
+}
+.shop-carousel__viewport.is-dragging { cursor: grabbing; }
+.shop-carousel__viewport.is-static-scroll {
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  cursor: auto;
+  touch-action: auto;
+  padding-bottom: 8px;
+}
+
+.shop-carousel__track {
+  display: flex;
+  gap: 1px;
+  width: max-content;
+  list-style: none;
+  margin: 0;
+  padding: 0 clamp(20px, 4vw, 48px);
+  will-change: transform;
+}
+.shop-carousel__viewport.is-static-scroll .shop-carousel__track { will-change: auto; }
+
+.shop-carousel__item {
+  flex: 0 0 auto;
+  width: min(62vw, 260px);
+  padding: 28px 22px;
+  background: var(--c-graphite-800);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  scroll-snap-align: start;
+}
+.shop-carousel__index {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  color: var(--c-metal);
+  margin-bottom: 16px;
+}
+.shop-carousel__item h3 {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.96rem;
+  line-height: 1.4;
+  color: var(--c-chalk);
+  margin: 0 0 10px;
+  min-height: 2.8em;
+}
+.shop-carousel__item p {
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  color: var(--c-metal-light);
+  margin: 0;
+}
 
 .site-footer {
   border-top: 1px solid rgba(255, 255, 255, 0.08);

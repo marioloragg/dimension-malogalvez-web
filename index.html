@@ -127,82 +127,41 @@
   <!-- ============================= MAIN ============================= -->
   <main id="main">
 
-    <!-- ========= HERO: layout editorial de dos columnas ========= -->
-    <section class="hero-track" data-hero-track aria-label="Presentación de marca">
-      <div class="hero-pin">
-        <div class="hero-grid">
+    <!-- ========= HERO: texto puro, sin imágenes de producto ========= -->
+    <section class="hero-simple" aria-label="Presentación de marca">
+      <div class="hero-simple__inner" data-hero-reveal>
+        <p class="hero-simple__kicker">Arquitectura Capilar / 2026</p>
+        <h1 class="hero-simple__headline">La forma<br><em>importa</em>.</h1>
+        <p class="hero-simple__sub">Instrumental, criterio y un diagnóstico más preciso.</p>
+        <a class="hero-simple__cta" href="/academia/reservar">Reservar diagnóstico <span aria-hidden="true">→</span></a>
+      </div>
+    </section>
 
-          <div class="hero-left">
-            <p class="hero-left__kicker">Arquitectura Capilar / 2026</p>
-            <h1 class="hero-left__headline">La forma<br><em>importa</em>.</h1>
-            <p class="hero-left__sub">Instrumental, criterio y un diagnóstico más preciso.</p>
-          </div>
-
-          <div class="hero-right">
-            <div class="hero-right__frame">
-              <div class="shine-wrap" data-hero-figure="1">
-                <img src="/src/assets/scissors/yasaka-clasica.svg" alt="Tijera de corte clásica, filo convexo, mango offset — acero cobalto, acabado grafito mate" width="1200" height="1200" loading="eager" />
-              </div>
-              <div class="shine-wrap" data-hero-figure="2">
-                <img src="/src/assets/scissors/kamisori-damasco.svg" alt="Tijera de acero damasco, filo convexo 3D, acabado escarchado en tonos grises" width="1200" height="1200" loading="lazy" />
-              </div>
-              <div class="shine-wrap" data-hero-figure="3">
-                <img src="/src/assets/scissors/juntetsu-entresacar.svg" alt="Tijera de entresacar de hoja angulada, aleación cobalto-aluminio" width="1200" height="1200" loading="lazy" />
-              </div>
-            </div>
-            <div class="hero-right__caption">
-              <p class="hero-right__index" data-hero-index>01 / Filo convexo</p>
-              <h2 class="hero-right__headline" data-hero-headline>El filo que no arrastra, diagnostica</h2>
-              <p class="hero-right__sub" data-hero-sub>Acero cobalto, filo convexo, mango offset: cero margen de error.</p>
-            </div>
-          </div>
+    <!-- ========= Profesor: Malo Gálvez como docente, antes que como marca ========= -->
+    <section class="professor" aria-label="Malo Gálvez, profesor">
+      <div class="professor__intro">
+        <p class="kicker">Malo Gálvez / Docencia</p>
+        <h2 class="professor__headline">Antes que una firma, <em>un criterio que se enseña</em>.</h2>
+        <p class="professor__sub">Cada itinerario nace de la misma pregunta que hace en consulta: qué necesita esta cabeza, no qué está de moda. Eso es lo que transmite cuando forma a otros barberos.</p>
+      </div>
+      <div class="professor__pillars">
+        <div class="professor__pillar">
+          <span class="professor__pillar-index">01</span>
+          <h3>Diagnóstico</h3>
+          <p>Antes de tocar el cabello, lee la morfología. Enseña a mirar antes que a cortar.</p>
         </div>
-
-        <div class="hero-bar">
-          <span class="hero-bar__cue">Desplázate</span>
-          <span class="hero-bar__line"></span>
-          <span class="hero-bar__count"><span data-hero-count>01</span> / 03</span>
+        <div class="professor__pillar">
+          <span class="professor__pillar-index">02</span>
+          <h3>Itinerario</h3>
+          <p>Ningún itinerario se repite igual dos veces: se ajusta al criterio del barbero que lo recorre.</p>
         </div>
-
-        <!-- Fallback estático: prefers-reduced-motion o móvil de gama baja -->
-        <div class="hero-static" data-hero-static>
-          <div class="hero-static__intro">
-            <p class="hero-left__kicker">Arquitectura Capilar / 2026</p>
-            <h1 class="hero-left__headline">La forma<br><em>importa</em>.</h1>
-            <p class="hero-left__sub">Instrumental, criterio y un diagnóstico más preciso.</p>
-          </div>
-          <div class="hero-static__card">
-            <div class="shine-wrap">
-              <img src="/src/assets/scissors/yasaka-clasica.svg" alt="Tijera de corte clásica, filo convexo, mango offset" />
-            </div>
-            <div>
-              <p class="hero-static__index">01 / Filo convexo</p>
-              <h3>El filo que no arrastra, diagnostica</h3>
-              <p>Acero cobalto, filo convexo, mango offset: cero margen de error.</p>
-            </div>
-          </div>
-          <div class="hero-static__card">
-            <div class="shine-wrap">
-              <img src="/src/assets/scissors/kamisori-damasco.svg" alt="Tijera de acero damasco, filo convexo 3D" />
-            </div>
-            <div>
-              <p class="hero-static__index">02 / Acero damasco</p>
-              <h3>Cada veta de acero, una decisión</h3>
-              <p>Damasco grafito para el pelo grueso que exige criterio.</p>
-            </div>
-          </div>
-          <div class="hero-static__card">
-            <div class="shine-wrap">
-              <img src="/src/assets/scissors/juntetsu-entresacar.svg" alt="Tijera de entresacar de hoja angulada" />
-            </div>
-            <div>
-              <p class="hero-static__index">03 / Hoja angulada</p>
-              <h3>El degradado empieza en el diagnóstico</h3>
-              <p>Hoja angulada para la piel de alta fidelidad.</p>
-            </div>
-          </div>
+        <div class="professor__pillar">
+          <span class="professor__pillar-index">03</span>
+          <h3>Mentoría</h3>
+          <p>Seguimiento 1:1 después del itinerario, hasta que el criterio se sostiene solo.</p>
         </div>
       </div>
+      <a class="professor__link" href="/academia">Ver Academia &amp; Mentoría →</a>
     </section>
 
     <!-- ========= Tres puertas de entrada ========= -->
@@ -219,12 +178,40 @@
         <p>Itinerarios de Arquitectura Capilar y mentoría 1:1 para quien exige rigor clínico, no tendencia.</p>
         <span class="gateway-link">Ver itinerarios →</span>
       </a>
-      <a class="gateway" href="/distribuidores">
-        <svg class="nav-icon" viewBox="0 0 24 24"><circle cx="6" cy="7" r="2"/><circle cx="18" cy="7" r="2"/><circle cx="12" cy="18" r="2"/><path d="M7.5 8.3 10.5 16.3M16.5 8.3 13.5 16.3M8 7h8"/></svg>
-        <h2>Distribuidores</h2>
-        <p>Condiciones comerciales, exclusividad por zona y alta de cuenta mayorista.</p>
-        <span class="gateway-link">Solicitar distribución →</span>
-      </a>
+      <div class="gateway gateway--split">
+        <a class="gateway__body" href="/red-dimension">
+          <svg class="nav-icon" viewBox="0 0 24 24"><circle cx="12" cy="5" r="1.6"/><circle cx="5" cy="15" r="1.6"/><circle cx="19" cy="15" r="1.6"/><circle cx="12" cy="19" r="1.6"/><path d="M12 6.6 6 14M12 6.6l6 7.4M6.6 15h11M12 16.6V19"/></svg>
+          <h2>Red Dimension</h2>
+          <p>La comunidad de barberos certificados en Arquitectura Capilar: criterio compartido, itinerarios en red.</p>
+          <span class="gateway-link">Conocer la red →</span>
+        </a>
+        <a class="gateway-subline" href="/distribuidores">Directorio de distribuidores ↗</a>
+      </div>
+    </section>
+
+    <!-- ========= MaloShop: carrusel horizontal en bucle ========= -->
+    <section class="shop-carousel" aria-label="Selección MaloShop">
+      <div class="shop-carousel__intro">
+        <div>
+          <p class="kicker">Ameba by Malo Gálvez</p>
+          <h2 class="shop-carousel__headline">Instrumental y ritual, sin relleno.</h2>
+        </div>
+        <a class="shop-carousel__cta" href="/maloshop">Ver MaloShop completo →</a>
+      </div>
+      <div class="shop-carousel__viewport" data-carousel>
+        <ul class="shop-carousel__track" data-carousel-track>
+          <li class="shop-carousel__item"><span class="shop-carousel__index">01</span><h3>Cortapelo Profesional Wahl Cordless Magic Clip</h3><p>129,99&nbsp;€</p></li>
+          <li class="shop-carousel__item"><span class="shop-carousel__index">02</span><h3>Cortapelo de Precisión JRL FreshFade 2020C</h3><p>132,21&nbsp;€</p></li>
+          <li class="shop-carousel__item"><span class="shop-carousel__index">03</span><h3>Navaja Japonesa Feather Artist Club SS</h3><p>126,95&nbsp;€</p></li>
+          <li class="shop-carousel__item"><span class="shop-carousel__index">04</span><h3>Aceite de Barba Beardburys Original Heritage</h3><p>14,90&nbsp;€</p></li>
+          <li class="shop-carousel__item"><span class="shop-carousel__index">05</span><h3>Brocha de Afeitar Profesional Proraso</h3><p>8,03&nbsp;€</p></li>
+          <li class="shop-carousel__item"><span class="shop-carousel__index">06</span><h3>Bálsamo Aftershave Proraso Wood &amp; Spice</h3><p>8,97&nbsp;€</p></li>
+          <li class="shop-carousel__item"><span class="shop-carousel__index">07</span><h3>Pomada de Peinado Reuzel Fiber Pomade</h3><p>11,00&nbsp;€</p></li>
+          <li class="shop-carousel__item"><span class="shop-carousel__index">08</span><h3>Bálsamo Aftershave Proraso Red</h3><p>6,10&nbsp;€</p></li>
+          <li class="shop-carousel__item"><span class="shop-carousel__index">09</span><h3>Champú Densify Redensificante Beardburys</h3><p>15,50&nbsp;€</p></li>
+          <li class="shop-carousel__item"><span class="shop-carousel__index">10</span><h3>Navaja de Afeitar Hey Joe Premium Classic Razor</h3><p>26,00&nbsp;€</p></li>
+        </ul>
+      </div>
     </section>
   </main>
 
