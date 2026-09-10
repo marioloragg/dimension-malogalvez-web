@@ -89,6 +89,10 @@ function initMobileNav() {
    solo mide el progreso de scroll dentro del contenedor y controla las fases.
    ========================================================================== */
 
+function clamp01(v) {
+  return Math.min(1, Math.max(0, v));
+}
+
 // Fundido con tramo de entrada/salida dentro del rango [start, end] de progreso global.
 function phaseOpacity(progress, start, end, { fadeIn = 0.25, fadeOut = 0.25, holdAtEnd = false } = {}) {
   if (progress <= start) return 0;
@@ -165,7 +169,16 @@ function initHeroScrollStory() {
         const opacity = phaseOpacity(progress, range.start, range.end, {
           holdAtEnd: range.holdAtEnd,
         });
-        gsap.set(figure, { opacity });
+        // Entrada estilo Apple: la tijera aparece con un leve zoom + rotación
+        // en vez de un simple fundido — efecto pedido desde el brief original.
+        const localT = clamp01((progress - range.start) / (range.end - range.start || 1));
+        const enter = clamp01(localT / 0.25);
+        gsap.set(figure, {
+          opacity,
+          scale: 0.88 + 0.12 * enter,
+          rotate: -6 * (1 - enter),
+          transformOrigin: '50% 50%',
+        });
 
         if (opacity > maxOpacity) {
           maxOpacity = opacity;
