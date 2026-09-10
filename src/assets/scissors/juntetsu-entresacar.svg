@@ -7,32 +7,47 @@
       <stop offset="60%" stop-color="#16171a"/>
       <stop offset="100%" stop-color="#0a0a0b"/>
     </radialGradient>
-    <linearGradient id="steel3" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#eceef0"/>
-      <stop offset="40%" stop-color="#9598a0"/>
-      <stop offset="100%" stop-color="#3b3d42"/>
+    <linearGradient id="steel3" x1="0%" y1="0%" x2="100%" y2="60%">
+      <stop offset="0%" stop-color="#eef0f1"/>
+      <stop offset="30%" stop-color="#a3a6ab"/>
+      <stop offset="55%" stop-color="#6a6d72"/>
+      <stop offset="80%" stop-color="#c5c7ca"/>
+      <stop offset="100%" stop-color="#4a4c50"/>
     </linearGradient>
-    <linearGradient id="handle3" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#333437"/>
-      <stop offset="50%" stop-color="#525459"/>
-      <stop offset="100%" stop-color="#232427"/>
+    <linearGradient id="ring3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#dfe0e2"/>
+      <stop offset="50%" stop-color="#8a8d91"/>
+      <stop offset="100%" stop-color="#3a3c3f"/>
     </linearGradient>
+    <radialGradient id="screw3" cx="35%" cy="35%" r="70%">
+      <stop offset="0%" stop-color="#f0f1f2"/>
+      <stop offset="60%" stop-color="#8a8d90"/>
+      <stop offset="100%" stop-color="#1c1d1e"/>
+    </radialGradient>
   </defs>
+
   <rect width="1200" height="1200" fill="url(#bg3)"/>
-  <g transform="translate(580,600) rotate(-28)">
-    <path d="M -440,-20 C -280,-56 -100,-30 90,-16 L 470,-40 L 470,-14 L 96,4 C -96,-4 -280,-24 -440,10 Z" fill="url(#steel3)" stroke="#08090a" stroke-width="3"/>
-    <g fill="#0a0a0b">
-      <path d="M 96,4 L 130,-38 L 150,-2 Z"/>
-      <path d="M 150,-2 L 182,-40 L 202,4 Z"/>
-      <path d="M 202,4 L 234,-38 L 254,4 Z"/>
-      <path d="M 254,4 L 286,-38 L 306,4 Z"/>
-      <path d="M 306,4 L 338,-38 L 358,4 Z"/>
-      <path d="M 358,4 L 390,-38 L 410,4 Z"/>
-      <path d="M 410,4 L 442,-38 L 462,4 Z"/>
-    </g>
-    <path d="M -440,54 C -280,26 -100,46 90,64 L 460,90 L 460,64 L 96,32 C -96,16 -280,-2 -440,26 Z" fill="url(#steel3)" stroke="#08090a" stroke-width="3"/>
-    <circle cx="-480" cy="-4" r="66" fill="none" stroke="url(#handle3)" stroke-width="24"/>
-    <circle cx="-480" cy="68" r="66" fill="none" stroke="url(#handle3)" stroke-width="24"/>
-    <circle cx="70" cy="24" r="15" fill="#0b0c0d" stroke="#9a9da0" stroke-width="4"/>
+
+  <!-- mangos: aleación ligera, anillos más finos -->
+  <line x1="296" y1="490" x2="560" y2="582" stroke="url(#ring3)" stroke-width="30" stroke-linecap="round"/>
+  <line x1="296" y1="700" x2="560" y2="628" stroke="url(#ring3)" stroke-width="30" stroke-linecap="round"/>
+  <circle cx="296" cy="490" r="68" fill="none" stroke="url(#ring3)" stroke-width="18"/>
+  <circle cx="296" cy="700" r="68" fill="none" stroke="url(#ring3)" stroke-width="18"/>
+
+  <!-- hoja lisa (superior), en ángulo -->
+  <path d="M560,558 L900,486 L1122,432 L906,528 L560,614 Z" fill="url(#steel3)" stroke="#08090a" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M600,548 L1085,442" stroke="#f4f5f6" stroke-width="4" stroke-linecap="round" opacity="0.6"/>
+
+  <!-- hoja de entresacar (inferior): base + dentado angulado, bien marcado -->
+  <path d="M560,606 L900,610 L1010,640 L560,660 Z" fill="url(#steel3)" stroke="#08090a" stroke-width="4" stroke-linejoin="round"/>
+  <g fill="url(#steel3)" stroke="#08090a" stroke-width="3" stroke-linejoin="round">
+    <path d="M900,610 L965,560 L1000,624 Z"/>
+    <path d="M960,622 L1025,570 L1060,636 Z"/>
+    <path d="M1018,634 L1083,580 L1118,648 Z"/>
   </g>
+  <path d="M600,660 L1000,646" stroke="#08090a" stroke-width="5" stroke-linecap="round" opacity="0.5"/>
+
+  <!-- tornillo pivote -->
+  <circle cx="575" cy="601" r="24" fill="url(#screw3)" stroke="#08090a" stroke-width="3"/>
+  <circle cx="575" cy="601" r="9" fill="#08090a" opacity="0.5"/>
 </svg>
