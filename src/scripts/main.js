@@ -89,10 +89,6 @@ function initMobileNav() {
    solo mide el progreso de scroll dentro del contenedor y controla las fases.
    ========================================================================== */
 
-function clamp01(v) {
-  return Math.min(1, Math.max(0, v));
-}
-
 // Fundido con tramo de entrada/salida dentro del rango [start, end] de progreso global.
 function phaseOpacity(progress, start, end, { fadeIn = 0.25, fadeOut = 0.25, holdAtEnd = false } = {}) {
   if (progress <= start) return 0;
@@ -104,21 +100,55 @@ function phaseOpacity(progress, start, end, { fadeIn = 0.25, fadeOut = 0.25, hol
   return 1;
 }
 
+// Copy por fase — debe reflejar el contenido inicial ya presente en el HTML
+// para la fase 1; se usa para actualizar la ficha al cambiar de fase activa.
+const HERO_PHASES = [
+  {
+    index: '01 / Filo convexo',
+    headline: 'El filo que no arrastra, diagnostica',
+    sub: 'Acero cobalto, filo convexo, mango offset: cero margen de error.',
+  },
+  {
+    index: '02 / Acero damasco',
+    headline: 'Cada veta de acero, una decisión',
+    sub: 'Damasco grafito para el pelo grueso que exige criterio.',
+  },
+  {
+    index: '03 / Hoja angulada',
+    headline: 'El degradado empieza en el diagnóstico',
+    sub: 'Hoja angulada para la piel de alta fidelidad.',
+  },
+];
+
 function initHeroScrollStory() {
   const track = document.querySelector('[data-hero-track]');
   if (!track) return;
 
-  const phases = Array.from(track.querySelectorAll('[data-hero-phase]'));
-  const dots = Array.from(document.querySelectorAll('[data-hero-progress] .hero-progress__dot'));
+  const figures = Array.from(track.querySelectorAll('.hero-right__frame [data-hero-figure]'));
+  const indexEl = track.querySelector('[data-hero-index]');
+  const headlineEl = track.querySelector('[data-hero-headline]');
+  const subEl = track.querySelector('[data-hero-sub]');
+  const countEl = track.querySelector('[data-hero-count]');
+  if (!figures.length) return;
 
-  // Rangos de progreso (0–1) por fase: quieta → tijera 1 → tijera 2 → tijera 3 → cierre.
+  // Rangos de progreso (0–1) por tijera, con solape para el fundido cruzado.
   const ranges = [
-    { start: 0, end: 0.14, holdAtEnd: false },
-    { start: 0.08, end: 0.34, holdAtEnd: false },
-    { start: 0.3, end: 0.56, holdAtEnd: false },
-    { start: 0.52, end: 0.78, holdAtEnd: false },
-    { start: 0.74, end: 1, holdAtEnd: true },
+    { start: 0, end: 0.36, holdAtEnd: false },
+    { start: 0.3, end: 0.7, holdAtEnd: false },
+    { start: 0.64, end: 1, holdAtEnd: true },
   ];
+
+  let activeIndex = -1;
+
+  const setActive = (i) => {
+    if (i === activeIndex) return;
+    activeIndex = i;
+    const phase = HERO_PHASES[i];
+    if (indexEl) indexEl.textContent = phase.index;
+    if (headlineEl) headlineEl.textContent = phase.headline;
+    if (subEl) subEl.textContent = phase.sub;
+    if (countEl) countEl.textContent = String(i + 1).padStart(2, '0');
+  };
 
   ScrollTrigger.create({
     trigger: track,
@@ -127,46 +157,27 @@ function initHeroScrollStory() {
     scrub: 0.4,
     onUpdate: (self) => {
       const progress = self.progress;
-      let activeIndex = 0;
+      let bestIndex = 0;
       let maxOpacity = -1;
 
-      phases.forEach((phase, i) => {
+      figures.forEach((figure, i) => {
         const range = ranges[i];
         const opacity = phaseOpacity(progress, range.start, range.end, {
           holdAtEnd: range.holdAtEnd,
         });
-        const copy = phase.querySelector('.hero-phase__copy');
-        const figure = phase.querySelector('.hero-phase__figure');
-
-        // La imagen (si la fase tiene una) entra con leve rotación + escala
-        // desde fuera de campo; el texto solo funde y se eleva ligeramente.
-        if (figure) {
-          const localT = clamp01((progress - range.start) / (range.end - range.start || 1));
-          const enter = clamp01(localT / 0.25);
-          // El contenedor de fase queda siempre visible; el fundido real lo
-          // llevan la figura y el texto, para poder animarlos por separado.
-          gsap.set(phase, { opacity: 1 });
-          gsap.set(figure, {
-            opacity,
-            scale: 0.86 + 0.14 * enter,
-            rotate: -7 * (1 - enter),
-            transformOrigin: '50% 50%',
-          });
-          gsap.set(copy, { opacity, y: (1 - opacity) * 14 });
-        } else {
-          // Fases sin imagen (marca inicial, cierre): la fase completa funde.
-          gsap.set(phase, { opacity, y: (1 - opacity) * 14 });
-        }
+        gsap.set(figure, { opacity });
 
         if (opacity > maxOpacity) {
           maxOpacity = opacity;
-          activeIndex = i;
+          bestIndex = i;
         }
       });
 
-      dots.forEach((dot, i) => dot.classList.toggle('is-active', i === activeIndex));
+      setActive(bestIndex);
     },
   });
+
+  setActive(0);
 }
 
 /* ==========================================================================
@@ -178,7 +189,7 @@ function initHeroScrollStory() {
 
 function shouldUseStaticFallback() {
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const narrowViewport = window.innerWidth < 720;
+  const narrowViewport = window.innerWidth < 760;
   return reducedMotion || narrowViewport;
 }
 
