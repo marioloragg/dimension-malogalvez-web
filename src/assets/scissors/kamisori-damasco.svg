@@ -1,0 +1,38 @@
+<svg width="1200" height="1200" viewBox="0 0 1200 1200" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t2 d2">
+  <title id="t2">Tijera de acero damasco, filo convexo 3D</title>
+  <desc id="d2">Placeholder de dirección de arte — sustituir por macro-fotografía real. Patrón damasco en tonos grises/acerados, acabado escarchado, alto contraste.</desc>
+  <defs>
+    <radialGradient id="bg2" cx="50%" cy="45%" r="75%">
+      <stop offset="0%" stop-color="#242628"/>
+      <stop offset="60%" stop-color="#141517"/>
+      <stop offset="100%" stop-color="#08090a"/>
+    </radialGradient>
+    <filter id="damascus" x="-20%" y="-20%" width="140%" height="140%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.012 0.06" numOctaves="4" seed="7" result="noise"/>
+      <feColorMatrix in="noise" type="matrix" values="0 0 0 0 0.72  0 0 0 0 0.73  0 0 0 0 0.75  0 0 0 0.9 0"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="1.1"/>
+      </feComponentTransfer>
+    </filter>
+    <linearGradient id="steel2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f1f2f3"/>
+      <stop offset="45%" stop-color="#8c9094"/>
+      <stop offset="100%" stop-color="#333537"/>
+    </linearGradient>
+    <linearGradient id="handle2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#2c2d2f"/>
+      <stop offset="50%" stop-color="#4c4d50"/>
+      <stop offset="100%" stop-color="#1e1f21"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="1200" fill="url(#bg2)"/>
+  <g transform="translate(600,620) rotate(10)">
+    <path d="M -460,10 C -320,-60 -140,-50 60,-90 C 260,-128 380,-90 480,-40 C 486,-30 484,-16 474,-10 C 380,-56 260,-94 66,-58 C -128,-22 -320,-4 -460,58 Z" fill="url(#steel2)" stroke="#050506" stroke-width="3"/>
+    <path d="M -460,10 C -320,-60 -140,-50 60,-90 C 260,-128 380,-90 480,-40 C 486,-30 484,-16 474,-10 C 380,-56 260,-94 66,-58 C -128,-22 -320,-4 -460,58 Z" fill="url(#damascus)" filter="url(#damascus)" opacity="0.55"/>
+    <path d="M -460,84 C -320,30 -140,54 60,32 C 260,10 380,50 480,102 C 486,110 484,124 474,128 C 380,80 260,44 66,64 C -128,86 -320,96 -460,132 Z" fill="url(#steel2)" stroke="#050506" stroke-width="3"/>
+    <path d="M -460,84 C -320,30 -140,54 60,32 C 260,10 380,50 480,102 C 486,110 484,124 474,128 C 380,80 260,44 66,64 C -128,86 -320,96 -460,132 Z" fill="url(#damascus)" filter="url(#damascus)" opacity="0.5"/>
+    <circle cx="-500" cy="34" r="76" fill="none" stroke="url(#handle2)" stroke-width="28"/>
+    <circle cx="-500" cy="110" r="76" fill="none" stroke="url(#handle2)" stroke-width="28"/>
+    <circle cx="52" cy="-10" r="17" fill="#0b0c0d" stroke="#a7aaad" stroke-width="4"/>
+  </g>
+</svg>

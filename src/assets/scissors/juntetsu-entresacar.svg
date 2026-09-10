@@ -1,0 +1,38 @@
+<svg width="1200" height="1200" viewBox="0 0 1200 1200" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t3 d3">
+  <title id="t3">Tijera de entresacar (texturizing) de hoja angulada</title>
+  <desc id="d3">Placeholder de dirección de arte — sustituir por macro-fotografía real. Aleación cobalto-aluminio, hoja angulada con dientes finos, ángulo que muestre la dentadura.</desc>
+  <defs>
+    <radialGradient id="bg3" cx="52%" cy="40%" r="75%">
+      <stop offset="0%" stop-color="#2a2c2e"/>
+      <stop offset="60%" stop-color="#16171a"/>
+      <stop offset="100%" stop-color="#0a0a0b"/>
+    </radialGradient>
+    <linearGradient id="steel3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#eceef0"/>
+      <stop offset="40%" stop-color="#9598a0"/>
+      <stop offset="100%" stop-color="#3b3d42"/>
+    </linearGradient>
+    <linearGradient id="handle3" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#333437"/>
+      <stop offset="50%" stop-color="#525459"/>
+      <stop offset="100%" stop-color="#232427"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="1200" fill="url(#bg3)"/>
+  <g transform="translate(580,600) rotate(-28)">
+    <path d="M -440,-20 C -280,-56 -100,-30 90,-16 L 470,-40 L 470,-14 L 96,4 C -96,-4 -280,-24 -440,10 Z" fill="url(#steel3)" stroke="#08090a" stroke-width="3"/>
+    <g fill="#0a0a0b">
+      <path d="M 96,4 L 130,-38 L 150,-2 Z"/>
+      <path d="M 150,-2 L 182,-40 L 202,4 Z"/>
+      <path d="M 202,4 L 234,-38 L 254,4 Z"/>
+      <path d="M 254,4 L 286,-38 L 306,4 Z"/>
+      <path d="M 306,4 L 338,-38 L 358,4 Z"/>
+      <path d="M 358,4 L 390,-38 L 410,4 Z"/>
+      <path d="M 410,4 L 442,-38 L 462,4 Z"/>
+    </g>
+    <path d="M -440,54 C -280,26 -100,46 90,64 L 460,90 L 460,64 L 96,32 C -96,16 -280,-2 -440,26 Z" fill="url(#steel3)" stroke="#08090a" stroke-width="3"/>
+    <circle cx="-480" cy="-4" r="66" fill="none" stroke="url(#handle3)" stroke-width="24"/>
+    <circle cx="-480" cy="68" r="66" fill="none" stroke="url(#handle3)" stroke-width="24"/>
+    <circle cx="70" cy="24" r="15" fill="#0b0c0d" stroke="#9a9da0" stroke-width="4"/>
+  </g>
+</svg>
