@@ -3,45 +3,29 @@
    Cero rellenos negros. El peso visual se consigue con filetes, escala y aire. */
 
 @font-face {
-  font-family: 'Cinzel';
-  src: url('../fuentes/Cinzel-Regular.ttf');
+  font-family: 'Outfit';
+  src: url('../fuentes/Outfit-Regular.ttf');
   font-weight: 400;
 }
 @font-face {
-  font-family: 'Cinzel';
-  src: url('../fuentes/Cinzel-SemiBold.ttf');
-  font-weight: 600;
-}
-@font-face {
-  font-family: 'Cinzel';
-  src: url('../fuentes/Cinzel-Bold.ttf');
-  font-weight: 700;
-}
-@font-face {
-  font-family: 'Inter';
-  src: url('../fuentes/Inter-Regular.ttf');
-  font-weight: 400;
-}
-@font-face {
-  font-family: 'Inter';
-  src: url('../fuentes/Inter-Medium.ttf');
+  font-family: 'Outfit';
+  src: url('../fuentes/Outfit-Medium.ttf');
   font-weight: 500;
 }
 @font-face {
-  font-family: 'Inter';
-  src: url('../fuentes/Inter-SemiBold.ttf');
+  font-family: 'Outfit';
+  src: url('../fuentes/Outfit-SemiBold.ttf');
   font-weight: 600;
 }
 @font-face {
-  font-family: 'Inter';
-  src: url('../fuentes/Inter-Bold.ttf');
+  font-family: 'Outfit';
+  src: url('../fuentes/Outfit-Bold.ttf');
   font-weight: 700;
 }
 @font-face {
-  font-family: 'Inter';
-  src: url('../fuentes/Inter-Italic.ttf');
-  font-weight: 400;
-  font-style: italic;
+  font-family: 'Outfit';
+  src: url('../fuentes/Outfit-ExtraBold.ttf');
+  font-weight: 800;
 }
 
 :root {
@@ -61,7 +45,7 @@ html, body {
   padding: 0;
   background: var(--tiza);
   color: var(--grafito);
-  font-family: 'Inter', sans-serif;
+  font-family: 'Outfit', sans-serif;
   font-size: 9.9pt;
   line-height: 1.62;
 }
@@ -94,7 +78,7 @@ html, body {
 
   @bottom-left {
     content: "DIMENSION — ARQUITECTURA CAPILAR";
-    font-family: 'Inter', sans-serif;
+    font-family: 'Outfit', sans-serif;
     font-size: 6.6pt;
     letter-spacing: 1.6pt;
     color: var(--metal);
@@ -103,7 +87,7 @@ html, body {
   }
   @bottom-right {
     content: "FICHA " counter(page) " / " counter(pages);
-    font-family: 'Inter', sans-serif;
+    font-family: 'Outfit', sans-serif;
     font-size: 6.6pt;
     letter-spacing: 1.6pt;
     color: var(--metal);
@@ -120,7 +104,7 @@ html, body {
   display: flex;
   align-items: center;
   gap: 2.2mm;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Outfit', sans-serif;
   font-size: 7.6pt;
   font-weight: 600;
   letter-spacing: 3pt;
@@ -133,17 +117,18 @@ html, body {
   display: inline-block;
   width: 4.2mm;
   height: 4.2mm;
+  border-radius: 50%;
   background: var(--obsidiana);
   flex: none;
 }
 
 .brand-title {
-  font-family: 'Cinzel', serif;
-  font-weight: 600;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
   font-size: 27pt;
   color: var(--obsidiana);
   margin: 0 0 3mm;
-  letter-spacing: 0.4pt;
+  letter-spacing: 0.2pt;
 }
 .brand-title .by {
   font-size: 0.62em;
@@ -152,7 +137,7 @@ html, body {
 }
 
 .doc-subtitle {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Outfit', sans-serif;
   font-weight: 500;
   font-size: 10.5pt;
   letter-spacing: 2.4pt;
@@ -162,8 +147,8 @@ html, body {
 }
 
 .doc-note {
-  font-family: 'Inter', sans-serif;
-  font-style: italic;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 500;
   font-size: 7.6pt;
   color: var(--grafito-sec);
   margin: 0 0 4mm;
@@ -172,7 +157,7 @@ html, body {
 
 .masthead-rule {
   border: none;
-  border-top: 1.1pt solid var(--obsidiana);
+  border-top: 1.5pt solid var(--obsidiana);
   margin: 0;
 }
 
@@ -189,7 +174,7 @@ html, body {
 .field--barbero { flex: 1 1 auto; }
 
 .field-label {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Outfit', sans-serif;
   font-size: 6.8pt;
   font-weight: 700;
   letter-spacing: 1.4pt;
@@ -198,15 +183,17 @@ html, body {
   margin-bottom: 3mm;
 }
 .field-line {
-  border: none;
-  border-bottom: 0.85pt solid var(--obsidiana);
-  height: 4.6mm;
+  display: block;
+  border: 0.8pt solid var(--metal-claro);
+  border-radius: 999px;
+  background: var(--tiza-campo);
+  height: 6.2mm;
 }
 
 /* ---------- Tira de control de fotos ---------- */
 
 .photo-strip {
-  border-top: 0.6pt solid var(--metal-claro);
+  border-top: 0.9pt solid var(--metal);
   padding-top: 3mm;
   margin-bottom: 1mm;
   display: flex;
@@ -215,7 +202,7 @@ html, body {
   flex-wrap: wrap;
 }
 .photo-strip__label {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Outfit', sans-serif;
   font-size: 6.8pt;
   font-weight: 700;
   letter-spacing: 1.4pt;
@@ -235,13 +222,13 @@ html, body {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  border-top: 1.3pt solid var(--obsidiana);
-  border-bottom: 0.5pt solid var(--metal-claro);
+  border-top: 1.6pt solid var(--obsidiana);
+  border-bottom: 0.8pt solid var(--metal);
   padding: 2mm 0;
   margin: 6mm 0 4mm;
 }
 .band__title {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Outfit', sans-serif;
   font-weight: 700;
   font-size: 10pt;
   letter-spacing: 1.6pt;
@@ -249,8 +236,8 @@ html, body {
   color: var(--obsidiana);
 }
 .band__note {
-  font-family: 'Inter', sans-serif;
-  font-style: italic;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 500;
   font-size: 7.6pt;
   color: var(--grafito-sec);
 }
@@ -260,12 +247,12 @@ html, body {
 .section-header {
   display: flex;
   align-items: baseline;
-  border-bottom: 0.6pt solid var(--metal-claro);
+  border-bottom: 0.9pt solid var(--metal);
   padding-bottom: 2.4mm;
   margin: 9mm 0 5.6mm;
 }
 .section-header__num {
-  font-family: 'Cinzel', serif;
+  font-family: 'Outfit', sans-serif;
   font-weight: 700;
   font-size: 13pt;
   color: var(--metal);
@@ -273,7 +260,7 @@ html, body {
   flex: none;
 }
 .section-header__title {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Outfit', sans-serif;
   font-weight: 700;
   font-size: 10.2pt;
   letter-spacing: 1.8pt;
@@ -286,12 +273,12 @@ html, body {
 .question { margin-bottom: 5.6mm; break-inside: avoid; }
 .question--open { margin-bottom: 7mm; }
 .question__text {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Outfit', sans-serif;
   font-size: 8.7pt;
   color: var(--grafito);
   margin-bottom: 2mm;
 }
-.question__text em { font-style: italic; color: var(--grafito-sec); }
+.question__text em { font-style: normal; font-weight: 500; color: var(--grafito-sec); }
 
 .options {
   display: flex;
@@ -311,21 +298,25 @@ html, body {
   white-space: nowrap;
 }
 .option__box {
-  width: 3.1mm;
-  height: 3.1mm;
-  border: 0.8pt solid var(--obsidiana);
+  width: 3.4mm;
+  height: 3.4mm;
+  border: 0.9pt solid var(--obsidiana);
+  border-radius: 50%;
   flex: none;
 }
 .option__label {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 500;
   font-size: 8.7pt;
   color: var(--grafito);
 }
 
 .answer-line {
-  border: none;
-  border-bottom: 0.7pt dotted #9A9DA1;
-  height: 6mm;
+  display: block;
+  border: 0.8pt solid var(--metal-claro);
+  border-radius: 999px;
+  background: var(--tiza-campo);
+  height: 7mm;
   margin: 0;
 }
 
@@ -339,14 +330,15 @@ html, body {
 
 .diagnostico {
   background: var(--tiza-campo);
-  border-top: 1.5pt solid var(--obsidiana);
-  border-left: 2.5pt solid var(--obsidiana);
+  border-top: 1.8pt solid var(--obsidiana);
+  border-left: 3pt solid var(--obsidiana);
+  border-top-left-radius: 4mm;
   padding: 7mm 8mm 8mm 8mm;
   margin-top: 7mm;
   break-inside: avoid;
 }
 .diagnostico__kicker {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Outfit', sans-serif;
   font-weight: 700;
   font-size: 7pt;
   letter-spacing: 2.6pt;
@@ -355,11 +347,11 @@ html, body {
   margin-bottom: 2.6mm;
 }
 .diagnostico__title {
-  font-family: 'Cinzel', serif;
-  font-weight: 600;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
   font-size: 14.5pt;
   color: var(--obsidiana);
-  border-bottom: 0.6pt solid var(--metal-claro);
+  border-bottom: 0.9pt solid var(--metal);
   padding-bottom: 4mm;
   margin: 0 0 6mm;
 }
@@ -372,9 +364,10 @@ html, body {
   break-inside: avoid;
   display: flex;
   flex-direction: column;
+  gap: 2.4mm;
 }
 .diagnostico__label {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Outfit', sans-serif;
   font-weight: 700;
   font-size: 8pt;
   letter-spacing: 0.6pt;
@@ -383,15 +376,17 @@ html, body {
   margin-bottom: 4mm;
 }
 .diagnostico__label em {
-  font-style: italic;
+  font-style: normal;
   font-weight: 400;
   text-transform: none;
   color: var(--grafito-sec);
   letter-spacing: 0;
 }
 .diagnostico__line {
-  border: none;
-  border-bottom: 0.7pt solid var(--metal-claro);
+  display: block;
+  border: 0.7pt solid var(--metal-claro);
+  border-radius: 999px;
+  background: #FFFFFF;
   height: 9mm;
 }
 
@@ -402,8 +397,8 @@ html, body {
   break-inside: avoid;
 }
 .angulos__intro {
-  font-family: 'Inter', sans-serif;
-  font-style: italic;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 500;
   font-size: 7.6pt;
   color: var(--grafito-sec);
   margin: 0 0 4mm;
@@ -426,7 +421,7 @@ html, body {
   border: 0.8pt solid var(--obsidiana);
 }
 .angulo-item__label {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Outfit', sans-serif;
   font-size: 6.6pt;
   font-weight: 600;
   letter-spacing: 1pt;
@@ -439,11 +434,11 @@ html, body {
 /* ---------- Nota de cierre ---------- */
 
 .closing-note {
-  border-top: 0.6pt solid var(--metal-claro);
+  border-top: 0.9pt solid var(--metal);
   padding-top: 2.6mm;
   margin-top: 4mm;
-  font-family: 'Inter', sans-serif;
-  font-style: italic;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 500;
   font-size: 7.6pt;
   color: var(--grafito-sec);
   break-inside: avoid;

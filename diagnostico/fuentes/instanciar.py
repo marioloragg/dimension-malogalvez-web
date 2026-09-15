@@ -1,42 +1,39 @@
 #!/usr/bin/env python3
-"""Regenera los pesos estáticos de Cinzel e Inter usados en la Ficha Interna (PDF).
+"""Regenera los pesos estáticos de Outfit usados en ambos documentos.
 
-Descarga las variable fonts oficiales de Google Fonts e instancia los pesos
+Descarga la variable font oficial de Google Fonts e instancia los pesos
 estáticos que necesita el sistema de diseño Dimension. Solo hace falta
 ejecutarlo si estos .ttf se pierden o hay que actualizar de versión — los
 estáticos ya están commiteados en este directorio.
 
 Requisitos: pip install fonttools --break-system-packages
+
+Nota: Outfit no tiene variante itálica en Google Fonts — el sistema de
+diseño usa peso y color para distinguir texto secundario en vez de itálica.
 """
+import os
 import urllib.request
 from fontTools import ttLib
 from fontTools.varLib import instancer
 
-FUENTES_ORIGEN = {
-    "Cinzel-VF.ttf": "https://raw.githubusercontent.com/google/fonts/main/ofl/cinzel/Cinzel%5Bwght%5D.ttf",
-    "Inter-VF.ttf": "https://raw.githubusercontent.com/google/fonts/main/ofl/inter/Inter%5Bopsz%2Cwght%5D.ttf",
-    "Inter-Italic-VF.ttf": "https://raw.githubusercontent.com/google/fonts/main/ofl/inter/Inter-Italic%5Bopsz%2Cwght%5D.ttf",
-}
+ORIGEN = "https://raw.githubusercontent.com/google/fonts/main/ofl/outfit/Outfit%5Bwght%5D.ttf"
+VF = "Outfit-VF.ttf"
 
 INSTANCIAS = [
-    ("Cinzel-VF.ttf", {"wght": 400}, "Cinzel-Regular.ttf", "Cinzel", "Regular"),
-    ("Cinzel-VF.ttf", {"wght": 600}, "Cinzel-SemiBold.ttf", "Cinzel SemiBold", "Regular"),
-    ("Cinzel-VF.ttf", {"wght": 700}, "Cinzel-Bold.ttf", "Cinzel", "Bold"),
-    ("Inter-VF.ttf", {"wght": 400, "opsz": 14}, "Inter-Regular.ttf", "Inter", "Regular"),
-    ("Inter-VF.ttf", {"wght": 500, "opsz": 14}, "Inter-Medium.ttf", "Inter Medium", "Regular"),
-    ("Inter-VF.ttf", {"wght": 600, "opsz": 14}, "Inter-SemiBold.ttf", "Inter SemiBold", "Regular"),
-    ("Inter-VF.ttf", {"wght": 700, "opsz": 14}, "Inter-Bold.ttf", "Inter", "Bold"),
-    ("Inter-Italic-VF.ttf", {"wght": 400, "opsz": 14}, "Inter-Italic.ttf", "Inter Italic", "Regular"),
+    ({"wght": 400}, "Outfit-Regular.ttf", "Outfit", "Regular"),
+    ({"wght": 500}, "Outfit-Medium.ttf", "Outfit Medium", "Regular"),
+    ({"wght": 600}, "Outfit-SemiBold.ttf", "Outfit SemiBold", "Regular"),
+    ({"wght": 700}, "Outfit-Bold.ttf", "Outfit", "Bold"),
+    ({"wght": 800}, "Outfit-ExtraBold.ttf", "Outfit ExtraBold", "Regular"),
 ]
 
 
 def main():
-    for nombre, url in FUENTES_ORIGEN.items():
-        print("Descargando", nombre)
-        urllib.request.urlretrieve(url, nombre)
+    print("Descargando", VF)
+    urllib.request.urlretrieve(ORIGEN, VF)
 
-    for src, ejes, salida, familia, subfamilia in INSTANCIAS:
-        f = ttLib.TTFont(src)
+    for ejes, salida, familia, subfamilia in INSTANCIAS:
+        f = ttLib.TTFont(VF)
         instancer.instantiateVariableFont(f, ejes, inplace=True)
         name = f["name"]
         valores = [
@@ -53,9 +50,7 @@ def main():
         f.save(salida)
         print("Escrito", salida)
 
-    for nombre in FUENTES_ORIGEN:
-        import os
-        os.remove(nombre)
+    os.remove(VF)
 
 
 if __name__ == "__main__":

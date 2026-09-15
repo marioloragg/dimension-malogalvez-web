@@ -56,8 +56,8 @@ const COLOR = {
   avisoFill: "EFEDE8",
 };
 
-const FONT_DISPLAY = "Cinzel";
-const FONT_BODY = "Inter";
+const FONT_DISPLAY = "Outfit";
+const FONT_BODY = "Outfit";
 
 const mmToDxa = (v) => Math.round(v * 56.6929133858);
 const ptToHalfPt = (v) => Math.round(v * 2);
@@ -112,7 +112,7 @@ function kicker(text) {
   return new Paragraph({
     spacing: { before: 0, after: 140 },
     children: [
-      run("■  ", { size: 8, color: COLOR.obsidiana, bold: true }),
+      run("●  ", { size: 8, color: COLOR.obsidiana, bold: true }),
       run(text, { size: 7.6, bold: true, color: COLOR.grafitoSec, tracking: 3 }),
     ],
   });
@@ -160,18 +160,18 @@ function masthead({ subtitle, entradilla, instrucciones }) {
   children.push(
     new Paragraph({
       spacing: { before: 160, after: 0 },
-      border: { bottom: border(1.1, COLOR.obsidiana) },
+      border: { bottom: border(1.5, COLOR.obsidiana) },
       children: [],
     })
   );
   return children;
 }
 
-/** Cabecera de sección: número Cinzel en columna fija + título Inter, sobre un filete. */
+/** Cabecera de sección: número en columna fija + título, sobre un filete. */
 function sectionHeader(num, title) {
   const numColWidth = mmToDxa(13);
   const titleColWidth = CONTENT_W - numColWidth;
-  const bottomRule = border(0.6, COLOR.metalClaro);
+  const bottomRule = border(0.9, COLOR.metal);
   const noBorderSides = { top: { style: BorderStyle.NONE }, left: { style: BorderStyle.NONE }, right: { style: BorderStyle.NONE } };
 
   return [
@@ -204,11 +204,15 @@ function sectionHeader(num, title) {
   ];
 }
 
-/** Texto de pregunta. `parts` es un string o un array de {text, italic}. */
+/**
+ * Texto de pregunta. `parts` es un string o un array de {text, italic}.
+ * Outfit no tiene itálica en Google Fonts, así que el texto secundario se
+ * distingue por peso y color, no por estilo — igual que en el PDF.
+ */
 function questionText(parts, { before = 200, after = 90 } = {}) {
   const segments = Array.isArray(parts) ? parts : [{ text: parts }];
   const children = segments.map((p) =>
-    run(p.text, { size: 8.9, italics: !!p.italic, color: p.italic ? COLOR.grafitoSec : COLOR.grafito })
+    run(p.text, { size: 8.9, color: p.italic ? COLOR.grafitoSec : COLOR.grafito })
   );
   return new Paragraph({ spacing: { before, after }, keepNext: true, children });
 }
@@ -249,7 +253,8 @@ function answerLines({ tall = false, after = 280 } = {}) {
  * default for this content control). Word itself renders it perfectly, but
  * an explicit, near-universal font avoids relying on font-substitution
  * behavior across viewers, so the same declaration renders identically
- * everywhere it's opened.
+ * everywhere it's opened. Circles (25CB/25CF) instead of the default
+ * square ballot box, to match the round connectors used in the PDF.
  */
 const CHECKBOX_FONT = "Calibri";
 
@@ -257,8 +262,8 @@ function checkboxRun(label, { checked = false } = {}) {
   return [
     new CheckBox({
       checked,
-      checkedState: { value: "2612", font: CHECKBOX_FONT },
-      uncheckedState: { value: "2610", font: CHECKBOX_FONT },
+      checkedState: { value: "25CF", font: CHECKBOX_FONT },
+      uncheckedState: { value: "25CB", font: CHECKBOX_FONT },
     }),
     run("  " + label, { size: 8.9, color: COLOR.grafito }),
   ];

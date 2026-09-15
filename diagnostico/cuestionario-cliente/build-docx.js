@@ -94,7 +94,7 @@ function avisoFotos() {
           new TableCell({
             width: { size: CONTENT_W, type: WidthType.DXA },
             shading: { type: ShadingType.CLEAR, fill: COLOR.avisoFill, color: "auto" },
-            borders: allBorders(0.75, COLOR.obsidiana),
+            borders: allBorders(0.9, COLOR.obsidiana),
             margins: { top: 220, bottom: 220, left: 280, right: 280 },
             children: [
               new Paragraph({
@@ -106,7 +106,6 @@ function avisoFotos() {
                 children: [
                   run("Luz natural, sin gorra, con el pelo tal y como lo llevas a diario — sin peinar para la ocasión.", {
                     size: 8.3,
-                    italics: true,
                     color: COLOR.grafitoSec,
                   }),
                 ],
@@ -134,7 +133,7 @@ function fieldLabel(text) {
 function fieldLine() {
   return new Paragraph({
     spacing: { before: 280, after: 0 },
-    border: { bottom: border(0.85, COLOR.obsidiana) },
+    border: { bottom: border(1, COLOR.obsidiana) },
     children: [],
   });
 }
@@ -172,8 +171,8 @@ function bloqueCierre() {
             width: { size: CONTENT_W, type: WidthType.DXA },
             shading: { type: ShadingType.CLEAR, fill: COLOR.tizaCampo, color: "auto" },
             borders: {
-              top: border(1.5, COLOR.obsidiana),
-              left: border(2.5, COLOR.obsidiana),
+              top: border(1.8, COLOR.obsidiana),
+              left: border(3, COLOR.obsidiana),
               bottom: { style: BorderStyle.NONE },
               right: { style: BorderStyle.NONE },
             },
@@ -339,7 +338,7 @@ children.push(
     children: [
       run(
         "Esta sección es la más importante del cuestionario. Me dice hasta dónde puedo llevarte sin traicionar lo que tú quieres.",
-        { italics: true, size: 8.6, color: COLOR.grafitoSec }
+        { size: 8.6, color: COLOR.grafitoSec }
       ),
     ],
   })
