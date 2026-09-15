@@ -395,6 +395,47 @@ html, body {
   height: 9mm;
 }
 
+/* ---------- Armonía de ángulos — 4 recuadros blancos de trabajo ---------- */
+
+.angulos {
+  margin-top: 6mm;
+  break-inside: avoid;
+}
+.angulos__intro {
+  font-family: 'Inter', sans-serif;
+  font-style: italic;
+  font-size: 7.6pt;
+  color: var(--grafito-sec);
+  margin: 0 0 4mm;
+  max-width: 165mm;
+}
+.angulos__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 4mm;
+}
+.angulo-item {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  break-inside: avoid;
+}
+.angulo-box {
+  height: 36mm;
+  background: #FFFFFF;
+  border: 0.8pt solid var(--obsidiana);
+}
+.angulo-item__label {
+  font-family: 'Inter', sans-serif;
+  font-size: 6.6pt;
+  font-weight: 600;
+  letter-spacing: 1pt;
+  text-transform: uppercase;
+  color: var(--grafito-sec);
+  text-align: center;
+  margin-top: 2mm;
+}
+
 /* ---------- Nota de cierre ---------- */
 
 .closing-note {

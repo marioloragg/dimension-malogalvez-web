@@ -59,12 +59,10 @@ const {
   run,
   masthead,
   sectionHeader,
-  questionText,
   optionsInline,
-  optionsList,
-  answerBox,
   openQuestion,
   optionQuestion,
+  optionQuestionList,
   Document,
   Packer,
   Paragraph,
@@ -122,30 +120,26 @@ function avisoFotos() {
 }
 
 // ---------------------------------------------------------------------------
-// Sección 01 · Identificación — grid de campos cortos
+// Sección 01 · Identificación — grid de campos cortos, mismo lenguaje de
+// tarjeta "escribir" (tiza-campo + acento metal-oscuro) que el resto del
+// documento, en dos columnas para que quepan cuatro campos cortos sin aire
+// de sobra.
 // ---------------------------------------------------------------------------
 
 function fieldLabel(text) {
   return new Paragraph({
-    spacing: { after: 0 },
+    spacing: { after: 100 },
     children: [run(text, { size: 6.8, bold: true, color: COLOR.grafitoSec, tracking: 1.4 })],
-  });
-}
-
-function fieldLine() {
-  return new Paragraph({
-    spacing: { before: 280, after: 0 },
-    border: { bottom: border(0.85, COLOR.obsidiana) },
-    children: [],
   });
 }
 
 function identCell(label, width) {
   return new TableCell({
     width: { size: width, type: WidthType.DXA },
-    borders: { top: { style: BorderStyle.NONE }, bottom: { style: BorderStyle.NONE }, left: { style: BorderStyle.NONE }, right: { style: BorderStyle.NONE } },
-    margins: { top: 60, bottom: 260, left: 0, right: 240 },
-    children: [fieldLabel(label), fieldLine()],
+    shading: { type: ShadingType.CLEAR, fill: COLOR.tizaCampo, color: "auto" },
+    borders: { ...allBorders(0.5, COLOR.metalClaro), left: border(1.5, COLOR.metalOscuro) },
+    margins: { top: 140, bottom: 140, left: 220, right: 200 },
+    children: [fieldLabel(label), new Paragraph({ children: [run("", { size: 9 })] })],
   });
 }
 
@@ -154,7 +148,7 @@ function identGrid(rowsOfLabels) {
   return new Table({
     width: { size: CONTENT_W, type: WidthType.DXA },
     columnWidths: [colW, colW],
-    rows: rowsOfLabels.map(([a, b]) => new TableRow({ children: [identCell(a, colW), identCell(b, colW)] })),
+    rows: rowsOfLabels.map(([a, b]) => new TableRow({ cantSplit: true, children: [identCell(a, colW), identCell(b, colW)] })),
   });
 }
 
@@ -236,7 +230,7 @@ children.push(
     instrucciones: [
       "Contesta con honestidad, no con lo que suena mejor — una respuesta complaciente produce un diagnóstico equivocado.",
       "“No lo sé” es una respuesta válida.",
-      "Sustituye la casilla ❑ por una X y escribe en los campos grises.",
+      "Las casillas son interactivas: haz clic para marcarlas. Escribe directamente sobre los campos grises.",
     ],
   })
 );
@@ -345,29 +339,35 @@ children.push(
     ],
   })
 );
-children.push(questionText("Apertura al cambio:"));
-children.push(...optionsList(["Muy conservador", "Cambio moderado", "Abierto a un cambio notable", "Confío plenamente en tu criterio"]));
-children.push(questionText([{ text: "¿Cuáles de estas cosas estarías dispuesto a aceptar? " }, { text: "(marca todas las que apliquen)", italic: true }]));
 children.push(
-  ...optionsList([
-    "Acortar mucho el largo actual",
-    "Dejarlo crecer varios meses antes de la construcción definitiva",
-    "Rapar o degradar mucho los laterales",
-    "Descubrir la frente",
-    "Peinar en la dirección en que crece, aunque no sea la que usas ahora",
-    "Recortar, rediseñar o afeitar la barba para equilibrar el conjunto",
-    "Cambiar por completo de productos",
-    "Aumentar la frecuencia de visita a barbería",
-    "Un cambio de carácter permanente o de transición larga (varios meses)",
-  ])
+  ...optionQuestionList("Apertura al cambio:", ["Muy conservador", "Cambio moderado", "Abierto a un cambio notable", "Confío plenamente en tu criterio"])
+);
+children.push(
+  ...optionQuestionList(
+    [{ text: "¿Cuáles de estas cosas estarías dispuesto a aceptar? " }, { text: "(marca todas las que apliquen)", italic: true }],
+    [
+      "Acortar mucho el largo actual",
+      "Dejarlo crecer varios meses antes de la construcción definitiva",
+      "Rapar o degradar mucho los laterales",
+      "Descubrir la frente",
+      "Peinar en la dirección en que crece, aunque no sea la que usas ahora",
+      "Recortar, rediseñar o afeitar la barba para equilibrar el conjunto",
+      "Cambiar por completo de productos",
+      "Aumentar la frecuencia de visita a barbería",
+      "Un cambio de carácter permanente o de transición larga (varios meses)",
+    ]
+  )
 );
 children.push(
   ...openQuestion([{ text: "¿Qué es innegociable para ti? " }, { text: "Lo que no vas a ceder pase lo que pase. Todos tenemos algo.", italic: true }])
 );
 children.push(...openQuestion("¿Hay una fecha o un evento para el que necesites estar listo?"));
-children.push(questionText("Si mi diagnóstico contradice lo que tenías en mente, ¿qué prefieres?:"));
 children.push(
-  ...optionsList(["Que me lo digas directamente", "Que me lo digas, pero con alternativas", "Que respetes mi idea aunque no sea la óptima"])
+  ...optionQuestionList("Si mi diagnóstico contradice lo que tenías en mente, ¿qué prefieres?:", [
+    "Que me lo digas directamente",
+    "Que me lo digas, pero con alternativas",
+    "Que respetes mi idea aunque no sea la óptima",
+  ])
 );
 children.push(...openQuestion("¿Algo más que deba saber antes de estudiar tu caso?", { tall: true }));
 
@@ -379,6 +379,7 @@ children.push(bloqueCierre());
 // ---------------------------------------------------------------------------
 
 const doc = new Document({
+  background: { color: COLOR.tiza },
   styles: {
     default: {
       document: {

@@ -2,7 +2,20 @@
 
 Dos documentos generados por código que forman el diagnóstico previo de
 **Dimension by Malo Gálvez**, con el mismo sistema de diseño (Cinzel + Inter,
-paleta obsidiana/grafito/metal/tiza, cero rellenos negros):
+rampa de grises obsidiana → grafito → metal-oscuro → metal → metal-claro →
+perla → tiza-campo → tiza, cero rellenos negros):
+
+- **El cuestionario (DOCX) es interactivo de verdad**: cada casilla es un
+  content control nativo de Word (clic para marcar, no hay que teclear una
+  X encima), la página tiene fondo tiza, y cada pregunta lleva un filete de
+  acento a la izquierda que continúa por el borde de su tarjeta de
+  respuesta — tarjetas tiza-campo (más claras que la página, "escribir") y
+  tarjetas perla (algo más oscuras, "elegir") distinguen a simple vista qué
+  tipo de campo es cada uno.
+- **La Ficha Interna (PDF) termina con "Armonía de ángulos"**: 4 recuadros
+  blancos, uno por foto (frontal, perfil izquierdo, perfil derecho,
+  posterior/coronilla), para que el barbero esboce a mano los ángulos más
+  marcados de cada vista y la corrección que busca.
 
 | Documento | Formato | Lo rellena | Ruta fuente | Salida |
 |---|---|---|---|---|
@@ -13,8 +26,8 @@ paleta obsidiana/grafito/metal/tiza, cero rellenos negros):
 
 1. **Enviar el cuestionario al cliente.** Se le manda
    `Dimension_Cuestionario_Cliente.docx` (o su copia en Google Drive). El
-   cliente lo rellena sustituyendo cada ❑ por una X y escribiendo en los
-   campos grises.
+   cliente lo rellena haciendo clic en las casillas interactivas y
+   escribiendo en los campos grises.
 2. **Recibir el cuestionario relleno y las 4 fotos** (frontal, perfil
    izquierdo, perfil derecho, posterior/coronilla) que el propio documento
    le pide al cliente en el aviso inicial.
