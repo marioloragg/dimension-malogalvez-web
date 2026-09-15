@@ -24,3 +24,9 @@ docs/hero-y-menu-entrega.md   Copy, especificación de assets, notas de degradac
 
 Ver `docs/hero-y-menu-entrega.md` para el detalle de copy, especificación de
 fotografía y notas de accesibilidad/rendimiento.
+
+## Sistema de diagnóstico
+
+`diagnostico/` contiene el generador de la Ficha Interna (PDF) y el
+Cuestionario de Diagnóstico del cliente (DOCX) — ver
+`diagnostico/README.md` para el flujo completo y cómo regenerarlos.

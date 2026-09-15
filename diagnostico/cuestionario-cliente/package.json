@@ -1,0 +1,12 @@
+{
+  "name": "dimension-cuestionario-cliente",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Genera el Cuestionario de Diagnóstico — Cliente (.docx) de Dimension by Malo Gálvez",
+  "scripts": {
+    "build": "node build-docx.js"
+  },
+  "dependencies": {
+    "docx": "^9.7.1"
+  }
+}

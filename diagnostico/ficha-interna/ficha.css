@@ -1,0 +1,409 @@
+/* Dimension by Malo Gálvez — Ficha Interna, Lectura Morfológica
+   Sistema de diseño clínico: hormigón pulido, acero mate, cristal ahumado.
+   Cero rellenos negros. El peso visual se consigue con filetes, escala y aire. */
+
+@font-face {
+  font-family: 'Cinzel';
+  src: url('../fuentes/Cinzel-Regular.ttf');
+  font-weight: 400;
+}
+@font-face {
+  font-family: 'Cinzel';
+  src: url('../fuentes/Cinzel-SemiBold.ttf');
+  font-weight: 600;
+}
+@font-face {
+  font-family: 'Cinzel';
+  src: url('../fuentes/Cinzel-Bold.ttf');
+  font-weight: 700;
+}
+@font-face {
+  font-family: 'Inter';
+  src: url('../fuentes/Inter-Regular.ttf');
+  font-weight: 400;
+}
+@font-face {
+  font-family: 'Inter';
+  src: url('../fuentes/Inter-Medium.ttf');
+  font-weight: 500;
+}
+@font-face {
+  font-family: 'Inter';
+  src: url('../fuentes/Inter-SemiBold.ttf');
+  font-weight: 600;
+}
+@font-face {
+  font-family: 'Inter';
+  src: url('../fuentes/Inter-Bold.ttf');
+  font-weight: 700;
+}
+@font-face {
+  font-family: 'Inter';
+  src: url('../fuentes/Inter-Italic.ttf');
+  font-weight: 400;
+  font-style: italic;
+}
+
+:root {
+  --obsidiana: #0C0C0E;
+  --grafito: #232326;
+  --grafito-sec: #55555A;
+  --metal: #AEB1B5;
+  --metal-claro: #D6D8DA;
+  --tiza: #F4F2EE;
+  --tiza-campo: #FAF9F7;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--tiza);
+  color: var(--grafito);
+  font-family: 'Inter', sans-serif;
+  font-size: 9.9pt;
+  line-height: 1.62;
+}
+
+@page {
+  size: A4;
+  margin: 26mm 18mm 24mm 18mm;
+  background: var(--tiza);
+
+  @top-left-corner {
+    content: "";
+    background: url('assets/marcas/top-left.svg') no-repeat top left;
+    background-size: 5mm 5mm;
+  }
+  @top-right-corner {
+    content: "";
+    background: url('assets/marcas/top-right.svg') no-repeat top right;
+    background-size: 5mm 5mm;
+  }
+  @bottom-left-corner {
+    content: "";
+    background: url('assets/marcas/bottom-left.svg') no-repeat bottom left;
+    background-size: 5mm 5mm;
+  }
+  @bottom-right-corner {
+    content: "";
+    background: url('assets/marcas/bottom-right.svg') no-repeat bottom right;
+    background-size: 5mm 5mm;
+  }
+
+  @bottom-left {
+    content: "DIMENSION — ARQUITECTURA CAPILAR";
+    font-family: 'Inter', sans-serif;
+    font-size: 6.6pt;
+    letter-spacing: 1.6pt;
+    color: var(--metal);
+    vertical-align: top;
+    padding-top: 2mm;
+  }
+  @bottom-right {
+    content: "FICHA " counter(page) " / " counter(pages);
+    font-family: 'Inter', sans-serif;
+    font-size: 6.6pt;
+    letter-spacing: 1.6pt;
+    color: var(--metal);
+    vertical-align: top;
+    padding-top: 2mm;
+  }
+}
+
+/* ---------- Cabecera / masthead ---------- */
+
+.masthead { margin-bottom: 5mm; }
+
+.kicker {
+  display: flex;
+  align-items: center;
+  gap: 2.2mm;
+  font-family: 'Inter', sans-serif;
+  font-size: 7.6pt;
+  font-weight: 600;
+  letter-spacing: 3pt;
+  text-transform: uppercase;
+  color: var(--grafito-sec);
+  margin: 0 0 2.6mm;
+}
+.kicker::before {
+  content: "";
+  display: inline-block;
+  width: 4.2mm;
+  height: 4.2mm;
+  background: var(--obsidiana);
+  flex: none;
+}
+
+.brand-title {
+  font-family: 'Cinzel', serif;
+  font-weight: 600;
+  font-size: 27pt;
+  color: var(--obsidiana);
+  margin: 0 0 3mm;
+  letter-spacing: 0.4pt;
+}
+.brand-title .by {
+  font-size: 0.62em;
+  font-weight: 400;
+  color: var(--grafito-sec);
+}
+
+.doc-subtitle {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 10.5pt;
+  letter-spacing: 2.4pt;
+  text-transform: uppercase;
+  color: var(--grafito);
+  margin: 0 0 2mm;
+}
+
+.doc-note {
+  font-family: 'Inter', sans-serif;
+  font-style: italic;
+  font-size: 7.6pt;
+  color: var(--grafito-sec);
+  margin: 0 0 4mm;
+  max-width: 150mm;
+}
+
+.masthead-rule {
+  border: none;
+  border-top: 1.1pt solid var(--obsidiana);
+  margin: 0;
+}
+
+/* ---------- Fila de campos de identificación ---------- */
+
+.field-row {
+  display: flex;
+  gap: 6mm;
+  margin: 5mm 0 4mm;
+}
+.field { display: flex; flex-direction: column; }
+.field--nombre { flex: 0 0 46%; }
+.field--fecha { flex: 0 0 21%; }
+.field--barbero { flex: 1 1 auto; }
+
+.field-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 6.8pt;
+  font-weight: 700;
+  letter-spacing: 1.4pt;
+  text-transform: uppercase;
+  color: var(--grafito-sec);
+  margin-bottom: 3mm;
+}
+.field-line {
+  border: none;
+  border-bottom: 0.85pt solid var(--obsidiana);
+  height: 4.6mm;
+}
+
+/* ---------- Tira de control de fotos ---------- */
+
+.photo-strip {
+  border-top: 0.6pt solid var(--metal-claro);
+  padding-top: 3mm;
+  margin-bottom: 1mm;
+  display: flex;
+  align-items: center;
+  gap: 8mm;
+  flex-wrap: wrap;
+}
+.photo-strip__label {
+  font-family: 'Inter', sans-serif;
+  font-size: 6.8pt;
+  font-weight: 700;
+  letter-spacing: 1.4pt;
+  text-transform: uppercase;
+  color: var(--grafito-sec);
+  flex: none;
+}
+.photo-strip__items {
+  display: flex;
+  gap: 7mm;
+  flex-wrap: wrap;
+}
+
+/* ---------- Banda de bloque ---------- */
+
+.band {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  border-top: 1.3pt solid var(--obsidiana);
+  border-bottom: 0.5pt solid var(--metal-claro);
+  padding: 2mm 0;
+  margin: 6mm 0 4mm;
+}
+.band__title {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 10pt;
+  letter-spacing: 1.6pt;
+  text-transform: uppercase;
+  color: var(--obsidiana);
+}
+.band__note {
+  font-family: 'Inter', sans-serif;
+  font-style: italic;
+  font-size: 7.6pt;
+  color: var(--grafito-sec);
+}
+
+/* ---------- Cabecera de sección ---------- */
+
+.section-header {
+  display: flex;
+  align-items: baseline;
+  border-bottom: 0.6pt solid var(--metal-claro);
+  padding-bottom: 2.4mm;
+  margin: 9mm 0 5.6mm;
+}
+.section-header__num {
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+  font-size: 13pt;
+  color: var(--metal);
+  width: 13mm;
+  flex: none;
+}
+.section-header__title {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 10.2pt;
+  letter-spacing: 1.8pt;
+  text-transform: uppercase;
+  color: var(--grafito);
+}
+
+/* ---------- Preguntas y opciones ---------- */
+
+.question { margin-bottom: 5.6mm; break-inside: avoid; }
+.question--open { margin-bottom: 7mm; }
+.question__text {
+  font-family: 'Inter', sans-serif;
+  font-size: 8.7pt;
+  color: var(--grafito);
+  margin-bottom: 2mm;
+}
+.question__text em { font-style: italic; color: var(--grafito-sec); }
+
+.options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2mm 6mm;
+}
+.options--grid2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2mm 8mm;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  gap: 1.8mm;
+  white-space: nowrap;
+}
+.option__box {
+  width: 3.1mm;
+  height: 3.1mm;
+  border: 0.8pt solid var(--obsidiana);
+  flex: none;
+}
+.option__label {
+  font-family: 'Inter', sans-serif;
+  font-size: 8.7pt;
+  color: var(--grafito);
+}
+
+.answer-line {
+  border: none;
+  border-bottom: 0.7pt dotted #9A9DA1;
+  height: 6mm;
+  margin: 0;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 8mm;
+}
+
+/* ---------- Bloque de diagnóstico (sin relleno negro) ---------- */
+
+.diagnostico {
+  background: var(--tiza-campo);
+  border-top: 1.5pt solid var(--obsidiana);
+  border-left: 2.5pt solid var(--obsidiana);
+  padding: 7mm 8mm 8mm 8mm;
+  margin-top: 7mm;
+  break-inside: avoid;
+}
+.diagnostico__kicker {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 7pt;
+  letter-spacing: 2.6pt;
+  text-transform: uppercase;
+  color: var(--metal);
+  margin-bottom: 2.6mm;
+}
+.diagnostico__title {
+  font-family: 'Cinzel', serif;
+  font-weight: 600;
+  font-size: 14.5pt;
+  color: var(--obsidiana);
+  border-bottom: 0.6pt solid var(--metal-claro);
+  padding-bottom: 4mm;
+  margin: 0 0 6mm;
+}
+.diagnostico__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8mm 10mm;
+}
+.diagnostico__field {
+  break-inside: avoid;
+  display: flex;
+  flex-direction: column;
+}
+.diagnostico__label {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 8pt;
+  letter-spacing: 0.6pt;
+  text-transform: uppercase;
+  color: var(--grafito);
+  margin-bottom: 4mm;
+}
+.diagnostico__label em {
+  font-style: italic;
+  font-weight: 400;
+  text-transform: none;
+  color: var(--grafito-sec);
+  letter-spacing: 0;
+}
+.diagnostico__line {
+  border: none;
+  border-bottom: 0.7pt solid var(--metal-claro);
+  height: 9mm;
+}
+
+/* ---------- Nota de cierre ---------- */
+
+.closing-note {
+  border-top: 0.6pt solid var(--metal-claro);
+  padding-top: 2.6mm;
+  margin-top: 4mm;
+  font-family: 'Inter', sans-serif;
+  font-style: italic;
+  font-size: 7.6pt;
+  color: var(--grafito-sec);
+  break-inside: avoid;
+}
