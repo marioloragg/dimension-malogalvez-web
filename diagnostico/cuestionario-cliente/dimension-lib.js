@@ -31,31 +31,26 @@ const {
 } = require("docx");
 
 // ---------------------------------------------------------------------------
-// Sistema de diseño Dimension
-//
-// Rampa de grises completa, de más oscuro a más claro, cada tono con un rol
-// fijo (nunca decorativo) para que la variedad se lea como jerarquía, no
-// como ruido:
-//   obsidiana   → titulares, filetes de máximo peso
-//   grafito     → texto de cuerpo
-//   grafitoSec  → texto secundario, itálicas, ayudas
-//   metalOscuro → filete de acento de cada entrada de pregunta
-//   metal       → numeración de sección, pie de página
-//   metalClaro  → filetes finos, bordes de campo
-//   perla       → fondo de las entradas de opción marcable (elegir)
-//   tizaCampo   → fondo de las entradas de respuesta abierta (escribir), más
-//                 clara que la página para que se sientan "encendidas"
-//   tiza        → fondo de página
+// Sistema de diseño Dimension — mismo lenguaje que la Ficha Interna en PDF:
+// el peso lo dan los filetes finos y el aire, no bloques ni tarjetas. Cada
+// tono de la rampa de grises tiene un rol fijo:
+//   obsidiana  → titulares, filetes de máximo peso
+//   grafito    → texto de cuerpo
+//   grafitoSec → texto secundario, itálicas, ayudas
+//   metal      → numeración de sección, pie de página
+//   metalClaro → filetes finos, bordes de campo
+//   linea      → línea punteada de los campos de respuesta (igual que el PDF)
+//   tizaCampo  → fondo del aviso de fotos y del bloque de cierre
+//   tiza       → fondo de página
 // ---------------------------------------------------------------------------
 
 const COLOR = {
   obsidiana: "0C0C0E",
   grafito: "232326",
   grafitoSec: "55555A",
-  metalOscuro: "82858A",
   metal: "AEB1B5",
   metalClaro: "D6D8DA",
-  perla: "E7E4DF",
+  linea: "9A9DA1",
   tiza: "F4F2EE",
   tizaCampo: "FAF9F7",
   avisoFill: "EFEDE8",
@@ -90,11 +85,6 @@ function border(sizePt, color) {
 function allBorders(sizePt, color) {
   const b = border(sizePt, color);
   return { top: b, bottom: b, left: b, right: b };
-}
-
-/** Filete de acento a la izquierda que marca cada entrada de pregunta. */
-function accentBorder(color = COLOR.metalOscuro, sizePt = 1.5, spacePt = 9) {
-  return { left: { style: BorderStyle.SINGLE, size: ptToEighths(sizePt), color, space: spacePt } };
 }
 
 /** Paragraph vacío usado solo como separador vertical entre bloques/tablas. */
@@ -214,48 +204,44 @@ function sectionHeader(num, title) {
   ];
 }
 
-/**
- * Texto de pregunta. `parts` es un string o un array de {text, italic}.
- * Lleva el filete de acento que abre cada "entrada de pregunta" — el mismo
- * filete continúa por el borde izquierdo de la tarjeta de respuesta que le
- * sigue, así se lee como un único margen marcado para todo el bloque.
- */
+/** Texto de pregunta. `parts` es un string o un array de {text, italic}. */
 function questionText(parts, { before = 200, after = 90 } = {}) {
   const segments = Array.isArray(parts) ? parts : [{ text: parts }];
   const children = segments.map((p) =>
     run(p.text, { size: 8.9, italics: !!p.italic, color: p.italic ? COLOR.grafitoSec : COLOR.grafito })
   );
-  return new Paragraph({ spacing: { before, after }, keepNext: true, border: accentBorder(), children });
+  return new Paragraph({ spacing: { before, after }, keepNext: true, children });
+}
+
+/** Una línea punteada de escritura — la misma convención que `.answer-line` del PDF. */
+function answerLine({ before = 260, after = 0, keepNext = false } = {}) {
+  return new Paragraph({
+    spacing: { before, after },
+    border: { bottom: { style: BorderStyle.DOTTED, size: ptToEighths(0.7), color: COLOR.linea } },
+    keepLines: true,
+    keepNext,
+    children: [],
+  });
 }
 
 /**
- * Tarjeta de respuesta: tabla de una sola celda que aloja el contenido dado
- * (líneas en blanco para escribir, o casillas para elegir). El borde
- * izquierdo, más grueso y en metal-oscuro, prolonga el filete de acento de
- * la pregunta — la tarjeta entera es el "margen de respuesta" marcado.
+ * Campo de respuesta abierto: una línea, o varias si hace falta más espacio
+ * para escribir. Word/LibreOffice fusionan el borde de párrafos vacíos
+ * consecutivos con el mismo `pBdr` y solo dibujan el último — cada línea va
+ * separada por un párrafo sin borde para que las tres se vean, y todo el
+ * grupo lleva `keepNext` para que un salto de página no separe unas líneas
+ * de otras.
  */
-function card(paragraphs, { fill = COLOR.tizaCampo, after = 260 } = {}) {
-  return [
-    new Table({
-      width: { size: CONTENT_W, type: WidthType.DXA },
-      columnWidths: [CONTENT_W],
-      rows: [
-        new TableRow({
-          cantSplit: true,
-          children: [
-            new TableCell({
-              width: { size: CONTENT_W, type: WidthType.DXA },
-              shading: { type: ShadingType.CLEAR, fill, color: "auto" },
-              borders: { ...allBorders(0.5, COLOR.metalClaro), left: border(1.5, COLOR.metalOscuro) },
-              margins: { top: 160, bottom: 160, left: 220, right: 200 },
-              children: paragraphs,
-            }),
-          ],
-        }),
-      ],
-    }),
-    spacer(after),
-  ];
+function answerLines({ tall = false, after = 280 } = {}) {
+  const count = tall ? 3 : 1;
+  const lines = [];
+  for (let i = 0; i < count; i++) {
+    const isLast = i === count - 1;
+    if (i > 0) lines.push(new Paragraph({ spacing: { before: 0, after: 260 }, keepNext: true, children: [] }));
+    lines.push(answerLine({ before: i === 0 ? 260 : 0, after: 0, keepNext: !isLast }));
+  }
+  lines.push(spacer(after));
+  return lines;
 }
 
 /**
@@ -279,7 +265,7 @@ function checkboxRun(label, { checked = false } = {}) {
 }
 
 /** Opciones marcables en línea (casilla real interactiva, no un carácter). */
-function optionsInline(labels, { after = 0 } = {}) {
+function optionsInline(labels, { after = 260 } = {}) {
   const children = [];
   labels.forEach((label, i) => {
     if (i > 0) children.push(run("      ", { size: 8.9 }));
@@ -289,42 +275,29 @@ function optionsInline(labels, { after = 0 } = {}) {
 }
 
 /** Opciones marcables, una por línea (para listas largas de checkboxes). */
-function optionsListParas(labels) {
+function optionsListParas(labels, { after = 260 } = {}) {
   return labels.map(
     (label, i) =>
       new Paragraph({
-        spacing: { after: i === labels.length - 1 ? 0 : 100 },
+        spacing: { after: i === labels.length - 1 ? after : 90 },
         children: checkboxRun(label),
       })
   );
 }
 
-/** Bloque de opciones (una línea o una lista), envuelto en la tarjeta perla — "elegir". */
-function optionsCard(labels, { list = false, after = 260 } = {}) {
-  const paragraphs = list ? optionsListParas(labels) : [optionsInline(labels)];
-  return card(paragraphs, { fill: COLOR.perla, after });
-}
-
-/** Campo de respuesta abierto: tarjeta tiza-campo — "escribir". */
-function answerBox({ tall = false, after = 260 } = {}) {
-  const lineCount = tall ? 3 : 1;
-  const paras = Array.from({ length: lineCount }, () => new Paragraph({ children: [run("", { size: 9 })] }));
-  return card(paras, { fill: COLOR.tizaCampo, after });
-}
-
-/** Pregunta abierta completa: texto + tarjeta de respuesta para escribir. */
+/** Pregunta abierta completa: texto + línea(s) de respuesta. */
 function openQuestion(parts, { tall = false, before = 200 } = {}) {
-  return [questionText(parts, { before }), ...answerBox({ tall })];
+  return [questionText(parts, { before }), ...answerLines({ tall })];
 }
 
-/** Pregunta con opciones marcables en línea, dentro de una tarjeta para elegir. */
+/** Pregunta con opciones marcables en línea. */
 function optionQuestion(parts, labels, { before = 200 } = {}) {
-  return [questionText(parts, { before }), ...optionsCard(labels)];
+  return [questionText(parts, { before }), optionsInline(labels)];
 }
 
-/** Pregunta con opciones marcables una por línea, dentro de una tarjeta para elegir. */
+/** Pregunta con opciones marcables una por línea. */
 function optionQuestionList(parts, labels, { before = 200 } = {}) {
-  return [questionText(parts, { before }), ...optionsCard(labels, { list: true })];
+  return [questionText(parts, { before }), ...optionsListParas(labels)];
 }
 
 module.exports = {
@@ -349,13 +322,11 @@ module.exports = {
   docNoteBold,
   masthead,
   sectionHeader,
-  accentBorder,
-  card,
   questionText,
+  answerLine,
+  answerLines,
   optionsInline,
   optionsListParas,
-  optionsCard,
-  answerBox,
   openQuestion,
   optionQuestion,
   optionQuestionList,

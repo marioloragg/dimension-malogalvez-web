@@ -120,26 +120,31 @@ function avisoFotos() {
 }
 
 // ---------------------------------------------------------------------------
-// Sección 01 · Identificación — grid de campos cortos, mismo lenguaje de
-// tarjeta "escribir" (tiza-campo + acento metal-oscuro) que el resto del
-// documento, en dos columnas para que quepan cuatro campos cortos sin aire
-// de sobra.
+// Sección 01 · Identificación — grid de campos cortos, mismo "field-row" que
+// la cabecera de la Ficha Interna: etiqueta versalita + línea, sin caja.
 // ---------------------------------------------------------------------------
 
 function fieldLabel(text) {
   return new Paragraph({
-    spacing: { after: 100 },
+    spacing: { after: 0 },
     children: [run(text, { size: 6.8, bold: true, color: COLOR.grafitoSec, tracking: 1.4 })],
+  });
+}
+
+function fieldLine() {
+  return new Paragraph({
+    spacing: { before: 280, after: 0 },
+    border: { bottom: border(0.85, COLOR.obsidiana) },
+    children: [],
   });
 }
 
 function identCell(label, width) {
   return new TableCell({
     width: { size: width, type: WidthType.DXA },
-    shading: { type: ShadingType.CLEAR, fill: COLOR.tizaCampo, color: "auto" },
-    borders: { ...allBorders(0.5, COLOR.metalClaro), left: border(1.5, COLOR.metalOscuro) },
-    margins: { top: 140, bottom: 140, left: 220, right: 200 },
-    children: [fieldLabel(label), new Paragraph({ children: [run("", { size: 9 })] })],
+    borders: { top: { style: BorderStyle.NONE }, bottom: { style: BorderStyle.NONE }, left: { style: BorderStyle.NONE }, right: { style: BorderStyle.NONE } },
+    margins: { top: 60, bottom: 260, left: 0, right: 240 },
+    children: [fieldLabel(label), fieldLine()],
   });
 }
 
@@ -148,7 +153,7 @@ function identGrid(rowsOfLabels) {
   return new Table({
     width: { size: CONTENT_W, type: WidthType.DXA },
     columnWidths: [colW, colW],
-    rows: rowsOfLabels.map(([a, b]) => new TableRow({ cantSplit: true, children: [identCell(a, colW), identCell(b, colW)] })),
+    rows: rowsOfLabels.map(([a, b]) => new TableRow({ children: [identCell(a, colW), identCell(b, colW)] })),
   });
 }
 
@@ -230,7 +235,7 @@ children.push(
     instrucciones: [
       "Contesta con honestidad, no con lo que suena mejor — una respuesta complaciente produce un diagnóstico equivocado.",
       "“No lo sé” es una respuesta válida.",
-      "Las casillas son interactivas: haz clic para marcarlas. Escribe directamente sobre los campos grises.",
+      "Las casillas son interactivas: haz clic para marcarlas. Escribe directamente sobre las líneas.",
     ],
   })
 );

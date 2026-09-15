@@ -2,16 +2,14 @@
 
 Dos documentos generados por código que forman el diagnóstico previo de
 **Dimension by Malo Gálvez**, con el mismo sistema de diseño (Cinzel + Inter,
-rampa de grises obsidiana → grafito → metal-oscuro → metal → metal-claro →
-perla → tiza-campo → tiza, cero rellenos negros):
+paleta obsidiana → grafito → metal → metal-claro → tiza, cero rellenos
+negros, el peso lo dan los filetes finos y el aire — no cajas ni tarjetas):
 
-- **El cuestionario (DOCX) es interactivo de verdad**: cada casilla es un
-  content control nativo de Word (clic para marcar, no hay que teclear una
-  X encima), la página tiene fondo tiza, y cada pregunta lleva un filete de
-  acento a la izquierda que continúa por el borde de su tarjeta de
-  respuesta — tarjetas tiza-campo (más claras que la página, "escribir") y
-  tarjetas perla (algo más oscuras, "elegir") distinguen a simple vista qué
-  tipo de campo es cada uno.
+- **El cuestionario (DOCX) usa el mismo lenguaje que la Ficha Interna**:
+  fondo de página tiza, preguntas a línea limpia y respuestas en línea
+  punteada (idéntica a `.answer-line` del PDF) en vez de campos con caja.
+  Las casillas, eso sí, son un content control nativo de Word — clic para
+  marcarlas, no hace falta teclear una X encima.
 - **La Ficha Interna (PDF) termina con "Armonía de ángulos"**: 4 recuadros
   blancos, uno por foto (frontal, perfil izquierdo, perfil derecho,
   posterior/coronilla), para que el barbero esboce a mano los ángulos más
