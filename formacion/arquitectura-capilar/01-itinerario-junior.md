@@ -120,6 +120,14 @@ Este capítulo es la bisagra entre la ciencia y la técnica: traduce la anatomí
 
 **Ángulo de elevación y su efecto en la línea de corte.** Elevar la sección a 0° produce una línea de peso máximo (corte "bloque"); elevar a 90° reparte el peso uniformemente; elevar por encima de 90° (sobre-dirección) genera capas cortas en la parte superior con más longitud debajo. Este principio, combinado con el ángulo de la sección respecto a la cabeza, es la base matemática de toda técnica de corte que se enseña a partir del Capítulo 5.
 
+**Checklist de observación rápida.** Antes de decidir cualquier técnica, recorre estas tres variables en orden — es la secuencia mínima de diagnóstico que debes poder hacer en los primeros 60 segundos con el cliente en el sillón, antes de mojar o tocar con herramienta:
+
+- [ ] **Densidad** — Baja / Media / Alta. Observa cuánta cantidad de cabello hay en la zona, no solo en la superficie.
+- [ ] **Grosor de fibra** — Fino / Medio / Grueso. Toma un mechón entre los dedos y evalúa su calibre y resistencia.
+- [ ] **Dirección de crecimiento** — Hacia adelante / Hacia atrás / En remolino / Múltiples direcciones. Identifica el patrón en corona, nuca y nacimiento frontal.
+
+Esta checklist no sustituye el análisis del Capítulo 13 (diagnóstico verbal con el cliente) — es el paso previo, puramente técnico y silencioso, que te da los datos con los que luego vas a construir esa conversación.
+
 ### Ejemplo aplicado
 
 Antes de cortar un flequillo, moja el mechón, mide con el peine, y resta mentalmente entre 0.5 y 1 cm según el grado de rizado del cliente (a mayor rizo, mayor recogida al secar). Es la aplicación directa del principio de elasticidad — y evita el error más citado por clientes insatisfechos en peluquería: "me lo cortaron más corto de lo que pedí".
@@ -169,6 +177,18 @@ El degradado (fade) es la técnica insignia de la barbería moderna y exige más
 - **Zona alta (masa capilar conservada)** — conecta con el volumen superior que se trabajará con tijera si el diseño lo requiere.
 
 **Herramienta y su lógica:** la máquina de corte con juego de cuchillas intercambiables (referencias profesionales habituales: Wahl, Andis, BaByliss PRO, JRL) es la base del degradado; los peines-guía definen longitudes fijas de forma repetible; la navaja se reserva para el remate final de contorno (patillas, nuca, entradas) por su capacidad de definición milimétrica sobre piel. Ningún degradado profesional se termina sin repaso de contorno a navaja — es lo que separa un corte "hecho a máquina" de un acabado de barbería.
+
+**Tabla de referencia rápida — niveles de cuchilla/peine-guía y su equivalencia en milímetros.** Las cifras exactas varían ligeramente entre fabricantes (verifica siempre la tabla del tuyo), pero esta equivalencia orientativa es la que debes tener memorizada para nombrar en voz alta qué estás usando y por qué, tal como pide la nota para el profesor de este capítulo:
+
+| Nivel | Longitud aprox. | Zona habitual del degradado |
+|---|---|---|
+| 0 | 0 mm (sin peine, a piel) | Zona baja — máxima precisión |
+| 0.5 | ~1.5 mm | Zona media-baja — inicio de transición |
+| 1 | ~3 mm | Zona media-alta — cuerpo de la transición |
+| 2 | ~6 mm | Zona alta — enlace con la masa superior |
+| 3+ | ~10 mm en adelante | Masa superior, previa a tijera si el diseño lo requiere |
+
+La tabla es un punto de partida, no una receta fija: la densidad y el grosor de fibra del cliente (checklist del Capítulo 4) determinan si necesitas un nivel intermedio adicional para que la transición no se note como escalón.
 
 **El error técnico más frecuente** no es la zona baja (la más fácil de ejecutar correctamente) sino la zona media: un blending mal trabajado deja una línea visible de "escalón" en vez de una transición continua. La corrección se hace trabajando esa zona con movimientos cortos, repetidos, en arco, superponiendo cada pasada sobre la mitad de la anterior — nunca en una sola pasada limpia.
 
@@ -324,6 +344,16 @@ La higiene no es un capítulo administrativo: es la continuación directa del Ca
 - Tijeras: limpieza de eje y engrase regular; nunca deben usarse para cortar nada que no sea cabello (evitar residuos de cera o laca que embotan el filo).
 
 **Trazabilidad de producto abierto.** Todo producto profesional con fecha de caducidad post-apertura (PAO, indicado en el envase con el símbolo de tarro abierto) debe etiquetarse con fecha de apertura. Un producto caducado en uso —especialmente oxidantes y tintes— pierde eficacia y puede generar reacciones cutáneas imprevisibles.
+
+**Protocolo rápido antes de cada cliente.** Resume en checklist lo ya descrito arriba — pégalo en cabina, no lo mantengas solo en la cabeza:
+
+- [ ] Herramientas de corte (cuchilla, navaja) desinfectadas y secas
+- [ ] Peines y cepillos sumergidos en solución desinfectante el tiempo indicado por el fabricante
+- [ ] Sillón, encimera y apoyabrazos limpiados con producto de superficie
+- [ ] Capa o toalla limpia lista, sin reutilizar sobre el cliente anterior
+- [ ] Manos lavadas o higienizadas con gel antes de tocar al cliente
+
+Un entorno visiblemente limpio no es solo prevención clínica — es la primera señal de confianza que recibe el cliente antes de que digas una sola palabra, y es la base sobre la que se construye la conversación de diagnóstico del Capítulo 13.
 
 ### Ejemplo aplicado
 

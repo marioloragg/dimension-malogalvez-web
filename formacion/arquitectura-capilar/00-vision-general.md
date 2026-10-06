@@ -47,9 +47,33 @@ Este material está pensado como **proyecto vivo**, no como manual cerrado. Ante
 
 1. **Sustituye los ejemplos de producto por tu inventario real.** Si tu academia trabaja con una gama distinta a las citadas, cambia el nombre pero conserva la categoría técnica (base de amoniaco vs. sin amoniaco, densidad de la cera, pH del tratamiento, etc.) — es la categoría la que enseña, no la marca.
 2. **Respeta el orden dentro de cada bloque, no entre bloques enteros.** Puedes impartir "Colorimetría profesional" antes que "Tratamientos básicos" si tu calendario lo exige, pero nunca actual "Corte en degradado" antes de "Cómo se comporta el cabello al cortar" — la física precede siempre a la técnica que la usa.
-3. **Cada capítulo incluye una nota para el profesor** con sugerencias de ejercicio práctico, tiempo de demostración en modelo vivo vs. maniquí, y preguntas de verificación de criterio (no de memorización).
+3. **Cada capítulo incluye una nota para el profesor** con sugerencias de ejercicio práctico, tiempo de demostración en modelo vivo vs. maniquí, y preguntas de verificación de criterio (no de memorización). Esa nota te dice *qué* enfatizar; la plantilla de la sección siguiente te ayuda a convertirlo en el guion concreto de una sesión de 90-120 minutos.
 4. **El cierre de cada itinerario es evaluativo, no expositivo.** La última sesión de cada bloque debe dedicarse a que el alumno explique una decisión técnica en voz alta, como si se la estuviera explicando a un cliente — es el ensayo del criterio propio que se exige en cabina real.
 5. **Personaliza el estudio de caso final.** Ambos itinerarios cierran con un ejercicio de síntesis. Sustitúyelo por un caso real de tu cartera de clientes (con consentimiento) siempre que sea posible — el aprendizaje se fija mucho más rápido sobre un caso vivo que sobre uno hipotético.
+
+---
+
+## Plantilla de planificación de sesión
+
+La "nota para el profesor" de cada capítulo te dice qué enfatizar; esta plantilla es el formato operativo para convertir esa nota en una sesión concreta. Fotocópiala o reprodúcela una vez por capítulo — no hace falta rellenarla en el documento, es una herramienta de cabina/aula, no un registro permanente.
+
+**Objetivo de la sesión** — ¿qué sabrá hacer el alumno al terminar, en una frase? (Toma la frase del encabezado "Contenido desarrollado" del capítulo, no la inventes de cero.)
+
+**Nivel del alumno** — Principiante / Intermedio / Avanzado, con una nota de qué cambia en la sesión según el nivel (p. ej. un alumno avanzado necesita menos tiempo de demostración y más práctica independiente).
+
+**Materiales** — lista de comprobación específica del capítulo (herramienta, producto de referencia del "ejemplo aplicado", cabeza de práctica o modelo vivo, protección, superficie de trabajo).
+
+**Reparto del tiempo** (ajusta las proporciones a la duración orientativa del capítulo; esta distribución funciona bien como punto de partida en una sesión de 90 min):
+
+| Fase | % del tiempo | Qué ocurre |
+|---|---|---|
+| Introducción y objetivos | ~10% | Se enuncia el objetivo y se conecta con el capítulo anterior (nunca se empieza sin esa conexión — ver principio pedagógico 2) |
+| Demostración | ~20% | El profesor ejecuta explicando en voz alta el porqué de cada decisión, no solo el gesto |
+| Práctica guiada | ~35% | El alumno ejecuta con corrección en tiempo real |
+| Práctica independiente | ~25% | El alumno ejecuta sin asistencia directa, gestionando su propio tiempo |
+| Evaluación y cierre | ~10% | Verificación de criterio (ver punto 4 más abajo), no examen memorístico |
+
+**Evaluación de cierre** — marca cada punto como Logrado / En progreso / Requiere refuerzo: técnica correcta, resultado final, manejo del tiempo, higiene y orden (capítulo 11 del Itinerario Junior), y la pregunta de criterio específica que proponga la "nota para el profesor" del capítulo.
 
 ---
 
