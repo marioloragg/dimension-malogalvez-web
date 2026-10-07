@@ -248,6 +248,8 @@ Un barbero que no entiende qué compone un producto no puede prescribirlo con cr
 - **Estilizado (cera, pomada, arcilla, spray, polvo texturizante).** Se diferencian por base: base agua (fácil de lavar, brillo natural a medio, fijación media) vs. base grasa/aceite (fijación fuerte, brillo alto, requiere doble limpieza para retirar) vs. base fibra/polvo (fijación mate, volumen, sin peso).
 - **Tratamiento técnico (pre y post químico, protectores térmicos, neutralizantes).** Contenido que se desarrolla en profundidad en el Capítulo 12.
 
+![Figura 7.1 — Las cuatro categorías funcionales de producto, con su base técnica diferenciadora](figuras/fig-16-categorias-producto.png)
+
 **Categorización de marcas por posicionamiento y calidad** — orientación general para que el alumno sepa situar cualquier gama nueva que encuentre:
 
 - **Gamas de entrada/volumen** — formulación funcional, buena relación calidad-precio, orientadas a rotación alta en salón. Referencia: Five.
@@ -387,6 +389,8 @@ La higiene no es un capítulo administrativo: es la continuación directa del Ca
 **Trazabilidad de producto abierto.** Todo producto profesional con fecha de caducidad post-apertura (PAO, indicado en el envase con el símbolo de tarro abierto) debe etiquetarse con fecha de apertura. Un producto caducado en uso —especialmente oxidantes y tintes— pierde eficacia y puede generar reacciones cutáneas imprevisibles.
 
 **Protocolo rápido antes de cada cliente.** Resume en checklist lo ya descrito arriba — pégalo en cabina, no lo mantengas solo en la cabeza:
+
+![Figura 11.1 — Protocolo visual de higiene antes de cada cliente, en cinco pasos](figuras/fig-17-protocolo-higiene.png)
 
 - [ ] Herramientas de corte (cuchilla, navaja) desinfectadas y secas
 - [ ] Peines y cepillos sumergidos en solución desinfectante el tiempo indicado por el fabricante
