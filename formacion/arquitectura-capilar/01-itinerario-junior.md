@@ -156,6 +156,8 @@ El corte en pelo largo (por encima de los 4-5 cm, trabajado principalmente con t
 2. **Elevación y dirección de sección.** Aplicando el principio del Capítulo 4: secciones a 0° para corte a una sola longitud (bob, corte clásico sin capas), a 45-90° para capas progresivas, sobre-dirección para capas cortas superiores con volumen controlado.
 3. **Técnica de corte de la sección: tijera recta (línea limpia, definida) vs. tijera de entresacar/slide cutting (textura, movimiento, transición suave entre longitudes).** La tijera recta se usa en líneas de peso (contorno, flequillo estructurado); la técnica de deslizado se reserva para desconectar capas sin dejar marca visible de tijera.
 
+![Figura 5.1 — El ángulo se mide siempre entre la sección de cabello y la superficie del cuero cabelludo, nunca respecto al suelo o a la postura del barbero — es el error de lectura más común al empezar a practicar este principio.](figuras/fig-11-angulos-elevacion.png)
+
 **Peinado en húmedo vs. peinado en seco.** El corte en húmedo es el estándar de precisión (elasticidad controlada, sección visible, guía estable), pero **todo corte de pelo largo debe verificarse en seco** antes de dar el servicio por terminado — el cabello seco revela caídas de peso, ondulación natural y comportamiento real que el mojado oculta. Saltarse esta verificación es el segundo error de principiante más común después del ya mencionado en el capítulo anterior.
 
 ### Ejemplo aplicado
