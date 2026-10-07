@@ -158,11 +158,20 @@ Practica el diagnóstico de dirección de crecimiento con los propios alumnos co
 
 ### Contenido desarrollado
 
-El corte en pelo largo (por encima de los 4-5 cm, trabajado principalmente con tijera y peine) se rige por tres decisiones que deben tomarse en este orden, siempre:
+El corte en pelo largo (por encima de los 4-5 cm, trabajado principalmente con tijera y peine) se rige por tres decisiones que deben tomarse en este orden, siempre.
+
+Antes de la primera decisión, divide la cabeza en sus tres zonas de trabajo — es el paso que casi todos los manuales de formación profesional dan por sentado y que, sin embargo, es la base de un corte ordenado:
+
+![Figura 5.0 — Las tres zonas de trabajo: zona superior, laterales y nuca](figuras/fig-13-secciones-cabeza.png)
 
 1. **Línea de referencia (guía).** Es la primera sección que se corta y que define la longitud de todas las demás. Puede ser perimetral (nuca o contorno) o interior (coronilla). Toda línea de referencia mal medida arrastra el error a la totalidad del corte — por eso se corta primero y se verifica dos veces antes de continuar.
+
+![Figura 5.0b — Guía perimetral (define el contorno) frente a guía interior (define el punto más corto)](figuras/fig-14-tipos-guia.png)
+
 2. **Elevación y dirección de sección.** Aplicando el principio del Capítulo 4: secciones a 0° para corte a una sola longitud (bob, corte clásico sin capas), a 45-90° para capas progresivas, sobre-dirección para capas cortas superiores con volumen controlado.
 3. **Técnica de corte de la sección: tijera recta (línea limpia, definida) vs. tijera de entresacar/slide cutting (textura, movimiento, transición suave entre longitudes).** La tijera recta se usa en líneas de peso (contorno, flequillo estructurado); la técnica de deslizado se reserva para desconectar capas sin dejar marca visible de tijera.
+
+![Figura 5.0c — Toma correcta de tijera, navaja y peine](figuras/fig-15-toma-herramienta.png)
 
 ![Figura 5.1 — El ángulo se mide siempre entre la sección de cabello y la superficie del cuero cabelludo, nunca respecto al suelo o a la postura del barbero — es el error de lectura más común al empezar a practicar este principio.](figuras/fig-11-angulos-elevacion.png)
 
