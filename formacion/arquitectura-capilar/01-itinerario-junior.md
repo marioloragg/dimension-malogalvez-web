@@ -64,6 +64,10 @@ La glándula sebácea merece mención aparte porque es la responsable del cuero 
 
 Esta distinción —cuero cabelludo vs. fibra— es la primera herramienta de diagnóstico real que adquieres en este itinerario. Un barbero que no la domina prescribe champú anticaída a un cliente con problema de sebo, o mascarilla nutritiva a un cliente con dermatitis seborreica, empeorando el cuadro.
 
+::: {custom-style="NotaImportante"}
+**Importante:** antes de recomendar cualquier producto, confirma si el problema está en el cuero cabelludo (sebo, inflamación) o en la fibra (sequedad, poros) — son dos diagnósticos distintos, y un producto pensado para uno empeora el otro.
+:::
+
 ### Ejemplo aplicado
 
 Ante un cliente con cuero cabelludo graso y puntas secas (muy común en cabello largo con lavados espaciados), el error de principiante es aplicar un único producto "equilibrante" en toda la cabeza. El criterio correcto: champú regulador de sebo aplicado solo en raíz-cuero cabelludo, y una mascarilla o sérum nutritivo aplicado solo en medios-puntas. Gamas como Salerm Cosmetics o Eva ofrecen líneas específicas por zona de aplicación que permiten este tratamiento diferenciado en el mismo servicio.
@@ -117,6 +121,10 @@ Este capítulo es denso — resérvale las 2 horas completas y no lo comprimas. 
 Este capítulo es la bisagra entre la ciencia y la técnica: traduce la anatomía del capítulo anterior en comportamiento predecible bajo tijera y navaja.
 
 **Elasticidad y recogida.** El cabello mojado se estira hasta un 30% más que en seco antes de romperse (dependiendo de su estado de daño). Esto significa que un corte medido en mojado *siempre* "sube" al secar — un principio que todo alumno debe interiorizar antes de tocar tijera, porque es la causa número uno del error de principiante: cortar demasiado corto porque no se anticipó la recogida al secado.
+
+::: {custom-style="NotaImportante"}
+**Importante:** el cabello mojado siempre "sube" al secar. Mide y corta pensando en el resultado seco, nunca solo en lo que ves mientras el cabello está húmedo.
+:::
 
 **Densidad vs. grosor — no son lo mismo.** Densidad es cuántos folículos por cm² tiene el cliente; grosor (o diámetro) es el calibre de cada fibra individual. Un cliente puede tener alta densidad con fibra fina (aspecto voluminoso pero ligero al peinar) o baja densidad con fibra gruesa (aspecto con cuerpo pero calvicie más visible al degradar). Diagnosticar mal esta variable es la causa más común de un degradado que "no cierra" o un volumen que no coincide con lo prometido al cliente.
 
@@ -202,6 +210,10 @@ La tabla es un punto de partida, no una receta fija: la densidad y el grosor de 
 
 **El error técnico más frecuente** no es la zona baja (la más fácil de ejecutar correctamente) sino la zona media: un blending mal trabajado deja una línea visible de "escalón" en vez de una transición continua. La corrección se hace trabajando esa zona con movimientos cortos, repetidos, en arco, superponiendo cada pasada sobre la mitad de la anterior — nunca en una sola pasada limpia.
 
+::: {custom-style="NotaImportante"}
+**Importante:** un blending mal trabajado se nota a simple vista incluso para un cliente sin formación. Si ves un "escalón", vuelve a la zona media con pasadas cortas en arco — nunca intentes corregirlo con una sola pasada limpia.
+:::
+
 ### Ejemplo aplicado
 
 Degradado medio clásico: zona baja a cuchilla 0.5 pegada a piel en nuca y patillas, transición trabajada en arco desde 0.5 hasta peine-guía de 15-18 mm en dos o tres pasos intermedios de cuchilla, conexión final con tijera sobre peine hacia la masa superior, remate de contorno con navaja en línea de nacimiento e implantación de patilla.
@@ -264,6 +276,10 @@ La colorimetría en barbería se centra sobre todo en cobertura de canas, matiza
 
 **Oxidación y volúmenes de agua oxigenada.** El oxidante no es un componente secundario: determina cuánto se abre la cutícula y por tanto cuánto aclara y cuánto dura el resultado. 10 vol (3%) deposita tono sin aclarar; 20 vol (6%) aclara 1-2 tonos, el estándar para cobertura de canas; 30-40 vol (9-12%) se reserva para aclaraciones mayores y requiere control de tiempo de exposición estricto para no comprometer la integridad del córtex — conexión directa con la estructura capilar del Capítulo 3.
 
+::: {custom-style="NotaImportante"}
+**Importante:** a partir de 30 vol el margen de error se reduce mucho — controla el tiempo de exposición con cronómetro, no "a ojo", y revisa el mechón cada pocos minutos.
+:::
+
 **Cobertura de canas — el servicio de colorimetría más frecuente en barbería.** El cabello canoso tiene cutícula más resistente y ausencia total de melanina, lo que exige un tiempo de exposición mayor y, en muchos casos, un pre-suavizado o "pre-pigmentación" en canas superiores al 50% para lograr cobertura uniforme sin efecto "casco" plano y sin brillo. Gamas de referencia técnica en este servicio: Schwarzkopf Professional (Igora), Salerm Cosmetics.
 
 ### Ejemplo aplicado
@@ -292,6 +308,10 @@ Un barbero no diagnostica ni prescribe tratamiento médico — pero sí es, con 
 - **Foliculitis.** Pequeñas pústulas o granos alrededor del folículo, frecuentes en nuca tras corte con máquina mal desinfectada o rozadura de cuello de camisa. Aquí el barbero sí tiene responsabilidad directa: es una de las razones por las que la higiene de herramienta (Capítulo 11) no es opcional.
 
 **El límite profesional** que debes comunicar siempre con claridad al cliente: puedes recomendar rutina cosmética de mantenimiento, no puedes diagnosticar ni prescribir tratamiento médico. Esa frontera bien gestionada genera más confianza que fingir saber más de lo que sabes — es una aplicación directa del criterio propio en su forma más responsable.
+
+::: {custom-style="NotaImportante"}
+**Importante:** puedes recomendar una rutina cosmética de mantenimiento. No puedes diagnosticar ni prescribir tratamiento médico. Ante cualquier duda, deriva al dermatólogo — es la decisión que genera más confianza, no menos.
+:::
 
 ### Ejemplo aplicado
 
@@ -400,6 +420,10 @@ La forma del cabello (liso, rizado, ondulado) y su posibilidad de alterarse de f
 3. **Neutralización/oxidación** — se aplica el agente que reconstruye el puente disulfuro en su nueva posición, fijando la forma de manera permanente hasta que ese cabello crezca y sea reemplazado por fibra nueva sin procesar.
 
 **El principio de responsabilidad técnica** que gobierna este capítulo: cada rotura de puente disulfuro debilita estructuralmente la fibra, de forma acumulativa e irreversible en ese tramo de cabello. Por eso ningún proceso de este tipo se aplica sin evaluar antes el estado previo del cabello (Capítulo 3) y sin informar al cliente del compromiso estructural que implica — es una decisión que el cliente debe tomar informado, no una venta.
+
+::: {custom-style="NotaImportante"}
+**Importante:** cada rotura de puente disulfuro es acumulativa e irreversible en ese tramo de cabello. Ningún proceso de este tipo se aplica sin informar al cliente del compromiso estructural que implica — es su decisión, no una venta.
+:::
 
 ### Ejemplo aplicado
 

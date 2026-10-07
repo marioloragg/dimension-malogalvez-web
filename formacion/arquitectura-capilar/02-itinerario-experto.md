@@ -97,6 +97,10 @@ El rizo no es una variable binaria (liso/rizado): es un espectro con implicacion
 
 **Tratamiento diferenciado por tipo.** El rizo cerrado necesita más lípido y menos proteína en su rutina habitual (la fragilidad mecánica no siempre significa daño químico que requiera reconstrucción) — recetar proteína en exceso a un tipo 4 sin daño químico real puede volver la fibra quebradiza en vez de fortalecerla, un error de prescripción frecuente incluso entre profesionales con experiencia.
 
+::: {custom-style="NotaImportante"}
+**Importante:** recetar proteína en exceso a un rizo tipo 4 sin daño químico real puede volver la fibra quebradiza en vez de fortalecerla. La fragilidad mecánica del rizo cerrado no siempre significa que necesite reconstrucción.
+:::
+
 ### Ejemplo aplicado
 
 Cliente tipo 3B (rizo definido, diámetro medio) que llega con un corte previo hecho en húmedo con parámetros de pelo liso: el resultado seco muestra un contorno irregular y mucho más corto de lo esperado en algunas zonas. Corrección: re-cortar en seco, rizo por rizo, respetando el patrón de caída natural de cada zona, y educar al cliente (ver Capítulo 9) sobre por qué su tipo de cabello requiere esta técnica distinta a la que quizás recibió en otros salones.
@@ -161,6 +165,10 @@ El Itinerario Junior cubrió cobertura de canas y matización básica. Este cap�
 
 **Gestión del riesgo en diseño avanzado.** A mayor sofisticación del diseño, mayor es también el riesgo de daño estructural acumulado (conexión directa con el Capítulo 12 del Itinerario Junior sobre integridad del córtex) y de un resultado que no envejece bien en las semanas posteriores al servicio. Un especialista no solo ejecuta el diseño del día: **proyecta cómo va a evolucionar ese color en las próximas 4-6 semanas** y diseña en consecuencia — por ejemplo, evitando líneas de contraste demasiado marcadas en el nacimiento si el cliente no va a mantener una frecuencia de retoque compatible con ese diseño.
 
+::: {custom-style="NotaImportante"}
+**Importante:** nunca dejes un proceso de decoloración sin supervisión activa. Revisa cada 5 minutos y neutraliza en cuanto alcances el fondo buscado — el margen de error se reduce cuanto más sofisticado es el diseño.
+:::
+
 **Herramientas de referencia para diseño de precisión.** Además de las gamas técnicas ya mencionadas en el Itinerario Junior (Schwarzkopf Professional para formulación de color de alta fiabilidad, Salerm Cosmetics como alternativa técnica generalista), el diseño avanzado se apoya en pinceles de aplicación de precisión, papel de mechas o técnica free-hand según el nivel de definición del contraste buscado, y productos matizadores/bond-builder de protección estructural durante el proceso de decoloración —esta última categoría, prácticamente ausente en el Itinerario Junior, es estándar en cualquier decoloración de diseño avanzado para minimizar el compromiso del puente disulfuro explicado en el itinerario anterior.
 
 ### Ejemplo aplicado
@@ -221,6 +229,10 @@ El masaje de cuero cabelludo no es un añadido de relajación cosmética: bien e
 ![Figura 7.1 — Los tres puntos de presión sostenida del paso 3. Cada círculo marca una fricción circular localizada, no un punto de apoyo estático.](figuras/fig-10-puntos-masaje.png)
 
 **Contraindicaciones que un especialista debe conocer y respetar sin excepción:** heridas abiertas o infecciones activas de cuero cabelludo (conexión directa con el Capítulo 9 del Itinerario Junior), hipertensión no controlada informada por el cliente, o cualquier proceso inflamatorio agudo visible. Ante la duda, se omite el masaje o se limita a contacto muy suave sin presión — nunca se fuerza el protocolo completo.
+
+::: {custom-style="NotaImportante"}
+**Importante:** ante heridas abiertas, infección activa, hipertensión no controlada o inflamación aguda, omite el masaje o limita a un contacto muy suave sin presión. Nunca fuerces el protocolo completo.
+:::
 
 **Por qué esto es diferenciación real, no un extra decorativo.** Un masaje de 5 minutos con protocolo real, explicado al cliente en el momento ("esto activa la circulación de la zona y ayuda a que el producto que te acabo de aplicar penetre mejor"), convierte un gesto que la mayoría de salones improvisan sin estructura en un momento de servicio con propósito técnico explícito y percibido.
 
