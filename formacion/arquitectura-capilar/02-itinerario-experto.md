@@ -332,3 +332,25 @@ Cierra el itinerario completo —y todo el programa de 48 horas entre ambos itin
 ## Cierre del Itinerario Experto
 
 Al completar estos 10 capítulos sobre la base del Itinerario Junior, el alumno ha recorrido el arco completo de **Arquitectura Capilar by Malo Gálvez**: de la ciencia básica del cabello al criterio propio, de la técnica correcta al diseño con propósito, de un servicio bien ejecutado a una transformación en la que el cliente es protagonista. Ese arco no termina aquí —es la naturaleza de **Kamisori-Dō by Malo Gálvez**: un camino de refinamiento continuo que cada especialista sigue recorriendo, servicio a servicio, durante el resto de su carrera.
+
+---
+
+## Anexo — Catálogo de cortes y peinados en tendencia
+
+**Depende de:** todo el itinerario — este anexo no suma horas a las 24 h del programa; es material de consulta, no un capítulo evaluable.
+
+### Por qué existe este anexo
+
+Las tendencias de corte cambian más rápido que los fundamentos que las sostienen — por eso este catálogo vive fuera de la secuencia numerada de capítulos, como referencia que el profesor itinerante puede actualizar temporada a temporada sin tocar el resto del itinerario. Su función no es enseñar un diseño cerrado para copiar sin criterio: cada corte de la lista se traduce de inmediato a la técnica concreta de este programa que lo sostiene, porque un barbero formado en Arquitectura Capilar no reproduce una foto — entiende qué principio técnico hace que ese corte funcione en una cabeza concreta, y lo adapta.
+
+![Catálogo — cada ficha conecta el diseño con el capítulo y la técnica exactos que ya dominas: el degradado por niveles (Itinerario Junior, Cap. 6), los ángulos de elevación (Cap. 5), el diagnóstico de densidad y dirección de crecimiento (Cap. 4) y el corte en seco rizo por rizo (Itinerario Experto, Cap. 3).](figuras/fig-12-catalogo-tendencias.png)
+
+### Cómo usar este catálogo con un cliente
+
+1. **Nunca partas de la foto.** Aplica primero el diagnóstico (densidad, grosor de fibra, dirección de crecimiento, tipo de rizo) antes de decidir si el corte que el cliente trae de referencia es viable tal cual o necesita adaptarse.
+2. **Traduce el nombre de tendencia al vocabulario técnico del itinerario.** "Textured crop" es, en tus términos, una combinación concreta de elevación y desconexión de capas — explícaselo así al cliente, no solo por el nombre de moda.
+3. **Actualiza las fichas, no la lógica.** Cuando cambie la tendencia visual de temporada, sustituye el nombre y el icono de la ficha correspondiente; la columna "Técnica clave" casi nunca cambia, porque los principios físicos del cabello no pasan de moda.
+
+### Nota para el profesor
+
+Este anexo es el ejercicio de cierre perfecto para enlazar ambos itinerarios en una sesión conjunta: pide a cada alumno que traiga una foto de referencia real (de un cliente con consentimiento, o de su propia carpeta de inspiración) y que la presente ante el grupo igual que haría ante un cliente — identificando primero el diagnóstico, después la ficha de este catálogo más cercana, y por último qué adaptaría y por qué. Sustituye las seis fichas por las tendencias que más pidan tus propios clientes en cuanto tengas datos reales de tu salón — el catálogo está pensado para reescribirse.
