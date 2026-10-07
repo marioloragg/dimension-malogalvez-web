@@ -63,6 +63,10 @@ La "nota para el profesor" de cada capítulo te dice qué enfatizar; esta planti
 
 **Materiales** — lista de comprobación específica del capítulo (herramienta, producto de referencia del "ejemplo aplicado", cabeza de práctica o modelo vivo, protección, superficie de trabajo).
 
+![Figura — ejemplo de fila de materiales ilustrada para una sesión de corte](figuras/fig-materiales-ejemplo.png)
+
+*Sustituye los iconos por los materiales reales del capítulo que estés impartiendo — esta fila es solo el formato, no una lista fija.*
+
 **Reparto del tiempo** (ajusta las proporciones a la duración orientativa del capítulo; esta distribución funciona bien como punto de partida en una sesión de 90 min):
 
 | Fase | % del tiempo | Qué ocurre |

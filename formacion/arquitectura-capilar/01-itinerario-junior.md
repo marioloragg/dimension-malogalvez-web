@@ -203,6 +203,8 @@ El degradado (fade) es la técnica insignia de la barbería moderna y exige más
 
 **Herramienta y su lógica:** la máquina de corte con juego de cuchillas intercambiables (referencias profesionales habituales: Wahl, Andis, BaByliss PRO, JRL) es la base del degradado; los peines-guía definen longitudes fijas de forma repetible; la navaja se reserva para el remate final de contorno (patillas, nuca, entradas) por su capacidad de definición milimétrica sobre piel. Ningún degradado profesional se termina sin repaso de contorno a navaja — es lo que separa un corte "hecho a máquina" de un acabado de barbería.
 
+![Figura 6.0 — Las tres herramientas del degradado y su función en el proceso](figuras/fig-18-herramientas-degradado.png)
+
 **Tabla de referencia rápida — niveles de cuchilla/peine-guía y su equivalencia en milímetros.** Las cifras exactas varían ligeramente entre fabricantes (verifica siempre la tabla del tuyo), pero esta equivalencia orientativa es la que debes tener memorizada para nombrar en voz alta qué estás usando y por qué, tal como pide la nota para el profesor de este capítulo:
 
 | Nivel | Longitud aprox. | Zona habitual del degradado |
