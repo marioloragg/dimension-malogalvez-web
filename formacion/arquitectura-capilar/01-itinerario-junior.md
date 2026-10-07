@@ -58,6 +58,8 @@ Antes de hablar de cabello hay que hablar de piel, porque el folículo piloso na
 - **Dermis** — capa donde viven el folículo piloso, la glándula sebácea y la glándula sudorípara. Es la capa que determina la salud real del cabello: un folículo mal irrigado o con exceso de sebo en la dermis produce un cabello débil aunque la fibra en sí esté sana.
 - **Hipodermis** — capa de grasa profunda, aísla y amortigua. En cuero cabelludo su grosor varía por zonas (más fina en la zona frontal, más gruesa en la nuca) y explica por qué algunas zonas son más sensibles al calor de secador o plancha.
 
+![Figura 2.1 — El folículo nace en la dermis y atraviesa la epidermis; la glándula sebácea, adosada al folículo, es la que regula si el cuero cabelludo se percibe graso o seco.](figuras/fig-01-capas-piel.png)
+
 La glándula sebácea merece mención aparte porque es la responsable del cuero cabelludo graso, uno de los motivos de consulta más frecuentes en cabina. Produce sebo para lubricar la fibra y proteger la epidermis; cuando se hiperactiva (por genética, hormonas, estrés o producto inadecuado) genera la sensación de "pelo sucio a las pocas horas" que tantos clientes describen mal como "tengo el pelo graso" cuando en realidad es el cuero cabelludo el que está desregulado, no la fibra.
 
 Esta distinción —cuero cabelludo vs. fibra— es la primera herramienta de diagnóstico real que adquieres en este itinerario. Un barbero que no la domina prescribe champú anticaída a un cliente con problema de sebo, o mascarilla nutritiva a un cliente con dermatitis seborreica, empeorando el cuadro.
@@ -85,6 +87,8 @@ El cabello es una fibra muerta una vez sale del folículo — solo la raíz, den
 - **Cutícula** — capas de células planas superpuestas como tejas. Su estado determina el brillo (cutícula cerrada = luz reflejada = brillo) y la sensación al tacto (cutícula abierta = áspero, encrespado, poroso). El calor, el sol, el color y el mal cepillado la levantan; el frío del aclarado final y los productos con pH ácido la cierran.
 - **Córtex** — el cuerpo de la fibra, donde vive la queratina estructurada en cadenas y los pigmentos de melanina (eumelanina = tonos oscuros, feomelanina = tonos rojizos/cobrizos). Aquí es donde actúan los procesos de cambio de forma permanente y la colorimetría — se explica en detalle en los capítulos correspondientes.
 - **Médula** — núcleo central, presente de forma irregular, con poco peso técnico en el servicio de barbería estándar.
+
+![Figura 3.1 — La cutícula (anillo exterior con escamas) determina el brillo; el córtex (anillo interior con pigmento) es donde actúan el color y los procesos químicos; la médula es irregular y poco relevante en barbería.](figuras/fig-02-estructura-cabello.png)
 
 **Fases del ciclo capilar** — todo cabello del cuero cabelludo pasa por tres fases de forma escalonada (nunca todos los folículos a la vez, por eso no se cae todo el cabello simultáneamente):
 
@@ -127,6 +131,8 @@ Este capítulo es la bisagra entre la ciencia y la técnica: traduce la anatomí
 - [ ] **Dirección de crecimiento** — Hacia adelante / Hacia atrás / En remolino / Múltiples direcciones. Identifica el patrón en corona, nuca y nacimiento frontal.
 
 Esta checklist no sustituye el análisis del Capítulo 13 (diagnóstico verbal con el cliente) — es el paso previo, puramente técnico y silencioso, que te da los datos con los que luego vas a construir esa conversación.
+
+![Figura 4.1 — Las tres zonas donde la dirección de crecimiento condiciona más el resultado del corte. Léelas siempre antes de decidir ángulo de elevación.](figuras/fig-03-direccion-crecimiento.png)
 
 ### Ejemplo aplicado
 
@@ -188,6 +194,8 @@ El degradado (fade) es la técnica insignia de la barbería moderna y exige más
 | 2 | ~6 mm | Zona alta — enlace con la masa superior |
 | 3+ | ~10 mm en adelante | Masa superior, previa a tijera si el diseño lo requiere |
 
+![Figura 6.1 — Visualiza la tabla anterior sobre la cabeza: cada nivel ocupa una banda horizontal, y la zona media es donde se concentra el trabajo de blending.](figuras/fig-04-mapa-degradado.png)
+
 La tabla es un punto de partida, no una receta fija: la densidad y el grosor de fibra del cliente (checklist del Capítulo 4) determinan si necesitas un nivel intermedio adicional para que la transición no se note como escalón.
 
 **El error técnico más frecuente** no es la zona baja (la más fácil de ejecutar correctamente) sino la zona media: un blending mal trabajado deja una línea visible de "escalón" en vez de una transición continua. La corrección se hace trabajando esa zona con movimientos cortos, repetidos, en arco, superponiendo cada pasada sobre la mitad de la anterior — nunca en una sola pasada limpia.
@@ -247,6 +255,8 @@ Lleva a clase el envase físico (o foto de INCI) de 4-5 productos de gamas disti
 La colorimetría en barbería se centra sobre todo en cobertura de canas, matización y pequeños diseños de contraste (no en la coloración creativa extensa propia de peluquería femenina, que se desarrolla con más profundidad en el Itinerario Experto). Los fundamentos, sin embargo, son universales.
 
 **El círculo cromático aplicado a cabello.** Los tres colores primarios (amarillo, rojo, azul) generan los secundarios (naranja, verde, violeta). En cabello, esto se traduce en la regla de neutralización: el color opuesto en el círculo cancela el tono no deseado. El fondo de aclaración amarillo-naranja que aparece al aclarar cabello oscuro se neutraliza con pigmento violeta-azulado — el principio detrás de cualquier champú o mascarilla matizante morada.
+
+![Figura 8.1 — El color directamente opuesto en el círculo es siempre el que neutraliza: memorízalo por pares (amarillo-violeta, naranja-azul, rojo-verde), no solo el caso naranja-violeta del ejemplo.](figuras/fig-05-circulo-cromatico.png)
 
 **Escala de tonos (niveles 1-10).** Del 1 (negro) al 10 (rubio muy claro), cada nivel tiene un fondo de aclaración natural predecible (nivel 1-3: rojo; 4-5: rojo-naranja; 6-7: naranja; 8: naranja-amarillo; 9-10: amarillo). Conocer esta escala de memoria es lo que permite anticipar qué reflejo va a aparecer antes de aplicar ningún producto — y explicárselo al cliente antes de empezar, gestionando expectativas con precisión.
 
@@ -378,6 +388,8 @@ La forma del cabello (liso, rizado, ondulado) y su posibilidad de alterarse de f
 - **Puente de hidrógeno.** El más débil, se rompe con agua o calor y se recompone al secar o enfriar. Es el responsable del cambio de forma *temporal* — un secado con cepillo redondo o un peinado con plancha sin proceso químico se basa exclusivamente en este puente, por eso desaparece con la humedad o el siguiente lavado.
 - **Puente salino.** Intermedio, se altera con cambios de pH. Contribuye a la forma pero de manera secundaria frente a los otros dos en la mayoría de procesos de barbería.
 - **Puente disulfuro.** El más fuerte y el único responsable del cambio de forma *permanente*. Se rompe químicamente con un agente reductor (tioglicolato de amonio en permanentes clásicas, o hidróxido de sodio/guanidina en procesos de alisado/relajado) y se recompone en una nueva configuración mediante un agente oxidante neutralizante que fija la nueva forma.
+
+![Figura 12.1 — Solo la ruptura y recomposición del puente disulfuro produce un cambio de forma permanente; los otros dos se deshacen con agua, calor o pH y no requieren decisión informada del cliente.](figuras/fig-06-puentes-quimicos.png)
 
 **El proceso en tres fases**, válido tanto para permanente (de liso a rizado) como para alisado/relajado (de rizado a liso):
 

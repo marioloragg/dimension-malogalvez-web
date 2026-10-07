@@ -91,6 +91,8 @@ El rizo no es una variable binaria (liso/rizado): es un espectro con implicacion
 - **Tipo 3 — Rizado (3A/3B/3C).** Bucle definido de diámetro decreciente. La recogida al secar es más pronunciada que en tipo 2 — puede llegar a un 40-50% dependiendo del diámetro del rizo — así que el corte en húmedo debe calcularse con margen adicional respecto a lo aprendido en el Itinerario Junior para cabello liso.
 - **Tipo 4 — Muy rizado/afro (4A/4B/4C).** Máxima recogida (hasta 60-70% en tipo 4C), mayor fragilidad estructural por los puntos de torsión de la fibra (cada curva es un punto de tensión mecánica donde la fibra es más vulnerable a la rotura), y necesidad de hidratación más frecuente porque el sebo natural tarda más en recorrer la fibra en espiral desde el cuero cabelludo hasta la punta.
 
+![Figura 3.1 — El espectro es continuo, no categórico: la recogida al secar y la fragilidad mecánica aumentan progresivamente de izquierda a derecha, y la técnica de corte debe ajustarse en consecuencia.](figuras/fig-07-espectro-rizo.png)
+
 **Principio técnico central: nunca cortar rizo tipo 3-4 usando exclusivamente los parámetros de elevación aprendidos para pelo liso.** La elevación a 90° que en liso reparte peso de forma predecible, en rizo cerrado puede generar un volumen excesivo o desigual porque el rizo "sube" de forma no lineal al liberarse de la tensión del peinado en húmedo. La técnica de referencia internacional para este tipo de cabello es el **corte en seco, rizo por rizo, con el cabello en su estado natural de reposo** — se corta lo que realmente se va a ver, no una proyección calculada en húmedo.
 
 **Tratamiento diferenciado por tipo.** El rizo cerrado necesita más lípido y menos proteína en su rutina habitual (la fragilidad mecánica no siempre significa daño químico que requiera reconstrucción) — recetar proteína en exceso a un tipo 4 sin daño químico real puede volver la fibra quebradiza en vez de fortalecerla, un error de prescripción frecuente incluso entre profesionales con experiencia.
@@ -119,6 +121,8 @@ Un especialista no solo ejecuta bien: ejecuta en el orden y el tiempo que maximi
 2. **Volumen y conexión** (el cuerpo del diseño, se ajusta sobre la estructura ya fijada).
 3. **Detalle y textura** (lo más reversible y lo que menos tiempo consume corregir si algo no encaja: puntas, matices de textura, líneas de diseño decorativas).
 4. **Remate final a navaja** (contorno, patillas, nuca) — siempre en último lugar, porque es el elemento de mayor precisión visual y el cliente lo evalúa como el "acabado" del servicio en el espejo final.
+
+![Figura 4.1 — El orden nunca se invierte: cada fase fija el marco sobre el que trabaja la siguiente, de lo más costoso de corregir a lo más reversible.](figuras/fig-08-secuencia-trabajo.png)
 
 **Tiempo de referencia por tipo de servicio** (orientativo, a calibrar por cada barbero según su propia velocidad y exigencia de calidad — nunca sacrificar precisión por cumplir un cronómetro):
 
@@ -152,6 +156,8 @@ El Itinerario Junior cubrió cobertura de canas y matización básica. Este cap�
 - **Contraste de zona (color block).** Aplicación de un tono diferenciado en una zona específica del degradado o del diseño (por ejemplo, un mechón de color en la zona alta que queda expuesto por el degradado) para crear un punto focal deliberado.
 - **Efecto de profundidad tonal en degradados de larga duración** (barbas y cabellos largos con canas parciales que el cliente quiere disimular sin cobertura total): mezcla de dos niveles adyacentes en vez de un solo tono plano, para que la cobertura de cana se integre con textura en vez de leerse como "tinte uniforme".
 - **Decoloración localizada de precisión** (mechas puntuales, técnica de peinado con papel o técnica free-hand): requiere control estricto de tiempo por la mayor concentración de producto en zonas pequeñas, y protección estricta del cabello circundante no tratado.
+
+![Figura 5.1 — El contraste de zona funciona mejor cuando coincide con una zona que el propio degradado ya expone — no se trata de añadir color, sino de diseñar dónde el corte lo va a dejar visible.](figuras/fig-09-diseno-contraste.png)
 
 **Gestión del riesgo en diseño avanzado.** A mayor sofisticación del diseño, mayor es también el riesgo de daño estructural acumulado (conexión directa con el Capítulo 12 del Itinerario Junior sobre integridad del córtex) y de un resultado que no envejece bien en las semanas posteriores al servicio. Un especialista no solo ejecuta el diseño del día: **proyecta cómo va a evolucionar ese color en las próximas 4-6 semanas** y diseña en consecuencia — por ejemplo, evitando líneas de contraste demasiado marcadas en el nacimiento si el cliente no va a mantener una frecuencia de retoque compatible con ese diseño.
 
@@ -211,6 +217,8 @@ El masaje de cuero cabelludo no es un añadido de relajación cosmética: bien e
 2. **Fricción circular con yemas de los dedos** (2-3 min) — recorrido sistemático desde la línea frontal hacia la nuca, presión media, círculos pequeños que mueven el cuero cabelludo sobre el cráneo (no que deslizan sobre la superficie, que es la diferencia técnica entre estimular la dermis y simplemente friccionar la epidermis).
 3. **Presión puntual en zonas de tensión** (1-2 min) — sienes, base del cráneo (occipital), y línea de nacimiento frontal, con presión sostenida de 5-10 segundos por punto — zonas donde se acumula tensión muscular relacionada con el cuero cabelludo (músculo occipitofrontal).
 4. **Cierre con presión descendente** (1 min) — recorrido lento desde coronilla hasta nuca con palma abierta, señal física de que el masaje concluye, evita un final abrupto que rompe el estado de relajación logrado.
+
+![Figura 7.1 — Los tres puntos de presión sostenida del paso 3. Cada círculo marca una fricción circular localizada, no un punto de apoyo estático.](figuras/fig-10-puntos-masaje.png)
 
 **Contraindicaciones que un especialista debe conocer y respetar sin excepción:** heridas abiertas o infecciones activas de cuero cabelludo (conexión directa con el Capítulo 9 del Itinerario Junior), hipertensión no controlada informada por el cliente, o cualquier proceso inflamatorio agudo visible. Ante la duda, se omite el masaje o se limita a contacto muy suave sin presión — nunca se fuerza el protocolo completo.
 
