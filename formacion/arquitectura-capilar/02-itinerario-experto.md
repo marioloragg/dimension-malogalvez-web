@@ -357,9 +357,33 @@ Cada ficha conecta el diseño con el capítulo y la técnica exactos que ya domi
 
 ![Figura — Textured crop: flequillo texturizado con desconexión de capas sobre degradado lateral.](figuras/fig-19-corte-textured-crop.png)
 
+#### Ficha 3 — Slick back con degradado
+
+**Mejor para:** cabello liso u ondulado, largo medio en la zona superior. **Técnica clave:** Itinerario Junior, Cap. 6 — mapa de degradado.
+
+![Figura — Slick back: cabello peinado hacia atrás con volumen, sobre degradado lateral.](figuras/fig-21-slick-back.png)
+
+#### Ficha 4 — Buzz cut
+
+**Mejor para:** cualquier tipo de cabello, ideal con densidad alta. **Técnica clave:** Itinerario Junior, Cap. 4 — checklist de observación (densidad y dirección de crecimiento).
+
+![Figura — Buzz cut: longitud uniforme y muy corta en toda la cabeza.](figuras/fig-22-buzz-cut.png)
+
+#### Ficha 5 — Flequillo cortina
+
+**Mejor para:** cabello liso-ondulado, fibra media. **Técnica clave:** Itinerario Junior, Cap. 5 — elevación 0°-45°.
+
+![Figura — Flequillo cortina: raya central con el flequillo cayendo a ambos lados de la frente.](figuras/fig-23-flequillo-cortina.png)
+
+#### Ficha 6 — Textura rizada definida
+
+**Mejor para:** rizo tipo 3-4. **Técnica clave:** Itinerario Experto, Cap. 3 — corte en seco rizo por rizo.
+
+![Figura — Textura rizada definida: rizo compacto y definido en la zona superior sobre degradado lateral.](figuras/fig-24-textura-rizada.png)
+
 #### Fichas pendientes de ilustración
 
-Las siguientes fichas del catálogo están en preparación — se añadirán en cuanto estén listas, sin alterar el resto del anexo: Slick back con degradado, Buzz cut, Flequillo cortina, Textura rizada definida, Taper fade, Mullet moderno texturizado, Mullet rizado.
+Las siguientes fichas del catálogo están en preparación — se añadirán en cuanto estén listas, sin alterar el resto del anexo: Taper fade, Mullet moderno texturizado, Mullet rizado.
 
 ### Cómo usar este catálogo con un cliente
 
