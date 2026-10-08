@@ -343,7 +343,23 @@ Al completar estos 10 capítulos sobre la base del Itinerario Junior, el alumno 
 
 Las tendencias de corte cambian más rápido que los fundamentos que las sostienen — por eso este catálogo vive fuera de la secuencia numerada de capítulos, como referencia que el profesor itinerante puede actualizar temporada a temporada sin tocar el resto del itinerario. Su función no es enseñar un diseño cerrado para copiar sin criterio: cada corte de la lista se traduce de inmediato a la técnica concreta de este programa que lo sostiene, porque un barbero formado en Arquitectura Capilar no reproduce una foto — entiende qué principio técnico hace que ese corte funcione en una cabeza concreta, y lo adapta.
 
-![Catálogo — cada ficha conecta el diseño con el capítulo y la técnica exactos que ya dominas: el degradado por niveles (Itinerario Junior, Cap. 6), los ángulos de elevación (Cap. 5), el diagnóstico de densidad y dirección de crecimiento (Cap. 4) y el corte en seco rizo por rizo (Itinerario Experto, Cap. 3).](figuras/fig-12-catalogo-tendencias.png)
+Cada ficha conecta el diseño con el capítulo y la técnica exactos que ya dominas: el degradado por niveles (Itinerario Junior, Cap. 6), los ángulos de elevación (Cap. 5), el diagnóstico de densidad y dirección de crecimiento (Cap. 4) y el corte en seco rizo por rizo (Itinerario Experto, Cap. 3).
+
+#### Ficha 1 — Degradado: bajo / medio / alto
+
+**Mejor para:** cualquier densidad — es la base técnica común a casi todos los cortes de este catálogo. **Técnica clave:** Itinerario Junior, Cap. 6 — mapa de niveles de degradado.
+
+![Figura — Comparativa de las tres alturas de degradado (bajo, medio, alto) sobre el mismo peinado superior, con las zonas de transición y los números de maquinilla de cada una marcados sobre el corte.](figuras/fig-20-degradado-comparado.png)
+
+#### Ficha 2 — Textured / French Crop
+
+**Mejor para:** densidad media-alta, fibra con cuerpo. **Técnica clave:** Itinerario Junior, Cap. 5 — ángulos de elevación.
+
+![Figura — Textured crop: flequillo texturizado con desconexión de capas sobre degradado lateral.](figuras/fig-19-corte-textured-crop.png)
+
+#### Fichas pendientes de ilustración
+
+Las siguientes fichas del catálogo están en preparación — se añadirán en cuanto estén listas, sin alterar el resto del anexo: Slick back con degradado, Buzz cut, Flequillo cortina, Textura rizada definida, Taper fade, Mullet moderno texturizado, Mullet rizado.
 
 ### Cómo usar este catálogo con un cliente
 
@@ -353,4 +369,4 @@ Las tendencias de corte cambian más rápido que los fundamentos que las sostien
 
 ### Nota para el profesor
 
-Este anexo es el ejercicio de cierre perfecto para enlazar ambos itinerarios en una sesión conjunta: pide a cada alumno que traiga una foto de referencia real (de un cliente con consentimiento, o de su propia carpeta de inspiración) y que la presente ante el grupo igual que haría ante un cliente — identificando primero el diagnóstico, después la ficha de este catálogo más cercana, y por último qué adaptaría y por qué. Sustituye las seis fichas por las tendencias que más pidan tus propios clientes en cuanto tengas datos reales de tu salón — el catálogo está pensado para reescribirse.
+Este anexo es el ejercicio de cierre perfecto para enlazar ambos itinerarios en una sesión conjunta: pide a cada alumno que traiga una foto de referencia real (de un cliente con consentimiento, o de su propia carpeta de inspiración) y que la presente ante el grupo igual que haría ante un cliente — identificando primero el diagnóstico, después la ficha de este catálogo más cercana, y por último qué adaptaría y por qué. Sustituye las fichas por las tendencias que más pidan tus propios clientes en cuanto tengas datos reales de tu salón — el catálogo está pensado para reescribirse.
