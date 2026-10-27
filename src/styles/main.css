@@ -400,7 +400,10 @@ a.m-item--flat {
 .hero-simple {
   position: relative;
   overflow: hidden;
-  min-height: calc(100vh - var(--nav-height));
+  /* Deliberadamente algo menos de 100vh: que el principio de la sección
+     siguiente "asome" ya en la primera pantalla invita a seguir bajando
+     mucho más que un hero que ocupa el alto exacto del viewport. */
+  min-height: 84vh;
   display: flex;
   align-items: flex-end;
   background: radial-gradient(130% 100% at 50% 15%, var(--c-graphite-800) 0%, var(--c-obsidian) 65%);
@@ -493,6 +496,35 @@ a.m-item--flat {
   font-size: 0.8rem;
   color: var(--c-metal);
   margin: 0;
+}
+
+.hero-simple__scrollcue {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 44px;
+  width: fit-content;
+}
+.hero-simple__scrollcue-label {
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--c-metal);
+}
+.hero-simple__scrollcue-line {
+  width: 1px;
+  height: 36px;
+  background: linear-gradient(to bottom, transparent, var(--c-metal-light) 45%, transparent);
+  background-size: 100% 220%;
+  animation: dm-scrollcue 2.6s ease-in-out infinite;
+}
+@keyframes dm-scrollcue {
+  0% { background-position: 0 -120%; }
+  100% { background-position: 0 120%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-simple__scrollcue-line { animation: none; background: var(--c-metal-dim); }
 }
 
 /* ==========================================================================
