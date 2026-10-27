@@ -1,0 +1,102 @@
+@import "tailwindcss";
+@import "@fontsource/cinzel/500.css";
+@import "@fontsource/cinzel/600.css";
+@import "@fontsource-variable/inter";
+
+/* Los colores reales vienen de datos/marca.json (se inyectan al construir la app).
+   Estos valores son solo de reserva. */
+@theme {
+  --color-obsidiana: #0d0e10;
+  --color-grafito: #17191c;
+  --color-grafito-claro: #24272b;
+  --color-linea: #34383d;
+  --color-tiza: #ece9e2;
+  --color-tiza-suave: #a9a6a0;
+  --color-metal: #b4b8be;
+  --color-aviso: #d9d6d0;
+}
+@theme inline {
+  --font-titular: var(--fuente-titulares, 'Cinzel', Georgia, serif);
+  --font-cuerpo: var(--fuente-cuerpo, 'Inter Variable', system-ui, sans-serif);
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+    background: var(--color-obsidiana);
+  }
+  body {
+    margin: 0;
+    background: var(--color-obsidiana);
+    color: var(--color-tiza);
+    font-family: var(--font-cuerpo);
+    font-size: 16px;
+    line-height: 1.55;
+    overscroll-behavior-y: none;
+  }
+  h1, h2, h3 {
+    font-family: var(--font-titular);
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    line-height: 1.2;
+  }
+  :focus-visible {
+    outline: 1.5px solid var(--color-metal);
+    outline-offset: 2px;
+  }
+  input, textarea, select, button { font: inherit; color: inherit; }
+}
+
+@layer components {
+  .pulsable {
+    transition: transform 120ms ease, background-color 160ms ease, border-color 160ms ease, opacity 160ms ease;
+  }
+  .pulsable:active { transform: scale(0.98); }
+  .campo {
+    width: 100%;
+    background: var(--color-grafito);
+    border: 1px solid var(--color-linea);
+    border-radius: 6px;
+    padding: 12px 14px;
+    font-size: 16px; /* 16px evita que el iPhone haga zoom al escribir */
+    transition: border-color 160ms ease;
+  }
+  .campo:focus { outline: none; border-color: var(--color-metal); }
+  .etiqueta-mini {
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-metal);
+  }
+  .aparece { animation: aparece 260ms ease both; }
+}
+
+@keyframes aparece {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aparece { animation: none; }
+  .pulsable { transition: none; }
+}
+
+/* Marcadores del mapa */
+.marcador {
+  width: 18px; height: 18px; border-radius: 50%;
+  background: var(--mapa-marcador, #b4b8be);
+  border: 3px solid var(--color-obsidiana);
+  box-shadow: 0 0 0 1px var(--mapa-marcador, #b4b8be);
+  cursor: pointer;
+  transition: transform 160ms ease;
+}
+.marcador.activo { transform: scale(1.35); }
+.marcador-yo {
+  width: 14px; height: 14px; border-radius: 50%;
+  background: var(--color-tiza);
+  box-shadow: 0 0 0 6px rgb(236 233 226 / 0.15);
+}
+.maplibregl-ctrl-attrib { background: rgb(13 14 16 / 0.7) !important; color: var(--color-tiza-suave); font-size: 10px; }
+.maplibregl-ctrl-attrib a { color: var(--color-tiza-suave) !important; }
+.maplibregl-ctrl-attrib-button { filter: invert(1); }

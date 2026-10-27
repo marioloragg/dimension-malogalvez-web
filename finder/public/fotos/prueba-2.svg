@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#33363a"/><stop offset="1" stop-color="#191b1e"/></linearGradient>
+    <filter id="n"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="3" stitchTiles="stitch"/><feColorMatrix values="0 0 0 0 .5  0 0 0 0 .5  0 0 0 0 .5  0 0 0 .08 0"/></filter>
+  </defs>
+  <rect width="800" height="600" fill="url(#g)"/>
+  <rect width="800" height="600" filter="url(#n)"/>
+  <rect x="0" y="380" width="800" height="1" fill="#55595f" opacity=".5"/>
+  <text x="400" y="292" text-anchor="middle" font-family="Georgia, serif" font-size="30" letter-spacing="6" fill="#b4b8be">IMAGEN DE PRUEBA</text>
+  <text x="400" y="332" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="18" fill="#8b8f95">Puesto de diagnóstico</text>
+</svg>

@@ -1,0 +1,12 @@
+{
+  "_ayuda": [
+    "CIUDADES DE LA RED.",
+    "Las ciudades ACTIVAS se calculan solas a partir de las barberías con Sello vigente. No hace falta escribirlas.",
+    "'proximas' son las ciudades que aparecen como 'Próximas' en la pantalla de expansión. Añade o quita nombres libremente.",
+    "'radioCercaKm': si la barbería más cercana está más lejos que esto, la app muestra 'La Red Dimension está en expansión'.",
+    "'origen' es el punto donde se centra el mapa por defecto (Valencia, ciudad origen de la red)."
+  ],
+  "origen": { "nombre": "Valencia", "lat": 39.4699, "lng": -0.3763 },
+  "radioCercaKm": 40,
+  "proximas": ["Alicante", "Madrid", "Barcelona"]
+}

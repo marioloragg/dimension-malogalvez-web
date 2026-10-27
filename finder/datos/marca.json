@@ -1,0 +1,41 @@
+{
+  "_ayuda": [
+    "COLORES, TIPOGRAFÍAS Y ENLACES.",
+    "Los colores se escriben en formato #RRGGBB. Paleta: 80% obsidiana/grafito, 15% tiza, 5% metal. Nada de dorado.",
+    "Si cambias un color aquí, cambia en TODA la app.",
+    "'web.base' es la dirección de tu web en Shopify. Cuando tengas dominio propio, cambia solo esa línea.",
+    "Los enlaces de 'web.enlaces' se añaden detrás de 'web.base'."
+  ],
+  "colores": {
+    "obsidiana": "#0d0e10",
+    "grafito": "#17191c",
+    "grafitoClaro": "#24272b",
+    "linea": "#34383d",
+    "tiza": "#ece9e2",
+    "tizaSuave": "#a9a6a0",
+    "metal": "#b4b8be",
+    "aviso": "#d9d6d0"
+  },
+  "mapa": {
+    "fondo": "#121316",
+    "agua": "#0a0b0d",
+    "zonasVerdes": "#15171a",
+    "edificios": "#1b1d21",
+    "calles": "#2a2d32",
+    "callesPrincipales": "#383c42",
+    "textos": "#8b8f95",
+    "marcador": "#b4b8be"
+  },
+  "tipografias": {
+    "titulares": "Cinzel",
+    "cuerpo": "Inter Variable"
+  },
+  "web": {
+    "base": "https://aaxv0k-kn.myshopify.com",
+    "enlaces": {
+      "tienda": "/collections/all",
+      "academia": "/pages/academia",
+      "manifiesto": "/pages/manifiesto"
+    }
+  }
+}

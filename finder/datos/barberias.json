@@ -1,0 +1,142 @@
+{
+  "_ayuda": [
+    "AQUÍ VIVEN LAS BARBERÍAS DE LA RED DIMENSION.",
+    "Cada barbería es un bloque entre llaves { } dentro de la lista 'barberias'.",
+    "Para AÑADIR una: copia un bloque entero, pégalo detrás del último (separado por una coma) y cambia los datos.",
+    "Para RETIRAR el Sello: cambia \"activo\": true por \"activo\": false. Desaparece de la app; los datos se conservan.",
+    "Fechas siempre dd/mm/aaaa. Horario en 24 h ('10:00-14:00'). Lista vacía [] = cerrado ese día.",
+    "Servicios posibles: degradado-alta-fidelidad, ritual-barba, afeitado-navaja.",
+    "\"datosDePrueba\": true muestra la etiqueta 'Ficha de prueba'. En barberías reales, ponlo en false.",
+    "Estas líneas de ayuda no se muestran en la app."
+  ],
+  "barberias": [
+    {
+      "id": "prueba-ruzafa",
+      "activo": true,
+      "datosDePrueba": true,
+      "nombre": "Estudio Ruzafa (prueba)",
+      "pais": "ES",
+      "ciudad": "Valencia",
+      "provincia": "Valencia",
+      "codigoPostal": "46004",
+      "direccion": "Carrer de Sueca 12, bajo",
+      "coordenadas": { "lat": 39.4628, "lng": -0.3746 },
+      "telefono": "+34 600 000 001",
+      "instagram": "",
+      "reserva": { "plataforma": "Booksy", "enlace": "https://booksy.com/es-es/" },
+      "barberosCertificados": [
+        {
+          "nombre": "Lucía Prueba",
+          "itinerario": "Experto",
+          "fechaCertificacion": "15/03/2025",
+          "enlaceReserva": "https://booksy.com/es-es/"
+        }
+      ],
+      "sello": {
+        "certificadaDesde": "02/04/2025",
+        "ultimaRevision": "10/09/2026",
+        "proximaRevision": "10/03/2028"
+      },
+      "horario": {
+        "lunes": [],
+        "martes": ["10:00-14:00", "16:30-20:30"],
+        "miercoles": ["10:00-14:00", "16:30-20:30"],
+        "jueves": ["10:00-14:00", "16:30-20:30"],
+        "viernes": ["10:00-20:30"],
+        "sabado": ["09:30-14:30"],
+        "domingo": []
+      },
+      "servicios": ["degradado-alta-fidelidad", "ritual-barba", "afeitado-navaja"],
+      "fotos": [
+        { "archivo": "prueba-1.svg", "descripcion": "Sala principal (imagen de prueba)" },
+        { "archivo": "prueba-2.svg", "descripcion": "Puesto de diagnóstico (imagen de prueba)" }
+      ],
+      "notaPrimeraVisita": ""
+    },
+    {
+      "id": "prueba-ciutat-vella",
+      "activo": true,
+      "datosDePrueba": true,
+      "nombre": "Taller Ciutat Vella (prueba)",
+      "pais": "ES",
+      "ciudad": "Valencia",
+      "provincia": "Valencia",
+      "codigoPostal": "46001",
+      "direccion": "Carrer de Cavallers 20",
+      "coordenadas": { "lat": 39.4769, "lng": -0.3800 },
+      "telefono": "+34 600 000 002",
+      "instagram": "",
+      "reserva": { "plataforma": "Booksy", "enlace": "https://booksy.com/es-es/" },
+      "barberosCertificados": [
+        {
+          "nombre": "Daniel Prueba",
+          "itinerario": "Experto",
+          "fechaCertificacion": "20/10/2025",
+          "enlaceReserva": "https://booksy.com/es-es/"
+        }
+      ],
+      "sello": {
+        "certificadaDesde": "05/11/2025",
+        "ultimaRevision": "05/11/2025",
+        "proximaRevision": "05/05/2027"
+      },
+      "horario": {
+        "lunes": ["10:00-20:00"],
+        "martes": ["10:00-20:00"],
+        "miercoles": ["10:00-20:00"],
+        "jueves": ["10:00-20:00"],
+        "viernes": ["10:00-20:00"],
+        "sabado": ["10:00-14:00"],
+        "domingo": []
+      },
+      "servicios": ["degradado-alta-fidelidad", "ritual-barba"],
+      "fotos": [
+        { "archivo": "prueba-2.svg", "descripcion": "Zona de trabajo (imagen de prueba)" },
+        { "archivo": "prueba-3.svg", "descripcion": "Recepción (imagen de prueba)" }
+      ],
+      "notaPrimeraVisita": "La primera visita incluye 15 minutos adicionales de diagnóstico."
+    },
+    {
+      "id": "prueba-paterna",
+      "activo": true,
+      "datosDePrueba": true,
+      "nombre": "Atelier Paterna (prueba)",
+      "pais": "ES",
+      "ciudad": "Paterna",
+      "provincia": "Valencia",
+      "codigoPostal": "46980",
+      "direccion": "Carrer Major 8",
+      "coordenadas": { "lat": 39.5027, "lng": -0.4400 },
+      "telefono": "+34 600 000 003",
+      "instagram": "",
+      "reserva": { "plataforma": "Booksy", "enlace": "https://booksy.com/es-es/" },
+      "barberosCertificados": [
+        {
+          "nombre": "Marta Prueba",
+          "itinerario": "Experto",
+          "fechaCertificacion": "12/01/2026",
+          "enlaceReserva": "https://booksy.com/es-es/"
+        }
+      ],
+      "sello": {
+        "certificadaDesde": "01/02/2026",
+        "ultimaRevision": "01/02/2026",
+        "proximaRevision": "01/02/2027"
+      },
+      "horario": {
+        "lunes": ["16:00-20:00"],
+        "martes": ["09:30-13:30", "16:00-20:00"],
+        "miercoles": ["09:30-13:30", "16:00-20:00"],
+        "jueves": ["09:30-13:30", "16:00-20:00"],
+        "viernes": ["09:30-13:30", "16:00-20:00"],
+        "sabado": ["09:00-14:00"],
+        "domingo": []
+      },
+      "servicios": ["degradado-alta-fidelidad", "afeitado-navaja"],
+      "fotos": [
+        { "archivo": "prueba-3.svg", "descripcion": "Espacio (imagen de prueba)" }
+      ],
+      "notaPrimeraVisita": ""
+    }
+  ]
+}

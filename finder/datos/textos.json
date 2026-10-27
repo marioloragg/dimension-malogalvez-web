@@ -1,0 +1,238 @@
+{
+  "_ayuda": [
+    "TODOS LOS TEXTOS DE LA APP, agrupados por pantalla.",
+    "Cambia solo lo que va entre comillas a la DERECHA de los dos puntos. Lo de la izquierda es el nombre interno: no lo toques.",
+    "Las palabras entre llaves, como {ciudad} o {km}, se sustituyen solas por el dato real. Déjalas tal cual.",
+    "Prohibido: 'método', 'curso', 'corte de pelo', descuentos y ofertas. El revisor automático lo comprueba."
+  ],
+  "general": {
+    "marca": "Dimension",
+    "submarca": "by Malo Gálvez",
+    "nombreApp": "Dimension Finder",
+    "fichaDePrueba": "Ficha de prueba",
+    "volver": "Volver",
+    "enviando": "Enviando…",
+    "errorEnvio": "No se ha podido enviar. Revisa tu conexión e inténtalo de nuevo.",
+    "sinConexion": "Sin conexión. Muestras la última versión de la red cargada."
+  },
+  "navegacion": {
+    "inicio": "Inicio",
+    "red": "Red",
+    "sello": "Sello",
+    "mas": "Más"
+  },
+  "inicio": {
+    "antetitulo": "Red Dimension",
+    "titulo": "Barberías certificadas en Arquitectura Capilar",
+    "subtitulo": "Cada una parte del mismo diagnóstico de Visagismo Empático.",
+    "botonLocalizar": "Localizar barbería certificada",
+    "botonBuscar": "Buscar por ciudad o código postal",
+    "garantiaTitulo": "Garantía",
+    "garantia": "Cada barbería de la Red Dimension mantiene un Sello vigente. Lo revisamos de forma continua. Si el estándar cae, el Sello se retira y la barbería deja de aparecer aquí.",
+    "origenTitulo": "Nacida en Valencia",
+    "origenTexto": "La red nace en Valencia y crece ciudad a ciudad. Pocas barberías por ciudad, revisadas de cerca.",
+    "ciudadesActivas": "Activas",
+    "ciudadesProximas": "Próximas"
+  },
+  "ubicacion": {
+    "titulo": "Tu ubicación",
+    "texto": "La usamos una sola vez para ordenar la red por distancia. No se guarda ni se envía a nadie.",
+    "permitir": "Usar mi ubicación",
+    "alternativa": "Prefiero buscar por ciudad",
+    "buscando": "Localizando…",
+    "denegada": "Sin acceso a tu ubicación. Busca por ciudad, provincia o código postal.",
+    "fueraDeEspana": "Estás fuera de España. Te mostramos la red desde Valencia, su ciudad origen."
+  },
+  "buscador": {
+    "titulo": "Buscar en la red",
+    "etiqueta": "Ciudad, provincia o código postal",
+    "ejemplo": "Ej.: Valencia, 46004, Alicante",
+    "boton": "Buscar",
+    "noEncontrado": "No reconocemos «{texto}». Prueba con una ciudad, una provincia o un código postal de 5 cifras."
+  },
+  "red": {
+    "titulo": "Red Dimension",
+    "vistaLista": "Lista",
+    "vistaMapa": "Mapa",
+    "ordenDistancia": "Ordenadas por distancia desde {lugar}",
+    "tuUbicacion": "tu ubicación",
+    "resultados": "{n} barberías certificadas",
+    "resultado": "1 barbería certificada",
+    "sinResultadosFiltros": "Ninguna barbería cumple estos filtros ahora mismo.",
+    "quitarFiltros": "Quitar filtros",
+    "cambiarUbicacion": "Cambiar"
+  },
+  "filtros": {
+    "titulo": "Filtros",
+    "ciudad": "Ciudad",
+    "todasCiudades": "Todas",
+    "abiertoAhora": "Abierto ahora",
+    "servicio": "Servicio"
+  },
+  "tarjeta": {
+    "certificado": "Barbero certificado",
+    "abierto": "Abierto · hasta las {hora}",
+    "cerrado": "Cerrado",
+    "abreA": "Cerrado · abre a las {hora}",
+    "reservar": "Reservar",
+    "verFicha": "Ver ficha",
+    "aKm": "a {km} km"
+  },
+  "sello": {
+    "vigente": "Certificación vigente",
+    "enRevision": "En revisión periódica",
+    "ultimaRevision": "Última revisión",
+    "proximaRevision": "Próxima revisión",
+    "certificadaDesde": "Certificada desde"
+  },
+  "ficha": {
+    "garantia": "Sello revisado de forma continua. Si el estándar cae, se retira.",
+    "barberoTitulo": "Barbero certificado",
+    "itinerario": "Itinerario {nivel} de Arquitectura Capilar",
+    "certificadoEl": "Certificado el {fecha}",
+    "reservarCon": "Reservar con {nombre}",
+    "llamar": "Llamar",
+    "comoLlegar": "Cómo llegar",
+    "direccion": "Dirección",
+    "horario": "Horario",
+    "cerradoDia": "Cerrado",
+    "servicios": "Servicios",
+    "instagram": "Instagram",
+    "primeraVisitaTitulo": "Qué esperar en tu primera visita",
+    "primeraVisita": [
+      { "titulo": "Diagnóstico previo", "texto": "Antes de tocar una herramienta, el barbero certificado analiza la morfología de tu cráneo y de tu rostro, y tu etapa de vida." },
+      { "titulo": "Propuesta razonada", "texto": "Te explica qué propone y por qué. Decides con información, no a ciegas." },
+      { "titulo": "Ritual de cierre", "texto": "El servicio termina con un ritual de cierre y pautas concretas para mantener la arquitectura en casa." }
+    ],
+    "heVisitado": "He visitado esta barbería",
+    "heVisitadoTexto": "Cuatro preguntas privadas. Solo las lee Dimension.",
+    "reportar": "Reportar una experiencia por debajo del estándar",
+    "noEncontrada": "Esta barbería no forma parte de la Red Dimension en este momento."
+  },
+  "servicios": {
+    "degradado-alta-fidelidad": "Degradado de alta fidelidad",
+    "ritual-barba": "Ritual de barba",
+    "afeitado-navaja": "Afeitado con navaja"
+  },
+  "dias": {
+    "lunes": "Lunes",
+    "martes": "Martes",
+    "miercoles": "Miércoles",
+    "jueves": "Jueves",
+    "viernes": "Viernes",
+    "sabado": "Sábado",
+    "domingo": "Domingo"
+  },
+  "expansion": {
+    "titulo": "La Red Dimension está en expansión",
+    "texto": "Todavía no hay una barbería certificada cerca de {lugar}. La red crece ciudad a ciudad desde Valencia, con cupo limitado y revisión caso a caso.",
+    "avisoTitulo": "Recibe aviso",
+    "avisoTexto": "Te escribimos una sola vez, cuando se certifique una barbería en tu ciudad.",
+    "campoEmail": "Tu email",
+    "campoCiudad": "Tu ciudad",
+    "boton": "Avisarme",
+    "confirmacion": "Hecho. Te avisaremos cuando la red llegue a {ciudad}.",
+    "verRed": "Ver toda la red"
+  },
+  "incidencia": {
+    "titulo": "Reportar una experiencia",
+    "intro": "Si tu visita a {barberia} no estuvo a la altura del estándar Dimension, cuéntanoslo. Llega directamente a Malo Gálvez y forma parte de la revisión del Sello.",
+    "campoFecha": "Fecha de la visita",
+    "campoQue": "Qué ocurrió",
+    "campoQueAyuda": "Describe los hechos: qué esperabas y qué no se cumplió.",
+    "campoEmail": "Tu email (para responderte)",
+    "boton": "Enviar",
+    "confirmacionTitulo": "Caso registrado",
+    "confirmacion": "Tu caso queda registrado y se revisa dentro del seguimiento del Sello. Te responderemos por email."
+  },
+  "cuestionario": {
+    "titulo": "Tu visita",
+    "intro": "Cuatro preguntas sobre tu visita a {barberia}. Las respuestas son privadas: solo las lee Dimension. No se publican ni se comparten con la barbería.",
+    "empezar": "Empezar",
+    "siguiente": "Siguiente",
+    "anterior": "Anterior",
+    "enviar": "Enviar",
+    "pregunta": "Pregunta {n} de {total}",
+    "preguntas": [
+      { "id": "diagnostico", "texto": "¿Te hicieron un diagnóstico antes de empezar?", "opciones": ["Sí, completo", "Parcial", "No"] },
+      { "id": "propuesta", "texto": "¿Te explicaron la propuesta y su porqué?", "opciones": ["Con claridad", "A medias", "No"] },
+      { "id": "precision", "texto": "¿El resultado fue preciso respecto a lo propuesto?", "opciones": ["Sí", "En parte", "No"] },
+      { "id": "trato", "texto": "¿Cómo fue el trato?", "opciones": ["Impecable", "Correcto", "Mejorable"] }
+    ],
+    "comentario": "¿Algo más que debamos saber? (opcional)",
+    "confirmacionTitulo": "Gracias",
+    "confirmacion": "Tus respuestas forman parte del seguimiento del Sello de esta barbería."
+  },
+  "selloInfo": {
+    "antetitulo": "Certificación",
+    "titulo": "Qué es el Sello Dimension",
+    "intro": "El Sello Dimension certifica a las barberías que trabajan con el estándar de Arquitectura Capilar y Visagismo Empático. No se compra: se obtiene y se mantiene.",
+    "criteriosTitulo": "Criterios",
+    "criterios": [
+      "Al menos un barbero del equipo ha completado el Itinerario Experto de Arquitectura Capilar by Malo Gálvez.",
+      "Cada servicio parte de un diagnóstico morfológico craneal y facial según la etapa de vida del cliente.",
+      "Propuesta razonada antes de empezar y ritual de cierre al terminar.",
+      "Aceptación del seguimiento continuo: cuestionarios privados e incidencias."
+    ],
+    "revisionTitulo": "Revisión periódica",
+    "revision": "Cada barbería se revisa cada 12 a 18 meses. Entre revisiones, los cuestionarios privados y las incidencias alimentan el seguimiento. Si el estándar cae, el Sello se retira y la barbería deja de aparecer en la app.",
+    "cupoTitulo": "Por qué hay pocas por ciudad",
+    "cupo": "El cupo por ciudad es limitado. Una red pequeña se puede revisar de cerca, y solo así la garantía tiene valor.",
+    "sinRanking": "No hay estrellas ni reseñas públicas. No hay ranking entre barberías certificadas: todas cumplen el estándar."
+  },
+  "mas": {
+    "titulo": "Dimension",
+    "webTitulo": "Dimension by Malo Gálvez",
+    "tienda": "Mal oShop",
+    "tiendaTexto": "Producto para cada diagnóstico",
+    "academia": "Academia",
+    "academiaTexto": "Itinerarios de Arquitectura Capilar",
+    "manifiesto": "Manifiesto",
+    "manifiestoTexto": "La filosofía detrás del Sello",
+    "barberiasTitulo": "Para barberías",
+    "solicitar": "Solicitar el Sello Dimension",
+    "solicitarTexto": "Revisión caso a caso",
+    "appTitulo": "La app",
+    "instalar": "Instalar Dimension en tu móvil",
+    "instalarTexto": "Sin tiendas de apps"
+  },
+  "solicitud": {
+    "titulo": "Solicitar el Sello Dimension",
+    "intro": "Cada solicitud se revisa caso a caso. El cupo por ciudad es limitado.",
+    "requisito": "Requisito: al menos un barbero del equipo ha completado el Itinerario Experto de Arquitectura Capilar by Malo Gálvez.",
+    "campoBarberia": "Nombre de la barbería",
+    "campoCiudad": "Ciudad",
+    "campoCodigoPostal": "Código postal",
+    "campoResponsable": "Persona de contacto",
+    "campoEmail": "Email",
+    "campoTelefono": "Teléfono",
+    "campoBarbero": "Barbero con Itinerario Experto",
+    "campoMotivo": "Por qué queréis el Sello",
+    "boton": "Enviar solicitud",
+    "confirmacionTitulo": "Solicitud recibida",
+    "confirmacion": "Revisaremos vuestra solicitud y os contactaremos por email."
+  },
+  "instalar": {
+    "titulo": "Instalar Dimension",
+    "intro": "Dimension se instala desde el navegador, sin tiendas de apps. Queda en tu pantalla de inicio y funciona sin conexión con la última red cargada.",
+    "iphoneTitulo": "En iPhone (Safari)",
+    "iphonePasos": [
+      "Abre esta página en Safari.",
+      "Toca el botón Compartir (el cuadrado con la flecha hacia arriba).",
+      "Elige «Añadir a pantalla de inicio».",
+      "Toca «Añadir»."
+    ],
+    "androidTitulo": "En Android (Chrome)",
+    "androidPasos": [
+      "Abre esta página en Chrome.",
+      "Toca el menú (tres puntos).",
+      "Elige «Instalar aplicación» o «Añadir a pantalla de inicio»."
+    ],
+    "yaInstalada": "Ya estás usando Dimension instalada."
+  },
+  "qr": {
+    "titulo": "Códigos QR del cuestionario",
+    "intro": "Uno por barbería. Imprímelo o envíalo a la barbería para que el cliente lo escanee al terminar.",
+    "descargar": "Descargar QR"
+  }
+}

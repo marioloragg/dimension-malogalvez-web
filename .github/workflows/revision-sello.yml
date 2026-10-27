@@ -1,0 +1,30 @@
+# Dimension Finder · Aviso de revisiones del Sello
+# Cada lunes comprueba si alguna barbería tiene la revisión del Sello vencida
+# o en los próximos 30 días. Si es así, la comprobación sale en rojo y GitHub
+# te envía un email. También puedes lanzarla a mano desde la pestaña "Actions".
+name: Revisión del Sello
+
+on:
+  schedule:
+    - cron: '17 7 * * 1' # lunes a las 07:17 UTC (08:17 o 09:17 en Valencia)
+  workflow_dispatch:
+  push:
+    paths:
+      - 'finder/datos/**'
+
+jobs:
+  revisar:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: finder
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Revisar datos
+        run: node scripts/revisar-datos.mjs
+      - name: Revisiones del Sello vencidas o próximas
+        if: github.event_name != 'push'
+        run: node scripts/revisar-datos.mjs --revisiones

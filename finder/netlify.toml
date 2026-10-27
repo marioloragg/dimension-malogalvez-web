@@ -1,0 +1,14 @@
+# Configuración de publicación en Netlify (no hace falta tocarla).
+# En Netlify, la "Base directory" del sitio debe ser: finder
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+# Todas las direcciones de la app (fichas, cuestionario…) abren la app.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
