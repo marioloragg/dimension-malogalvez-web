@@ -398,17 +398,30 @@ a.m-item--flat {
    ========================================================================== */
 
 .hero-simple {
+  position: relative;
+  overflow: hidden;
   min-height: calc(100vh - var(--nav-height));
   display: flex;
-  align-items: center;
-  background: radial-gradient(120% 90% at 50% 30%, var(--c-graphite-800) 0%, var(--c-obsidian) 70%);
+  align-items: flex-end;
+  background: radial-gradient(130% 100% at 50% 15%, var(--c-graphite-800) 0%, var(--c-obsidian) 65%);
+}
+.hero-simple::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: 0.05;
+  mix-blend-mode: overlay;
+  pointer-events: none;
 }
 
 .hero-simple__inner {
+  position: relative;
+  z-index: 1;
   width: 100%;
   max-width: 1400px;
   margin: 0 auto;
-  padding: clamp(48px, 10vh, 96px) clamp(20px, 4vw, 48px);
+  padding: clamp(32px, 6vh, 64px) clamp(20px, 4vw, 48px) clamp(64px, 10vh, 120px);
 }
 .js .hero-simple__inner {
   opacity: 0;
@@ -434,11 +447,11 @@ a.m-item--flat {
 .hero-simple__headline {
   font-family: var(--font-display);
   font-weight: 600;
-  font-size: clamp(2.6rem, 7vw, 5.2rem);
-  line-height: 1.06;
+  font-size: clamp(3.4rem, 9vw, 7.6rem);
+  line-height: 0.98;
   color: var(--c-chalk);
-  margin: 0 0 26px;
-  max-width: 16ch;
+  margin: 0 0 28px;
+  max-width: 18ch;
 }
 .hero-simple__headline em {
   font-style: italic;
@@ -450,6 +463,12 @@ a.m-item--flat {
   color: var(--c-chalk-dim);
   max-width: 38ch;
   margin: 0 0 34px;
+}
+.hero-simple__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 20px;
 }
 .hero-simple__cta {
   display: inline-flex;
@@ -468,6 +487,12 @@ a.m-item--flat {
 .hero-simple__cta:focus-visible {
   background: var(--c-metal-light);
   transform: translateX(2px);
+}
+.hero-simple__byline {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  color: var(--c-metal);
+  margin: 0;
 }
 
 /* ==========================================================================
