@@ -409,6 +409,8 @@ a.m-item--flat {
   max-width: 1400px;
   margin: 0 auto;
   padding: clamp(48px, 10vh, 96px) clamp(20px, 4vw, 48px);
+}
+.js .hero-simple__inner {
   opacity: 0;
   transform: translateY(18px);
   transition: opacity 700ms var(--ease-panel), transform 700ms var(--ease-panel);
@@ -418,7 +420,7 @@ a.m-item--flat {
   transform: translateY(0);
 }
 @media (prefers-reduced-motion: reduce) {
-  .hero-simple__inner { opacity: 1; transform: none; transition: none; }
+  .js .hero-simple__inner { opacity: 1; transform: none; transition: none; }
 }
 
 .hero-simple__kicker {
@@ -545,54 +547,151 @@ a.m-item--flat {
 }
 
 /* ==========================================================================
-   Accesos — tres puertas de entrada
+   Accesos — tres puertas como secuencia narrativa (no grid de tienda).
+   Un tramo por puerta, unidos por una línea vertical ("un mismo camino,
+   tres puertas"); cada una revela su contenido al entrar en viewport.
    ========================================================================== */
 
-.gateways {
+.puertas {
+  position: relative;
   max-width: 1400px;
   margin: 0 auto;
-  padding: clamp(48px, 8vh, 96px) clamp(20px, 4vw, 48px) clamp(80px, 12vh, 140px);
-  display: grid;
-  gap: 1px;
-  background: rgba(255, 255, 255, 0.08);
-  grid-template-columns: 1fr;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: clamp(48px, 8vh, 96px) 0;
 }
-@media (min-width: 860px) {
-  .gateways { grid-template-columns: repeat(3, 1fr); }
+.puertas::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: clamp(20px, 4vw, 48px);
+  width: 1px;
+  background: rgba(255, 255, 255, 0.1);
 }
 
-.gateway {
-  background: var(--c-graphite-800);
-  padding: 44px 32px;
+.puerta {
+  position: relative;
+  min-height: 56vh;
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  transition: background 180ms var(--ease-panel);
+  justify-content: center;
+  padding: clamp(32px, 6vh, 56px) clamp(20px, 4vw, 48px) clamp(32px, 6vh, 56px) calc(clamp(20px, 4vw, 48px) + 44px);
 }
-.gateway:hover { background: var(--c-graphite-700); }
+.js .puerta {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 650ms var(--ease-panel), transform 650ms var(--ease-panel);
+}
+.puerta.is-visible { opacity: 1; transform: translateY(0); }
+@media (prefers-reduced-motion: reduce) {
+  .puerta { opacity: 1; transform: none; transition: none; }
+}
+@media (max-width: 640px) {
+  .puerta { min-height: 0; padding-top: clamp(40px, 8vh, 64px); padding-bottom: clamp(40px, 8vh, 64px); }
+}
 
-.gateway .nav-icon { width: 26px; height: 26px; stroke: var(--c-metal-light); fill: none; stroke-width: 1.3; }
-.gateway h2 { font-family: var(--font-display); font-size: 1.3rem; margin: 6px 0 0; color: var(--c-chalk); }
-.gateway p { margin: 0; color: var(--c-chalk-dim); font-size: 0.92rem; line-height: 1.6; }
-.gateway .gateway-link { margin-top: auto; font-size: 0.8rem; letter-spacing: 0.06em; color: var(--c-metal-light); border-bottom: 1px solid var(--c-metal-dim); padding-bottom: 2px; align-self: flex-start; }
-
-.gateway--split { padding: 0; }
-.gateway__body {
+.puerta__index {
+  position: absolute;
+  left: clamp(20px, 4vw, 48px);
+  top: clamp(32px, 6vh, 56px);
+  transform: translateX(-50%);
+  width: 32px;
+  height: 32px;
   display: flex;
-  flex-direction: column;
-  gap: 16px;
-  padding: 44px 32px 20px;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
+  color: var(--c-metal-light);
+  background: var(--c-obsidian);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
 }
-.gateway-subline {
+.puerta__kicker {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--c-metal);
+  margin: 0 0 14px;
+}
+.puerta__headline {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.6rem, 3.4vw, 2.6rem);
+  line-height: 1.18;
+  color: var(--c-chalk);
+  margin: 0 0 16px;
+  max-width: 22ch;
+}
+.puerta__sub {
+  font-family: var(--font-body);
+  font-size: 0.98rem;
+  line-height: 1.6;
+  color: var(--c-chalk-dim);
+  max-width: 46ch;
+  margin: 0 0 22px;
+}
+.puerta__cta {
+  font-size: 0.84rem;
+  letter-spacing: 0.05em;
+  color: var(--c-metal-light);
+  border-bottom: 1px solid var(--c-metal-dim);
+  padding-bottom: 2px;
+}
+.puerta__subline {
   display: block;
-  margin: 0 32px 28px;
+  margin-top: 10px;
   font-size: 0.76rem;
   color: var(--c-metal);
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  padding-top: 16px;
 }
-.gateway-subline:hover { color: var(--c-metal-light); }
+.puerta__subline:hover { color: var(--c-metal-light); }
+
+/* ==========================================================================
+   Riel de progreso lateral — orientación en un clic, solo desktop.
+   Enlaces reales a cada tramo; el punto activo se marca por scroll.
+   ========================================================================== */
+
+.scrollrail { display: none; }
+@media (min-width: 960px) {
+  .scrollrail {
+    position: fixed;
+    top: 50%;
+    right: 28px;
+    transform: translateY(-50%);
+    z-index: 90;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+  }
+  .scrollrail::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    bottom: -20px;
+    left: 50%;
+    width: 1px;
+    background: rgba(255, 255, 255, 0.12);
+    transform: translateX(-50%);
+    z-index: -1;
+  }
+}
+.scrollrail__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--c-graphite-600);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  transition: background 200ms var(--ease-panel), border-color 200ms var(--ease-panel), transform 200ms var(--ease-panel);
+}
+.scrollrail__dot:hover,
+.scrollrail__dot:focus-visible { border-color: var(--c-metal-light); }
+.scrollrail__dot.is-active {
+  background: var(--c-metal-light);
+  border-color: var(--c-metal-light);
+  transform: scale(1.3);
+}
 
 /* ==========================================================================
    Carrusel de producto — MaloShop, bucle horizontal con inercia.

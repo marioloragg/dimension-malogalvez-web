@@ -3,6 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Marca que el JS está disponible ANTES del primer pintado. El contenido
+       con reveal (hero, puertas) es visible por defecto en el CSS; solo se
+       oculta para animar si esta clase confirma que el JS que lo revelará
+       realmente se va a ejecutar. Sin esto, cualquier fallo de JS deja ese
+       contenido invisible para siempre. -->
+  <script>document.documentElement.classList.add('js')</script>
   <title>Dimension by Malo Gálvez — Arquitectura Capilar</title>
   <meta name="description" content="Arquitectura Capilar by Malo Gálvez: diagnóstico morfológico, itinerarios de mentoría, MaloShop y distribución. Visagismo Empático aplicado con rigor clínico." />
   <link rel="stylesheet" href="/src/styles/main.css" />
@@ -103,11 +109,19 @@
     </nav>
   </header>
 
+  <!-- ========= Riel de progreso lateral (solo desktop) ========= -->
+  <nav class="scrollrail" aria-label="Progreso de la página">
+    <a class="scrollrail__dot" href="#hero" aria-label="Ir a Hero" data-rail-target="hero"></a>
+    <a class="scrollrail__dot" href="#puerta-academia" aria-label="Ir a Academia & Mentoría" data-rail-target="puerta-academia"></a>
+    <a class="scrollrail__dot" href="#puerta-maloshop" aria-label="Ir a MaloShop" data-rail-target="puerta-maloshop"></a>
+    <a class="scrollrail__dot" href="#puerta-red-dimension" aria-label="Ir a Red Dimension" data-rail-target="puerta-red-dimension"></a>
+  </nav>
+
   <!-- ============================= MAIN ============================= -->
   <main id="main">
 
     <!-- ========= HERO: texto puro, sin imágenes de producto ========= -->
-    <section class="hero-simple" aria-label="Presentación de marca">
+    <section class="hero-simple" id="hero" aria-label="Presentación de marca">
       <div class="hero-simple__inner" data-hero-reveal>
         <p class="hero-simple__kicker">Arquitectura Capilar / 2026</p>
         <h1 class="hero-simple__headline">La forma<br><em>importa</em>.</h1>
@@ -143,28 +157,29 @@
       <a class="professor__link" href="/academia">Ver Academia &amp; Mentoría →</a>
     </section>
 
-    <!-- ========= Tres puertas de entrada ========= -->
-    <section class="gateways" aria-label="Accesos principales">
-      <a class="gateway" href="/maloshop">
-        <svg class="nav-icon" viewBox="0 0 24 24"><rect x="4.5" y="8" width="15" height="11" rx="0.5"/><path d="M8.5 8V6.5a3.5 3.5 0 0 1 7 0V8"/></svg>
-        <h2>MaloShop</h2>
-        <p>Producto Ameba organizado por diagnóstico: Morphological Styling, Clinical Grooming, Pro Tools &amp; Hardware.</p>
-        <span class="gateway-link">Entrar a la tienda →</span>
-      </a>
-      <a class="gateway" href="/academia">
-        <svg class="nav-icon" viewBox="0 0 24 24"><path d="M4 8l8-4 8 4-8 4-8-4Z"/><path d="M8 10.5V16c0 1.4 1.8 2.5 4 2.5s4-1.1 4-2.5v-5.5"/></svg>
-        <h2>Academia &amp; Mentoría</h2>
-        <p>Itinerarios de Arquitectura Capilar y mentoría 1:1 para quien exige rigor clínico, no tendencia.</p>
-        <span class="gateway-link">Ver itinerarios →</span>
-      </a>
-      <div class="gateway gateway--split">
-        <a class="gateway__body" href="/red-dimension">
-          <svg class="nav-icon" viewBox="0 0 24 24"><circle cx="12" cy="5" r="1.6"/><circle cx="5" cy="15" r="1.6"/><circle cx="19" cy="15" r="1.6"/><circle cx="12" cy="19" r="1.6"/><path d="M12 6.6 6 14M12 6.6l6 7.4M6.6 15h11M12 16.6V19"/></svg>
-          <h2>Red Dimension</h2>
-          <p>La comunidad de barberos certificados en Arquitectura Capilar: criterio compartido, itinerarios en red.</p>
-          <span class="gateway-link">Conocer la red →</span>
-        </a>
-        <a class="gateway-subline" href="/directorio">Directorio de centros ↗</a>
+    <!-- ========= Tres puertas: secuencia narrativa, no grid de tienda ========= -->
+    <section class="puertas" aria-label="Tres puertas de entrada">
+      <div class="puerta" id="puerta-academia" data-reveal>
+        <span class="puerta__index">01</span>
+        <p class="puerta__kicker">Para quien forma su criterio</p>
+        <h2 class="puerta__headline">¿Vienes a aprender un estilo, o a sostener uno?</h2>
+        <p class="puerta__sub">Itinerarios de Arquitectura Capilar y mentoría 1:1 para quien exige rigor clínico, no tendencia.</p>
+        <a class="puerta__cta" href="/academia">Ver itinerarios →</a>
+      </div>
+      <div class="puerta" id="puerta-maloshop" data-reveal>
+        <span class="puerta__index">02</span>
+        <p class="puerta__kicker">Para quien ya tiene el criterio</p>
+        <h2 class="puerta__headline">El instrumental no sustituye el diagnóstico. Lo ejecuta.</h2>
+        <p class="puerta__sub">Producto Ameba organizado por diagnóstico: Morphological Styling, Clinical Grooming, Pro Tools &amp; Hardware.</p>
+        <a class="puerta__cta" href="/maloshop">Entrar a la tienda →</a>
+      </div>
+      <div class="puerta" id="puerta-red-dimension" data-reveal>
+        <span class="puerta__index">03</span>
+        <p class="puerta__kicker">Para quien certifica su barbería</p>
+        <h2 class="puerta__headline">La red no es un sello decorativo. Es un criterio compartido.</h2>
+        <p class="puerta__sub">La comunidad de barberías certificadas en Arquitectura Capilar: criterio compartido, itinerarios en red.</p>
+        <a class="puerta__cta" href="/red-dimension">Conocer la red →</a>
+        <a class="puerta__subline" href="/directorio">Directorio de centros ↗</a>
       </div>
     </section>
 

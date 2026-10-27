@@ -199,6 +199,72 @@ function initProductCarousel() {
 }
 
 /* ==========================================================================
+   5. Puertas — revelan su contenido al entrar en viewport (secuencia
+   narrativa, no todo visible de golpe). Respeta prefers-reduced-motion.
+   ========================================================================== */
+
+function initPuertasReveal() {
+  const puertas = document.querySelectorAll('.puerta[data-reveal]');
+  if (!puertas.length) return;
+
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reducedMotion) {
+    puertas.forEach((p) => p.classList.add('is-visible'));
+    return;
+  }
+
+  const io = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.3 }
+  );
+  puertas.forEach((p) => io.observe(p));
+}
+
+/* ==========================================================================
+   6. Riel de progreso lateral — marca qué tramo está activo según el scroll.
+   Los puntos son enlaces reales (funcionan sin JS); esto solo añade el
+   estado visual "activo" para orientación en un clic.
+   ========================================================================== */
+
+function initScrollRail() {
+  const rail = document.querySelector('.scrollrail');
+  if (!rail) return;
+
+  const dots = Array.from(rail.querySelectorAll('[data-rail-target]'));
+  if (!dots.length) return;
+
+  const sections = dots
+    .map((dot) => document.getElementById(dot.dataset.railTarget))
+    .filter(Boolean);
+  if (!sections.length) return;
+
+  const setActive = (id) => {
+    dots.forEach((dot) => {
+      dot.classList.toggle('is-active', dot.dataset.railTarget === id);
+    });
+  };
+
+  const io = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) setActive(entry.target.id);
+      });
+    },
+    { rootMargin: '-45% 0px -45% 0px', threshold: 0 }
+  );
+  sections.forEach((s) => io.observe(s));
+
+  setActive(sections[0].id);
+}
+
+/* ==========================================================================
    Init
    ========================================================================== */
 
@@ -206,3 +272,5 @@ initMegaMenu();
 initMobileNav();
 initHero();
 initProductCarousel();
+initPuertasReveal();
+initScrollRail();
