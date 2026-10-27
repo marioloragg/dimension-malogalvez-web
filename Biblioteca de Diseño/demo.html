@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dimension · Demo de patrones</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* Tokens alineados con src/styles/main.css */
+:root {
+  --c-obsidian: #0a0a0b;
+  --c-graphite-900: #111214;
+  --c-graphite-800: #17181a;
+  --c-graphite-700: #202226;
+  --c-graphite-600: #2c2e32;
+  --c-chalk: #f2f0ea;
+  --c-chalk-dim: #d8d5cc;
+  --c-metal: #9a9ea3;
+  --c-metal-light: #c3c5c8;
+  --c-metal-dim: #6b6e72;
+  --font-display: 'Cinzel', 'Times New Roman', serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--c-obsidian);
+  color: var(--c-chalk);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.6;
+}
+.wrap { max-width: 1200px; margin: 0 auto; padding: 0 16px; }
+header.demo-head { padding: 64px 0 32px; border-bottom: 1px solid var(--c-graphite-600); }
+.kicker { font-size: .72rem; letter-spacing: .28em; text-transform: uppercase; color: var(--c-metal); }
+h1, h2 { font-family: var(--font-display); font-weight: 500; letter-spacing: .04em; margin: .4em 0; }
+h1 { font-size: clamp(2rem, 5vw, 3.4rem); }
+h2 { font-size: clamp(1.4rem, 3vw, 2rem); }
+nav.toc { position: sticky; top: 0; z-index: 10; background: rgb(10 10 11 / .85); backdrop-filter: blur(10px); border-bottom: 1px solid var(--c-graphite-700); }
+nav.toc ul { list-style: none; display: flex; gap: 20px; overflow-x: auto; margin: 0; padding: 14px 0; }
+nav.toc a { color: var(--c-metal-light); text-decoration: none; font-size: .8rem; white-space: nowrap; }
+nav.toc a:hover, nav.toc a:focus-visible { color: var(--c-chalk); }
+section.cat { padding: 56px 0; border-bottom: 1px solid var(--c-graphite-700); }
+.empty { color: var(--c-metal-dim); font-size: .9rem; }
+.demo { background: var(--c-graphite-900); border: 1px solid var(--c-graphite-700); border-radius: 4px; padding: 32px; margin-top: 24px; }
+.demo-meta { font-size: .78rem; color: var(--c-metal); margin-bottom: 16px; }
+:focus-visible { outline: 1px solid var(--c-metal-light); outline-offset: 3px; }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; } }
+
+/* ===== Patrones (cada uno en su bloque, con el nombre del patrón) ===== */
+
+</style>
+</head>
+<body>
+<header class="demo-head wrap">
+  <span class="kicker">Biblioteca de Diseño</span>
+  <h1>Dimension · Patrones en vivo</h1>
+  <p class="empty">Cada demo es una reimplementación propia, adaptada a la identidad Dimension.</p>
+</header>
+
+<nav class="toc" aria-label="Categorías">
+  <ul class="wrap">
+    <li><a href="#navegacion">Navegación</a></li>
+    <li><a href="#botones">Botones</a></li>
+    <li><a href="#microinteracciones">Microinteracciones</a></li>
+    <li><a href="#layout">Layout</a></li>
+    <li><a href="#tipografia">Tipografía</a></li>
+    <li><a href="#color-y-superficies">Color y superficies</a></li>
+    <li><a href="#componentes">Componentes</a></li>
+    <li><a href="#ux-conversion">UX y conversión</a></li>
+    <li><a href="#responsive-accesibilidad">Responsive y a11y</a></li>
+    <li><a href="#rendimiento">Rendimiento</a></li>
+  </ul>
+</nav>
+
+<main class="wrap">
+  <section class="cat" id="navegacion"><h2>Navegación y menús</h2><p class="empty">Sin demos todavía.</p></section>
+  <section class="cat" id="botones"><h2>Botones y estados</h2><p class="empty">Sin demos todavía.</p></section>
+  <section class="cat" id="microinteracciones"><h2>Microinteracciones y animaciones</h2><p class="empty">Sin demos todavía.</p></section>
+  <section class="cat" id="layout"><h2>Layout, grid y ritmo vertical</h2><p class="empty">Sin demos todavía.</p></section>
+  <section class="cat" id="tipografia"><h2>Tipografía</h2><p class="empty">Sin demos todavía.</p></section>
+  <section class="cat" id="color-y-superficies"><h2>Color, superficies y texturas</h2><p class="empty">Sin demos todavía.</p></section>
+  <section class="cat" id="componentes"><h2>Componentes</h2><p class="empty">Sin demos todavía.</p></section>
+  <section class="cat" id="ux-conversion"><h2>UX y conversión</h2><p class="empty">Sin demos todavía.</p></section>
+  <section class="cat" id="responsive-accesibilidad"><h2>Responsive y accesibilidad</h2><p class="empty">Sin demos todavía.</p></section>
+  <section class="cat" id="rendimiento"><h2>Rendimiento</h2><p class="empty">Sin demos todavía.</p></section>
+</main>
+
+<script>
+/* ===== JS de patrones (cada uno en su bloque) ===== */
+</script>
+</body>
+</html>
