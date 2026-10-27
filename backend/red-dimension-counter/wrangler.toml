@@ -1,0 +1,11 @@
+name = "dimension-red-counter"
+main = "worker.js"
+compatibility_date = "2026-10-01"
+
+[vars]
+SHOPIFY_STORE_DOMAIN = "aaxv0k-kn.myshopify.com"
+ALLOWED_ORIGIN = "https://aaxv0k-kn.myshopify.com"
+METAOBJECT_ID = "gid://shopify/Metaobject/773972885849"
+
+# SHOPIFY_ADMIN_TOKEN NO va aquí — es un secreto.
+# Se configura aparte con: wrangler secret put SHOPIFY_ADMIN_TOKEN
